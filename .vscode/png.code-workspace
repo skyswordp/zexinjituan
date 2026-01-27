@@ -1,0 +1,17 @@
+{
+  "folders": [
+    {
+      "path": "../png",
+      "name": "PNG Project"
+    }
+  ],
+  "settings": {
+    "java.project.sourcePaths": [
+      "png/src"
+    ],
+    "java.project.outputPath": "png/WebRoot/WEB-INF/classes",
+    "java.project.referencedLibraries": [
+      "png/WebRoot/WEB-INF/lib/**/*.jar"
+    ]
+  }
+}

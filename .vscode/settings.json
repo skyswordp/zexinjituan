@@ -1,0 +1,49 @@
+{
+  "terminal.integrated.env.windows": {
+    "PATH": "C:\\Program Files\\Java\\jdk1.8.0_101\\bin;${env:PATH}"
+  },
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "args": ["-NoExit", "-Command", "[Console]::OutputEncoding = [System.Text.Encoding]::UTF8"]
+    }
+  },
+  "[Log]": {
+    "editor.fontSize": 12
+  },
+  "java.debug.settings.hotCodeReplace": "auto",
+  "java.debug.settings.enableHotCodeReplace": true,
+  "java.jdt.ls.java.home": "C:\\Program Files\\Java\\jdk1.8.0_101",
+  "java.configuration.runtimes": [
+    {
+      "name": "JavaSE-1.8",
+      "path": "C:\\Program Files\\Java\\jdk1.8.0_101",
+      "default": true
+    }
+  ],
+  "java.compile.nullAnalysis.mode": "disabled",
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "java.server.launchMode": "Standard",
+  "java.autobuild.enabled": true,
+  "java.project.sourcePaths": [
+    "png/src"
+  ],
+  "java.project.outputPath": "png/WebRoot/WEB-INF/classes",
+  "java.project.referencedLibraries": [
+    "png/WebRoot/WEB-INF/lib/**/*.jar"
+  ],
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/WebRoot/WEB-INF/classes": true,
+    "**/.settings": true,
+    "**/.project": true,
+    "**/.classpath": true,
+    "**/.devtools": true
+  },
+  "java.format.settings.url": ".vscode/java-formatter.xml"
+}

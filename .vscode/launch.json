@@ -1,0 +1,19 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "PNG - Debug Tomcat (Hot Swap)",
+      "request": "launch",
+      "mainClass": "org.apache.catalina.startup.Bootstrap",
+      "args": "start",
+      "vmArgs": "-Dcatalina.home=C:\\apache-tomcat-8.5.100 -Dcatalina.base=C:\\apache-tomcat-8.5.100 -Djava.io.tmpdir=C:\\apache-tomcat-8.5.100\\temp -Dfile.encoding=UTF-8 -Dconsole.encoding=UTF-8",
+      "classPaths": [
+        "C:\\apache-tomcat-8.5.100\\bin\\bootstrap.jar",
+        "C:\\apache-tomcat-8.5.100\\bin\\tomcat-juli.jar"
+      ],
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}/png"
+    }
+  ]
+}

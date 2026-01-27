@@ -1,0 +1,24 @@
+-- 创建管理员账号
+-- 用户名: admin
+-- 密码: admin123
+-- 密码的 SHA-1 值: 240be518fabd2724ddb6f04eeb1da5967448d7e8
+
+-- 1. 先查询角色表，看看有哪些角色
+SELECT IDN, ROLENAME, STATUS FROM BACKEND_ADMIN_ROLE WHERE STATUS='active';
+
+-- 2. 查询序列当前值（如果有序列的话）
+SELECT BACKEND_ADMIN_SEQ.NEXTVAL FROM DUAL;
+
+-- 3. 插入管理员账号（假设角色ID是1，如果没有就先创建角色）
+INSERT INTO BACKEND_ADMIN (USERNAME, PASSWORD, STATUS, ROLEID, CREATEDATE)
+VALUES ('admin', '240be518fabd2724ddb6f04eeb1da5967448d7e8', 'active', 1, SYSDATE);
+
+-- 4. 如果角色表也是空的，先创建一个超级管理员角色
+INSERT INTO BACKEND_ADMIN_ROLE (IDN, ROLENAME, STATUS, CREATEDATE)
+VALUES (1, 'SuperAdmin', 'active', SYSDATE);
+
+-- 5. 提交
+COMMIT;
+
+-- 6. 验证
+SELECT USERNAME, PASSWORD, STATUS, ROLEID, CREATEDATE FROM BACKEND_ADMIN WHERE STATUS='active';

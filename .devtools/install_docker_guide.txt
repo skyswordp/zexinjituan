@@ -1,0 +1,13 @@
+如果你想使用 Docker 方式启动项目：
+
+1. 下载 Docker Desktop for Windows：
+   https://www.docker.com/products/docker-desktop/
+
+2. 安装完成后，运行：
+   docker build -t png:local .
+   docker run -d -p 8080:8080 --name png-local png:local
+
+3. 访问 http://localhost:8080/CODE/
+
+注意：Docker 需要 WSL2 或 Hyper-V 支持，安装较复杂。
+如果只是本地开发，推荐使用 Tomcat 方式更简单。

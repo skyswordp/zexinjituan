@@ -1,0 +1,90 @@
+### ============================================
+### 创建 qy 用户 - adults123
+### ============================================
+### 明文 JSON（需要手动加密后替换 requestData）:
+### {
+###   "sid": "C05DC163-DE6C-4FFF-B32A-C8D8E77AAFD4",
+###   "product": "qy",
+###   "data": {
+###     "userName": "adults123",
+###     "nickName": "qy用户001",
+###     "product": "qy"
+###   }
+### }
+### 注意：product 必须在 data 里面，因为 getData() 只返回 data 字段
+### 
+### 加密方法：运行 AESHelper.java 的 testEncryptInsertUser() 方法
+### 代码位置：DC-API-2018/dc-api/dc-api-friend/src/test/java/com/dc/it/test/AESHelper.java
+### ============================================
+curl -H "Host: pt777aiguo.mypengyouquan.com" \
+     -H "accept: application/json;charset=utf8" \
+     -H "content-type: application/x-www-form-urlencoded" \
+     -H "user-agent: qiu meng hui/1.0 (iPhone; iOS 26.2; Scale/3.00)" \
+     -H "priority: u=3, i" \
+     -H "accept-language: en-PH;q=1, zh-Hans-PH;q=0.9, fil-PH;q=0.8" \
+     -H "pragma: no-cache" \
+     -H "cache-control: no-cache" \
+     --data-binary "requestData=KoQQfgzNY5CrnReBkkBLpHLUXkuMNa%2FnMH3mP4SBL7UiaxdWLQSn1edlwxdunikNenVDQs%2FpH0g06XEG%2B2PeqNGTCF4HB4d1GmqjVvkVQf17V2Mjc1ALsiPgoCE8LW9AdaDgqXSCAeFV%2BV0YHsFx9%2FFZmGReuEBqfjGcxe26863G%2BDO4%2BwfYSjxTpfM7OHk7" \
+     --compressed \
+     "https://pt777aiguo.mypengyouquan.com/api/friend/user/1.0/inerst"
+
+### ============================================
+### 创建 qy 用户 - adults124
+### ============================================
+### 明文 JSON（需要手动加密后替换 requestData）:
+### {
+###   "sid": "C05DC163-DE6C-4FFF-B32A-C8D8E77AAFD4",
+###   "product": "qy",
+###   "data": {
+###     "userName": "adults124",
+###     "nickName": "qy用户002",
+###     "product": "qy"
+###   }
+### }
+### 注意：product 必须在 data 里面，因为 getData() 只返回 data 字段
+### 
+### 加密方法：运行 AESHelper.java 的 testEncryptInsertUser() 方法
+### 代码位置：DC-API-2018/dc-api/dc-api-friend/src/test/java/com/dc/it/test/AESHelper.java
+### ============================================
+curl -H "Host: pt777aiguo.mypengyouquan.com" \
+     -H "accept: application/json;charset=utf8" \
+     -H "content-type: application/x-www-form-urlencoded" \
+     -H "user-agent: qiu meng hui/1.0 (iPhone; iOS 26.2; Scale/3.00)" \
+     -H "priority: u=3, i" \
+     -H "accept-language: en-PH;q=1, zh-Hans-PH;q=0.9, fil-PH;q=0.8" \
+     -H "pragma: no-cache" \
+     -H "cache-control: no-cache" \
+     --data-binary "requestData=KoQQfgzNY5CrnReBkkBLpHLUXkuMNa%2FnMH3mP4SBL7UiaxdWLQSn1edlwxdunikNenVDQs%2FpH0g06XEG%2B2PeqNGTCF4HB4d1GmqjVvkVQf2%2Bu871%2B%2FKKXDpVw%2Few4IWXpRK6Nf6DKwzvzucdHvo34FdI3IJNftDrqUnEddhxUPyEXTS36dZn5JnUsocz29PI" \
+     --compressed \
+     "https://pt777aiguo.mypengyouquan.com/api/friend/user/1.0/inerst"
+
+### ============================================
+### 创建 qy 用户 - adults125
+### ============================================
+### 明文 JSON（需要手动加密后替换 requestData）:
+### {
+###   "sid": "C05DC163-DE6C-4FFF-B32A-C8D8E77AAFD4",
+###   "product": "qy",
+###   "data": {
+###     "userName": "adults125",
+###     "nickName": "qy用户003",
+###     "product": "qy"
+###   }
+### }
+### 注意：product 必须在 data 里面，因为 getData() 只返回 data 字段
+### 
+### 加密方法：运行 AESHelper.java 的 testEncryptInsertUser() 方法
+### 代码位置：DC-API-2018/dc-api/dc-api-friend/src/test/java/com/dc/it/test/AESHelper.java
+### ============================================
+curl -H "Host: pt777aiguo.mypengyouquan.com" \
+     -H "accept: application/json;charset=utf8" \
+     -H "content-type: application/x-www-form-urlencoded" \
+     -H "user-agent: qiu meng hui/1.0 (iPhone; iOS 26.2; Scale/3.00)" \
+     -H "priority: u=3, i" \
+     -H "accept-language: en-PH;q=1, zh-Hans-PH;q=0.9, fil-PH;q=0.8" \
+     -H "pragma: no-cache" \
+     -H "cache-control: no-cache" \
+     --data-binary "requestData=KoQQfgzNY5CrnReBkkBLpHLUXkuMNa%2FnMH3mP4SBL7UiaxdWLQSn1edlwxdunikNenVDQs%2FpH0g06XEG%2B2PeqNGTCF4HB4d1GmqjVvkVQf1wG%2Fgk%2BjPmdSRPuoDFGC8S%2BClF1scC7xGl4SIWs%2BDs4FPFAtMrOulY4vUfBRMexSqwzasMqYvkknXco%2BPmz424" \
+     --compressed \
+     "https://pt777aiguo.mypengyouquan.com/api/friend/user/1.0/inerst"
+

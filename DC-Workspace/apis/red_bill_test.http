@@ -1,0 +1,137 @@
+### 获取用户
+
+curl -H "Host: pt777aiguo.mypengyouquan.com" -H "accept: application/json;charset=utf8" -H "content-type: application/x-www-form-urlencoded" -H "user-agent: qiu meng hui/1.0 (iPhone; iOS 26.2; Scale/3.00)" -H "priority: u=3, i" -H "accept-language: en-PH;q=1, zh-Hans-PH;q=0.9, fil-PH;q=0.8" -H "pragma: no-cache" -H "cache-control: no-cache" --data-binary "requestData=iTr578jJwj5dkYOcffTUZpuUYDlyAPg9QD3Vr3f0cabxdni3jpG9NcDWyyUdBg7Ooxa%2BVsqzDZ4uAUTNZ1yGsuUIL4fFLaLXBMkjYrLwIrRytj96dvIZGnFxm%2FJiH%2FbuBlqtT2pNDce%2FBz0jR9iOzvmMyp5%2BszTr%2FLRZcXUCx1AJPvMxKzHMJ9eiaVxE4yMD%2FS%2FfP%2BougWIhUGpzALceGzK7C203owQpUBlGFMAmq%2FDa%2B90cYl2jaCw2Uo6BcAjGy9yDTg8%2Fg9CPkzu5G07E2JmlFEnXkp0OQC3EuBPcVRsborzaeAaYzrcm2oNXHuJtsKriZyE9XpKB7%2F2ESZICx25mmd8Aa3iwNbsNYT7%2BPhFMMSh9qUXSAcg5UmvnCqcjs8X%2BLq5XT49PQTHqnG%2BrbdgjQzyIwIlqR%2F5qUF%2F2xJkznLJB%2BSjx2%2Fum0AZW90y1PSifcPJlO5Bm9D9PcACQRAIxyl7be8eQodX4QzKSypwIBDBcNwJ4fuQu%2FWXkw9W9CRF57qBDfkNOg5%2FXWDPw7s%2BP9TCEG4xU80Kjod4Tuu6UJ2j94uTfnrL%2FZBOK3gaTdrIrhH2M2mIuWph8ROpSY9E3635KHNHtHjI0tL2lx4GAaorROGGZHCtvgccmxll5Ex%2FSnCIzFsCPGkNqAFbz0m%2FpY94BGBF7iiZxINwDcMd1KDxsEL746DbH0ptIs01jD65GQDHEkgU6DZEsCnI25lpnzC1wPi%2FHRNkkuQUgPgU%3D" --compressed "https://pt777aiguo.mypengyouquan.com/api/friend/user/1.0/getUser"
+
+### 获取详情
+curl -H "Host: pt777aiguo.mypengyouquan.com" -H "accept: application/json;charset=utf8" -H "content-type: application/x-www-form-urlencoded" -H "user-agent: qiu meng hui/1.0 (iPhone; iOS 26.2; Scale/3.00)" -H "priority: u=3, i" -H "accept-language: en-PH;q=1, zh-Hans-PH;q=0.9, fil-PH;q=0.8" -H "pragma: no-cache" -H "cache-control: no-cache" --data-binary "requestData=JFAeOXkY7T76H6p5I6P1p8NlgxN1NvPZaCC8d9QBTLQyltb6C%2BCxbYfSDxD8P3SllXg%2FAvOkGLhEHzV1UDCHNZ4YaEtDamTUflMQBPQ%2FkXvoLp2r3QvTjPKqcSqCQL%2BzVQAhXQR83M2p%2FTioQUCgt5C3M9%2F9z7h8BUyJUDnXokNwRwsevr8xnz2JIA3sDO22uilLVQA9ZWedhyfSnRlkx4Tg6nVf5Ds%2FqukJcU9MRnJWifDpC3CzMgwZaFnGdzhohPxJ0dMWio0XY%2BjISU4aQCIqBsr8SErzIZtKLzyG6HOjM7js2bstimcl3F%2FY%2BCek8XaS9NyVp6bdTBUWqlAY5DG%2FQF0TtBkXVdG9JWoaZwAkE5tRevBsSBnY12dq%2BdHJ%2FSYDag56N7PR9FPsxAl3WdBHtIjgfY6vIsbL%2B3PXy%2BIswysFNOyUr7jpqBXqxiL8Zq2JAv0yIvOCJEXbt76qzo2wQqZ3Rp3UxVkzK4cIklbiyxdUn8FrGmguir4Fl7rWegsZD3Zh6PS612esyw1jdt7yVHv2W6tCxB%2BMWqZV%2Fyc5gcUltOzlQrtR0KmooHD8OSHDkMgMxIQMjvWX3k4Dq4%2FhzZLPg3TSkeGR52tC3RfNuHiYOHm%2F2YlGtI9Zs8vz3vYK4uDe9C3npO0vmfA%2BIg%3D%3D" --compressed "https://pt777aiguo.mypengyouquan.com/api/friend/pushOrder/external/1.0/findPlanDetailed"
+
+### 获取圈子列表
+curl -H "Host: pt777aiguo.mypengyouquan.com" -H "accept: application/json;charset=utf8" -H "content-type: application/x-www-form-urlencoded" -H "user-agent: qiu meng hui/1.0 (iPhone; iOS 26.2; Scale/3.00)" -H "priority: u=3, i" -H "accept-language: en-PH;q=1, zh-Hans-PH;q=0.9, fil-PH;q=0.8" -H "pragma: no-cache" -H "cache-control: no-cache" --data-binary "requestData=iTr578jJwj5dkYOcffTUZpuUYDlyAPg9QD3Vr3f0cabxdni3jpG9NcDWyyUdBg7Ooxa%2BVsqzDZ4uAUTNZ1yGslWSSI4GGlY12Nz00lyivpL%2F0OLWmlMnlz1JZ5%2FwPlHDETxeZUE7lJ39LHorNkBx5qZd2CZOTJC%2FL1b1av%2BlXAoKO0FzwmR%2FDL047thr6qpE8F9Lvcbkvqs50uW%2B0jwM8wyf%2BrOLZ4A%2B%2FleHlK%2Fh4xL1iL%2BUxOGzPKlrGlAc%2BR1mHc2p6G3wMCJumj50MrZdaebx2HQmMqOjLdyCOwhUbtLfL05tulmMsE9sQ1yxxm7q1oef0NiRn9kQthzKLKFTI2j7yZfWJH9mewjGVcW6fS72nOPyd%2B5q1GY%2BXJZX1PYVWtIC0qZX0A2WNQR4ISm%2FQJfbWie0ldad0vGjp1zcrtrQ69wJE3yVvkx2kDUx0B3UM%2FP1%2F7H0gEWGaKjfJ82t4EAJ2rKAdxEtwImiBKJyjmtI19ehNhnjMEQ76uslbHIPbXk0J4FZ%2F%2B4FrLKWfRYMh5guhPzH3GBvc8sAEC8J%2BPBlut2epLQLe5Brye%2BAq3z5X7BqhQIqN9AiJ41wHGP%2BcuVHRthezTnAf2H22KYCjGA4xjrHM%2Bi9hlo%2BUMh%2FvRF3fU8t6IF%2B4yvavQHannUO%2BPGXi%2FiI0u1mJZPat0rS16K6t50fzAUc66aaDq36t4ocMtpWUvwWx0HthD12XrigebBWU5X5Fbh%2FPD65UpyYSOmC0zYsmK1QqC9LSC617L03FQ7uAVznzd7ICdt6A1WQmw%3D%3D" --compressed "https://pt777aiguo.mypengyouquan.com/api/friend/circle/2.0/pageList"
+
+### 头号玩家获取头像
+curl -H "Host: gol8.92friend.net:5656" -H "accept: application/json;charset=utf8" -H "content-type: application/x-www-form-urlencoded" -H "user-agent: ErzsBcVu/7.1.3 (iPhone; iOS 26.2; Scale/3.00)" -H "priority: u=3, i" -H "accept-language: en-PH;q=1, zh-Hans-PH;q=0.9, fil-PH;q=0.8" -H "pragma: no-cache" -H "cache-control: no-cache" --data-binary "requestData=xMDluuAuUzRlpbKp1TCNyGZzHT9HhZWIJSRYW6JVVhyiraOBJYHbx3tdb3lq39cw3gXgPjxXKSMVQBh46e8gXl%2BUyS9jz8eImYGG%2BKk4l/TZOASuoQ2W0EM4euaPJuipdHi6XxkvX5gNqa/%2B2Fvth1RURPNpEP9ETT4um1gIqMU5CgsP28tAJh4N4ZxJqWZ7/9fEp1JbEogDn/qCDyBZ1n4vuNNk5v1cYbGP1bpa9t%2BZiG5/3xYiTXSrgNOvieFW9Mo4%2BFDeZUUAsrVR0W%2BtsnfhdQNCITEQ4/f23RyFjONL%2BClfCVPL8FU0K8CfV3URZagRWmYzgPSAY%2ByL8CgLk%2BQKTw%2Bj7x0kduoOgQC/W/C29G2jrlU4SVHa6aUpcL6DiBrEQIcyroKu7/r%2B2mWRwvlir5kmiuEz3gVY7FS9BU5/fc5HLT1gWdoRKAv8237ZX8OYLLW7JQa52BjZ18mke8M/ePdwmXtlxm2IElR9EMni5Kas9UNR9TsFOzAsFXpsdl4mw2lSAyEeRgV%2BDDuyJTdlYk/X/gqt/3v1GPIks%2BXto2S3P3bhe2FxgYZ9nrQflKhwRJpku/rUiCYUJ3Aoo0XjnxSIFHmsvQeFVLW/n3jqKuCzv%2BGipJed0YCrloo2HogxCp5C9NmQeNwVxPLryfh3OlkXh42dNsOTpd6rUjY%3D" --compressed "https://gol8.92friend.net:5656/api/friend/user/1.0/getUser"
+
+### 头号玩家获取所有头像2
+curl -H "Host: gol8.92friend.net:5656" -H "accept: application/json;charset=utf8" -H "content-type: application/x-www-form-urlencoded" -H "user-agent: ErzsBcVu/7.1.3 (iPhone; iOS 26.2; Scale/3.00)" -H "priority: u=3, i" -H "accept-language: en-PH;q=1, zh-Hans-PH;q=0.9, fil-PH;q=0.8" -H "pragma: no-cache" -H "cache-control: no-cache" --data-binary "requestData=xMDluuAuUzRlpbKp1TCNyGZzHT9HhZWIJSRYW6JVVhyiraOBJYHbx3tdb3lq39cw3gXgPjxXKSMVQBh46e8gXl%2BUyS9jz8eImYGG%2BKk4l/TZOASuoQ2W0EM4euaPJuipdHi6XxkvX5gNqa/%2B2Fvth1RURPNpEP9ETT4um1gIqMU5CgsP28tAJh4N4ZxJqWZ7/9fEp1JbEogDn/qCDyBZ1n4vuNNk5v1cYbGP1bpa9t%2BZiG5/3xYiTXSrgNOvieFW9Mo4%2BFDeZUUAsrVR0W%2BtsnfhdQNCITEQ4/f23RyFjONL%2BClfCVPL8FU0K8CfV3URZagRWmYzgPSAY%2ByL8CgLk%2BQKTw%2Bj7x0kduoOgQC/W/C29G2jrlU4SVHa6aUpcL6DiBrEQIcyroKu7/r%2B2mWRwvlir5kmiuEz3gVY7FS9BU5/fc5HLT1gWdoRKAv8237ZX8OYLLW7JQa52BjZ18mke8M/ePdwmXtlxm2IElR9EMni5Kas9UNR9TsFOzAsFXpsdl4mw2lSAyEeRgV%2BDDuyJTdlYk/X/gqt/3v1GPIks%2BXto2S3P3bhe2FxgYZ9nrQflKhwRJpku/rUiCYUJ3Aoo0XjnxSIFHmsvQeFVLW/n3jqKuCzv%2BGipJed0YCrloo2HogxCp5C9NmQeNwVxPLryfh3OlkXh42dNsOTpd6rUjY%3D" --compressed "https://gol8.92friend.net:5656/api/friend/user/1.0/getUser"
+
+
+### 球盟获取头像
+curl -H "Host: gol8.92friend.net:5656" -H "accept: application/json;charset=utf8" -H "content-type: application/x-www-form-urlencoded" -H "user-agent: qiu meng hui/1.0 (iPhone; iOS 26.2; Scale/3.00)" -H "priority: u=3, i" -H "accept-language: en-PH;q=1, zh-Hans-PH;q=0.9, fil-PH;q=0.8" -H "pragma: no-cache" -H "cache-control: no-cache" 
+--data-binary 
+"requestData=iTr578jJwj5dkYOcffTUZpuUYDlyAPg9QD3Vr3f0caY%2FCdmvzJtWc8IGGkaW8YZPg99Y7u6GRvXFUGWNlsOMRdL8swZcbCH8O3zxxBO88c5iK0iri%2FoNO%2BwRIRva0z1Nm0IKnT0bR0ShQ5LVMvofXEEJBg%2FM7he8o3LylO7HYwmCCnimVDoe8KRLni%2Fb8wn%2FIFs7q1Z1yICu1DVWXXFSwZ8RbjAC4BTqi29HsWx5m%2FL2inX1zus50VygNXai0bazLnkzl7oCmMaSrmFxG2Cgb1DSAhc18H%2BjWSBbPOoXWV6Fyyw2rblk%2FXYN86%2FMXOavhjXqlYbh%2FqW85dGqCTFBMkURZgZW0HEVtpZl4JHZ0g1sZ8o0mdbSx1MMmp5OvJv1tfBBXgyv82bvabZFJosqMbj68KaeTPJV3Qv%2BZwsnVGoEub3n4kI2vNXS%2BI6eZIFkrBtVTnNdFZB59gK4cV9QTpq7n7l2CLlMilJ4p1LtxcDmEIa5GQG18TywKW9%2Bw2%2FgR8ZfYmSBdODiDAIp32xwZF1GKTJwcJCWMSa6e0sApoIjpavhrkjLuOqcJUdwA5voIU34nsX0Y7JFLqGUbaM5v8q%2BkV1x3mYmst3ITKb5Hzi6N%2FVprmboaOqcyXBMH9haG8bKhj958iAc01jANFQvFclYvXNT5WC5VZ21ssWmci34XhQVA00VY9tuWsawDvFJpuFkR58Gx0pE24Om4xM45C4lxYozwECo%2BTzKN16OPsA%3D"
+--compressed "https://pt777aiguo.mypengyouquan.com/api/friend/user/1.0/getUser"
+
+###
+curl -H "Host: gol8.92friend.net:5656" -H "accept: application/json;charset=utf8" -H "content-type: application/x-www-form-urlencoded" -H "user-agent: ErzsBcVu/7.1.3 (iPhone; iOS 26.2; Scale/3.00)" -H "priority: u=3, i" -H "accept-language: en-PH;q=1, zh-Hans-PH;q=0.9, fil-PH;q=0.8" -H "pragma: no-cache" -H "cache-control: no-cache" 
+--data-binary "requestData=OsaxjYPXMwDqop%2FTweKImRQbqFA0xsId6arzECxbk4FPL3pfLhU0XNozpADoIYXQHUqMQvGuX0U7f7aD2EvDcR9S6HVG2l2WoQR966bgxn32zAdJvBEHrwBkpTL%2BMS6vLU5RvMjCgdrkIlJdZosA9Q45pYg5YumzkPk39gPLekLJSUjSCy0RZg2Naj7rwTYtFJod6TrSifGc78kNMAnWLb6WxhxnRL1hBkTm3ZVNeyTWbLZqyAEr7HO8%2FTA1uv5%2BZe4nd3P3gpH1uloBigXn9ZmPgfoM%2BUcioE8m0sm85ZgKp74%2ByBTSheffOXvLlYcMHvV2gD7XStfXrBLLfHADwaVQu51bgLALHc5Y7o2IExiqD3rXqezh1dalTGYtG54VMbowWqGh2hkcrxi4OEqSind%2FlG8%2Bmaqcc3dkFiRsVVQ3VpoEegQFUMZCbgO9yB%2BXC5mwyHKVvZz7hxVq2absXrMb54OoFBttxBLBAXJAivd67ds9ZvHSMkmbMDKxfnWT6oPW4sxYaQOfWxssBw5cIM2kiAX%2B9UYrLChTnV9YgjxvHHMZs9FhgzPoOHTDuAgqPcaWZaQ%2BIgbs8SXeF97YXzaTfLDDdBMlcitoArIt0Ed4hw7jGQPTrGRrJUbXPuhCunPspAorVmTwOOMHgmCOpeLgI1b9MTo7WJVlMl9ITWvMWvXoOyLR5oV%2BVLI9SmD2GM9YI45KTUVxvTAtN9n%2FAxO7coM0EQd4fe8%2FMPfAzmU0956VrAU1FxwS%2BMHYREg4lasaZSeT9qTnfEppOpxBv%2FQpKux0ccoBrEZRUmbntKxEnAIdxrUhmiUa1ygAAMsrcIdiBKytUr9E%2FAF8cIgHPg%3D%3D"
+--compressed "https://gol8.92friend.net:5656/api/friend/user/1.0/getUser"
+
+### 球盟获取圈子列表
+curl 'https://e68web01.itomtest.com/api/friend/circle/2.0/pageList' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Accept-Language: zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -b '__snaker__id=cAhZ7b7pdMM2H2ji; _ga=GA1.1.1669288109.1761796347; _ga_13B8TCZCGK=GS2.1.s1761824809$o2$g1$t1761825850$j35$l0$h0; JSESSIONID=0053567EEFE8D6E691D72E9E4544CCBD; gdxidpyhxdE=OOGdtAQVoqGPNpy%5CxaWK5hOsLn%2FihYbSQ3oeKB4s4CJXLwTejTE%5Cts0jkaxv4kMEk8iSNsaUgP5yuz5f3pbBN8%2BZ%5CaRTwmSvPx9ZM%2FPCD1GK4HqfEh0y78EaMZ3i8XR4%2BliVBPyYn0YkBQalbb572Z44qmgl%5Cqs%2Be8PINEURh%2FLd3Alu%3A1768898899964' \
+  -H 'Origin: http://localhost:8081' \
+  -H 'Pragma: no-cache' \
+  -H 'Referer: http://localhost:8081/Dynamic' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-origin' \
+  -H 'User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1' \
+  --data-raw 
+  # '{"product":"lh","type":1,
+  # "userId":1817302,"pageNum":1,"pageSize":10}'
+  '{"product":"lh","type":"1","userId":"411851",
+  "id":"1277558","pageNum":"1","pageSize":"10"}'
+
+### 球盟保存圈子
+  curl 'https://e68web01.itomtest.com/api/friend/circle/1.0/saveCircle' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Accept-Language: zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -b '__snaker__id=cAhZ7b7pdMM2H2ji; _ga=GA1.1.1669288109.1761796347; _ga_13B8TCZCGK=GS2.1.s1761824809$o2$g1$t1761825850$j35$l0$h0; JSESSIONID=6746EDDA0DC7C3A1D6C4027B594722C4; gdxidpyhxdE=7Uq%2BSiy72CuU6EfvDBJykegL5LK8OYi3DZblXqGGvBmpkcOrgi5IbmDj40LSXnA3MXiCfUp%5CY2H1sxtrwK%2Boybh0USOg1Lp2HfMS%5C2KDasyEWjfXv77p44z%2BpotnKiqKaMZf8QJgnnuSASXHOPOioCrwnHSOUrkzjGbevmzMVZRVei%5Cc%3A1768968739162' \
+  -H 'Origin: http://localhost:8081' \
+  -H 'Pragma: no-cache' \
+  -H 'Referer: http://localhost:8081/Dynamic' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-origin' \
+  -H 'User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1' \
+  --data-raw '{"userId":"1024055","content":"151516165","product":"lh"}'
+
+### 球盟获取圈子列表2
+  curl 'https://e68web01.itomtest.com/api/friend/circle/2.0/pageList' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Accept-Language: zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -b '__snaker__id=cAhZ7b7pdMM2H2ji; _ga=GA1.1.1669288109.1761796347; _ga_13B8TCZCGK=GS2.1.s1761824809$o2$g1$t1761825850$j35$l0$h0; JSESSIONID=F906C0A36FB1304A6C2526E53C380C61; gdxidpyhxdE=QVlTPN%5CVp6Y1STE%5CoWpV1%2BCBAkbXx%2B5R%5C%2FC3Emj63LStJIBPD5VnwmaWGVvKG0nuyNyGjtrHkN39YzE2ZiwM%2BNqdROTKg%2BNUi42MWeTLT9CaIGwpcMQ5ke%2BZto6SdcoiStWvYmeDSejkZgrQHoc3I%5CnBLnx%5CAR9wHfN%2Fy8BmKXZCKwyk%3A1769061979433' \
+  -H 'Origin: https://e68web01.itomtest.com/' \
+  -H 'Pragma: no-cache' \
+  -H 'Referer: https://e68web01.itomtest.com/Dynamic' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-origin' \
+  -H 'User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1' \
+  --data-raw '{"product":"lh","type":1,"userId":1024055,"pageNum":1,"pageSize":10}'
+
+
+### 球盟获取圈子列表3
+ curl 'https://e68web01.itomtest.com/api/friend/circle/2.0/pageList' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Accept-Language: zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -b '__snaker__id=cAhZ7b7pdMM2H2ji; _ga=GA1.1.1669288109.1761796347; _ga_13B8TCZCGK=GS2.1.s1761824809$o2$g1$t1761825850$j35$l0$h0; JSESSIONID=5AAD9FD37C1A96BA41E7A5D676964019; gdxidpyhxdE=4sXqwdbNi4xVYMjNgG7UlBvkUapkEN7jzJAIeUThDLn2NPkanTR6ztH21WMZM1P%2ByVA2gqMDJ5wpZg%2BJEO5vxq0ww0L0LNwQQH9K6Ix%2Fj5T9LgWKjr%2BibrEriCAsD%2Fhjzlns%2Bq%5C%2F3JPD2u6nK4%5C%2F2XSTcEDeQEdOkZyKVpDmd6oSTBjz%3A1769076319492' \
+  -H 'Origin: https://e68web01.itomtest.com/' \
+  -H 'Pragma: no-cache' \
+  -H 'Referer: https://e68web01.itomtest.com/Dynamic' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-origin' \
+  -H 'User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1' \
+  --data-raw 
+  '{"product":"lh","type":1,"userId":434165,"pageNum":1,"pageSize":10}'
+
+### 球盟保存圈子2
+  curl 'https://e68web01.itomtest.com/api/friend/circle/1.0/saveCircle' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Accept-Language: zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -b '__snaker__id=cAhZ7b7pdMM2H2ji; _ga=GA1.1.1669288109.1761796347; _ga_13B8TCZCGK=GS2.1.s1761824809$o2$g1$t1761825850$j35$l0$h0; JSESSIONID=0B3ED5E2AA702779330947D0C16584D4; gdxidpyhxdE=V58jRRgv4ffYlKBiCwUueU7TiOflMXM9E5Xuys%2BfRV07TuE4ZQufebmkVSwsajymbbiows%2F0sf3%5CSnD%5Cj%5CoMydxWb6EChXMkqaPo2pT6imUEzsAeQAe3UKSAI7wnG5vlgl3C%5C%5COYqH84cpKy6nOltotDgHfa%2FPV%2BuAo8Ev9xudhhJTzP%3A1769138060146' \
+  -H 'Origin: https://e68web01.itomtest.com/' \
+  -H 'Pragma: no-cache' \
+  -H 'Referer: https://e68web01.itomtest.com/Dynamic' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-origin' \
+  -H 'User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1' \
+  --data-raw '{"userId":"426908","content":"test 发帖","product":"lh"}'
+ 
+{"code":"101","data":{},"message":"网络繁忙，请稍后重试！"}
+
+### 球盟获取圈子列表4
+curl 'https://e68web01.itomtest.com/api/friend/circle/2.0/pageList' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Accept-Language: zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -b '__snaker__id=cAhZ7b7pdMM2H2ji; _ga=GA1.1.1669288109.1761796347; _ga_13B8TCZCGK=GS2.1.s1761824809$o2$g1$t1761825850$j35$l0$h0; JSESSIONID=E1A44C400D58358C68764B77A358B7AA; gdxidpyhxdE=5%2F3%5C1qVtkupSCwqqn56ErW84HgE%2Bq88mNuu2eV%5CSGcP7LLmUoWLNfJA498Y0hbIgNPAZVlnEbV%5CBDR9tqqzqefWyuPnQOS8LHJu5ulUdmXkDZS3PDvkzT%5Car1JqGTfKMsmi%2BV4%2BQueX70oKyUsVBg47h0uMUD%2FViYozat4wx12YjBH13%3A1769149699763' \
+  -H 'Origin: https://e68web01.itomtest.com/' \
+  -H 'Pragma: no-cache' \
+  -H 'Referer: https://e68web01.itomtest.com/DynamicV2/DynamicDetail?id=1689288' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-origin' \
+  -H 'User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1' \
+  --data-raw '{"product":"lh","type":1,"userId":"426908","pageNum":1,"pageSize":10,"id":"1689288"}'
