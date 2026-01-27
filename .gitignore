@@ -1,0 +1,8 @@
+﻿# Ignore embedded repos
+DC-Workspace/DC-API-2018/
+appweb/
+crm-server/
+crm-vue/
+dc-parent/
+png/
+production-docs-detail/
