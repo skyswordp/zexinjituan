@@ -1,0 +1,246 @@
+### 1. 获取个人信息
+curl 'https://e68web01.itomtest.com/api/friend/user/1.0/getUser' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  --data-raw '{"id":426908,"userId":426908}'
+
+### 2. 添加个人信息
+curl 'https://e68web01.itomtest.com/api/friend/user/1.0/inerst' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  --data-raw '{"userName":"testUser","nickName":"测试昵称","headUrl":"https://example.com/avatar.png"}'
+
+### 3. 分享动态
+curl 'https://e68web01.itomtest.com/api/friend/user/1.0/saveShare' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  --data-raw '{"userId":426908,"circleId":1689288}'
+
+### 4. 点赞/取消点赞
+curl 'https://e68web01.itomtest.com/api/friend/user/1.0/saveChangePraise' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  --data-raw '{"userId":426908,"praiseType":"1","type":"1","circleId":1689288}'
+
+### 5. 关注/取消关注
+curl 'https://e68web01.itomtest.com/api/friend/user/1.0/saveFollow' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  --data-raw '{"userId":426908,"beUserId":100001,"type":"1"}'
+
+### 6. 关注/取消关注(新版)
+curl 'https://e68web01.itomtest.com/api/friend/user/1.0/saveFollowNew' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  --data-raw '{"userId":426908,"beUserId":100001,"type":"1","pushOrderId":123456}'
+
+### 7. 阅读计数
+curl 'https://e68web01.itomtest.com/api/friend/user/1.0/readCount' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  --data-raw '{"type":"1","id":1689288}'
+
+### 8. 获取我的点赞列表
+curl 'https://e68web01.itomtest.com/api/friend/user/1.0/findMyPraiseList' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  --data-raw '{"userId":426908,"pageNum":1,"pageSize":20}'
+
+### 9. 获取我的点赞数量
+curl 'https://e68web01.itomtest.com/api/friend/user/1.0/getMyPraiseCount' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  --data-raw '{"userId":426908}'
+
+### 10. 获取用户列表
+curl 'https://e68web01.itomtest.com/api/friend/user/1.0/getList' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  --data-raw '{"userId":426908,"type":"1","pageNum":1,"pageSize":20}'
+
+### 11. 更新用户信息
+curl 'https://e68web01.itomtest.com/api/friend/user/1.0/update' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  --data-raw '{"id":426908,"nickName":"新昵称","headUrl":"https://example.com/new-avatar.png"}'
+
+### 12. 动态列表查询 1.0
+curl 'https://e68web01.itomtest.com/api/friend/circle/1.0/pageList' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  --data-raw '{"pageNum":1,"pageSize":20,"userId":426908}'
+
+### 13. 动态列表查询 2.0
+curl 'https://e68web01.itomtest.com/api/friend/circle/2.0/pageList' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  --data-raw '{"pageNum":1,"pageSize":20}'
+
+### 14. 动态数量统计
+curl 'https://e68web01.itomtest.com/api/friend/circle/1.0/getCountList' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  --data-raw '{"time":"1706345600000"}'
+
+### 15. 发帖
+curl 'https://e68web01.itomtest.com/api/friend/circle/1.0/saveCircle' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  --data-raw '{"userId":426908,"content":"这是一条测试发帖内容"}'
+
+### 16. 删除朋友圈
+curl 'https://e68web01.itomtest.com/api/friend/circle/1.0/delete' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  --data-raw '{"id":1689288}'
+
+### 17. 用户投票
+curl 'https://e68web01.itomtest.com/api/friend/circle/1.0/userVote' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  --data-raw '{"userId":"426908","itemIds":[1,2,3]}'
+
+### 18. 评论列表
+curl 'https://e68web01.itomtest.com/api/friend/circleComments/1.0/pageList' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  --data-raw '{"circleId":1689288,"pageNum":1,"pageSize":20}'
+
+### 19. 发表评论
+curl 'https://e68web01.itomtest.com/api/friend/circleComments/1.0/saveComments' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  --data-raw '{"circleId":1689288,"userId":426908,"content":"这是一条测试评论"}'
+
+### 20. 我的评论列表
+curl 'https://e68web01.itomtest.com/api/friend/circleComments/1.0/findMyCommentsList' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  --data-raw '{"userId":426908,"pageNum":1,"pageSize":20}'
+
+### 21. 举报
+curl 'https://e68web01.itomtest.com/api/friend/report/1.0/saveReport' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  --data-raw '{"reportName":"user1","beReportName":"user2","fCircleId":1689288,"content":"违规内容","reportReason":"广告"}'
+
+### 22. 获取话题列表
+curl 'https://e68web01.itomtest.com/api/friend/topic/1.0/queryTitle' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  --data-raw '{}'
+
+### 23. 话题详情页查询
+curl 'https://e68web01.itomtest.com/api/friend/topic/1.0/queryDetails' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  --data-raw '{"topicId":1,"pageNum":1,"pageSize":20}'
+
+### 24. 获取任务列表
+curl 'https://e68web01.itomtest.com/api/friend/task/1.0/queryTasks' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  --data-raw '{"userId":426908}'
+
+### 25. 用户手工领取任务积分
+curl 'https://e68web01.itomtest.com/api/friend/task/1.0/addPoints' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  --data-raw '{"userId":426908,"userTaskId":1,"id":1}'
+
+### 26. 版块信息查询 - 首页
+curl 'https://e68web01.itomtest.com/api/friend/board/index/getByLevel' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  --data-raw '{"boardLevel":1}'
+
+### 27. 版块信息查询 - 直播
+curl 'https://e68web01.itomtest.com/api/friend/board/livestream/getByLevel' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  --data-raw '{"boardLevel":1}'
+
+### 28. 版块信息查询 - 竞猜
+curl 'https://e68web01.itomtest.com/api/friend/board/guess/getByLevel' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  --data-raw '{"boardLevel":1}'
+
+### 29. 首页发布数量统计
+curl 'https://e68web01.itomtest.com/api/friend/indexSetting/1.0/getCountList' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  --data-raw '{"time":"1706345600000"}'
+
+### 30. 首页发布查询
+curl 'https://e68web01.itomtest.com/api/friend/indexSetting/1.0/pageList' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  --data-raw '{"pageNum":1,"pageSize":20}'
+
+### 31. 首页保存评论
+curl 'https://e68web01.itomtest.com/api/friend/indexSetting/1.0/saveComments' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  --data-raw '{"id":123,"userId":426908,"type":"2","content":"评论内容"}'
+
+### 32. 广告查询
+curl 'https://e68web01.itomtest.com/api/friend/indexSetting/1.0/findAdvertisement' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  --data-raw '{"boardId":1}'
+
+### 33. 文件上传
+curl 'https://e68web01.itomtest.com/api/friend/upload/1.0/upload' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -F 'files=@/path/to/file1.jpg' \
+  -F 'files=@/path/to/file2.jpg' \
+  -F 'product=lh'
+
+### 34. 查询热门新闻列表
+curl 'https://e68web01.itomtest.com/api/friend/hotSetting/1.0/findHotNewsList' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  --data-raw '{}'
+
+### 35. 查询更多热门新闻
+curl 'https://e68web01.itomtest.com/api/friend/hotSetting/1.0/findNewPageList' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  --data-raw '{"pageNum":1,"pageSize":20}'
+
+### 36. 查询热门视频列表
+curl 'https://e68web01.itomtest.com/api/friend/hotSetting/1.0/findHotVideoList' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  --data-raw '{}'
+
+### 37. 查询更多热门视频
+curl 'https://e68web01.itomtest.com/api/friend/hotSetting/1.0/findVideoPageList' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  --data-raw '{"pageNum":1,"pageSize":20}'
+
+### 38. 获取用户等级
+curl 'https://e68web01.itomtest.com/api/friend/levelSetting/1.0/getLevel' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  --data-raw '{"account":"testUser","money":0,"levelId":"1"}'
+
+### 39. 关键词列表
+curl 'https://e68web01.itomtest.com/api/friend/keyword/1.0/findList' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  --data-raw '{}'
+
+### 40. 竞猜列表
+curl 'https://e68web01.itomtest.com/api/friend/guessing/1.0/pageList' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  --data-raw '{"pageNum":1,"pageSize":20}'
+
+### 41. 游戏设置列表
+curl 'https://e68web01.itomtest.com/api/friend/gameSetting/1.0/pageList' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  --data-raw '{"pageNum":1,"pageSize":20}'

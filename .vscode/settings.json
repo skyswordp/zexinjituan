@@ -26,6 +26,12 @@
   "java.configuration.updateBuildConfiguration": "automatic",
   "java.server.launchMode": "Standard",
   "java.autobuild.enabled": true,
+  "python.defaultInterpreterPath": "C:\\Users\\DEVTrump\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+  "python.linting.enabled": true,
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.python",
+    "editor.formatOnSave": true
+  },
   "java.project.sourcePaths": [
     "png/src"
   ],
@@ -45,5 +51,7 @@
     "**/.classpath": true,
     "**/.devtools": true
   },
-  "java.format.settings.url": ".vscode/java-formatter.xml"
+  "java.format.settings.url": ".vscode/java-formatter.xml",
+  "python-envs.defaultEnvManager": "ms-python.python:system",
+  "python-envs.pythonProjects": []
 }

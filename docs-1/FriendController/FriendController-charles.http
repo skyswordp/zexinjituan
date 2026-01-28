@@ -1,0 +1,198 @@
+### 1. 获取个人信息
+curl -X POST 'https://e68web01.itomtest.com/api/friend/user/1.0/getUser' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -H 'Cookie: __snaker__id=jvOJbjKJWgJZ7mEl; JSESSIONID=E85595B704A736F259DBA0CAC72DCF0C' \
+  -H 'Origin: https://e68web01.itomtest.com' \
+  -H 'Referer: https://e68web01.itomtest.com/Dynamic' \
+  -d '{"id":"488714","userId":"488714"}'
+
+### 2. 获取我的点赞数量
+curl -X POST 'https://e68web01.itomtest.com/api/friend/user/1.0/getMyPraiseCount' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -H 'Cookie: __snaker__id=jvOJbjKJWgJZ7mEl; JSESSIONID=E85595B704A736F259DBA0CAC72DCF0C' \
+  -H 'Origin: https://e68web01.itomtest.com' \
+  -H 'Referer: https://e68web01.itomtest.com/Dynamic' \
+  -d '{"userId":"488714"}'
+
+### 3. 更新用户信息
+curl -X POST 'https://e68web01.itomtest.com/api/friend/user/1.0/update' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -H 'Cookie: __snaker__id=jvOJbjKJWgJZ7mEl; JSESSIONID=E85595B704A736F259DBA0CAC72DCF0C' \
+  -H 'Origin: https://e68web01.itomtest.com' \
+  -H 'Referer: https://e68web01.itomtest.com/Dynamic' \
+  -d '{"id":"488714","nickName":"新昵称","headUrl":"https://example.com/new-avatar.png"}'
+
+### 4. 关注/取消关注 (type: 1=关注, 0=取消)
+curl -X POST 'https://e68web01.itomtest.com/api/friend/user/1.0/saveFollow' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -H 'Cookie: __snaker__id=jvOJbjKJWgJZ7mEl; JSESSIONID=E85595B704A736F259DBA0CAC72DCF0C' \
+  -H 'Origin: https://e68web01.itomtest.com' \
+  -H 'Referer: https://e68web01.itomtest.com/Dynamic' \
+  -d '{"userId":"488714","beUserId":100001,"type":"1"}'
+
+### 5. 阅读计数
+curl -X POST 'https://e68web01.itomtest.com/api/friend/user/1.0/readCount' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -H 'Cookie: __snaker__id=jvOJbjKJWgJZ7mEl; JSESSIONID=E85595B704A736F259DBA0CAC72DCF0C' \
+  -H 'Origin: https://e68web01.itomtest.com' \
+  -H 'Referer: https://e68web01.itomtest.com/Dynamic' \
+  -d '{"type":"1","id":1689288}'
+
+### 6. 分享动态
+curl -X POST 'https://e68web01.itomtest.com/api/friend/user/1.0/saveShare' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -H 'Cookie: __snaker__id=jvOJbjKJWgJZ7mEl; JSESSIONID=E85595B704A736F259DBA0CAC72DCF0C' \
+  -H 'Origin: https://e68web01.itomtest.com' \
+  -H 'Referer: https://e68web01.itomtest.com/Dynamic' \
+  -d '{"userId":489714,"circleId":1689288}'
+
+### 7. 点赞/取消点赞 (praiseType: 1=动态, 2=评论; type: 1=点赞, 0=取消)
+curl -X POST 'https://e68web01.itomtest.com/api/friend/user/1.0/saveChangePraise' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -H 'Cookie: __snaker__id=jvOJbjKJWgJZ7mEl; JSESSIONID=E85595B704A736F259DBA0CAC72DCF0C' \
+  -H 'Origin: https://e68web01.itomtest.com' \
+  -H 'Referer: https://e68web01.itomtest.com/Dynamic' \
+  -d '{"userId":489714,"praiseType":"1","type":"1","circleId":1689288}'
+
+### 8. 获取用户等级
+curl -X POST 'https://e68web01.itomtest.com/api/friend/levelSetting/1.0/getLevel' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -H 'Cookie: __snaker__id=jvOJbjKJWgJZ7mEl; JSESSIONID=E85595B704A736F259DBA0CAC72DCF0C' \
+  -H 'Origin: https://e68web01.itomtest.com' \
+  -H 'Referer: https://e68web01.itomtest.com/Dynamic' \
+  -d '{"account":"adults123","money":0,"levelId":"1"}'
+
+### 9. 版块信息查询 - 首页
+curl -X POST 'https://e68web01.itomtest.com/api/friend/board/index/getByLevel' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -H 'Cookie: __snaker__id=jvOJbjKJWgJZ7mEl; JSESSIONID=E85595B704A736F259DBA0CAC72DCF0C' \
+  -H 'Origin: https://e68web01.itomtest.com' \
+  -H 'Referer: https://e68web01.itomtest.com/Dynamic' \
+  -d '{"boardLevel":1}'
+
+### 10. 版块信息查询 - 竞猜
+curl -X POST 'https://e68web01.itomtest.com/api/friend/board/guess/getByLevel' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -H 'Cookie: __snaker__id=jvOJbjKJWgJZ7mEl; JSESSIONID=E85595B704A736F259DBA0CAC72DCF0C' \
+  -H 'Origin: https://e68web01.itomtest.com' \
+  -H 'Referer: https://e68web01.itomtest.com/Dynamic' \
+  -d '{"boardLevel":1}'
+
+### 11. 动态数量统计
+curl -X POST 'https://e68web01.itomtest.com/api/friend/circle/1.0/getCountList' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -H 'Cookie: __snaker__id=jvOJbjKJWgJZ7mEl; JSESSIONID=E85595B704A736F259DBA0CAC72DCF0C' \
+  -H 'Origin: https://e68web01.itomtest.com' \
+  -H 'Referer: https://e68web01.itomtest.com/Dynamic' \
+  -d '{"time":"1706345600000"}'
+
+### 12. 发帖
+curl -X POST 'https://e68web01.itomtest.com/api/friend/circle/1.0/saveCircle' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -H 'Cookie: __snaker__id=jvOJbjKJWgJZ7mEl; JSESSIONID=E85595B704A736F259DBA0CAC72DCF0C' \
+  -H 'Origin: https://e68web01.itomtest.com' \
+  -H 'Referer: https://e68web01.itomtest.com/Dynamic' \
+  -d '{"userId":489714,"content":"这是一条测试发帖内容"}'
+
+### 13. 动态列表查询 2.0
+curl -X POST 'https://e68web01.itomtest.com/api/friend/circle/2.0/pageList' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -H 'Cookie: __snaker__id=jvOJbjKJWgJZ7mEl; JSESSIONID=E85595B704A736F259DBA0CAC72DCF0C' \
+  -H 'Origin: https://e68web01.itomtest.com' \
+  -H 'Referer: https://e68web01.itomtest.com/Dynamic' \
+  -d '{"pageNum":1,"pageSize":20}'
+
+### 14. 首页发布查询
+curl -X POST 'https://e68web01.itomtest.com/api/friend/indexSetting/1.0/pageList' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -H 'Cookie: __snaker__id=jvOJbjKJWgJZ7mEl; JSESSIONID=E85595B704A736F259DBA0CAC72DCF0C' \
+  -H 'Origin: https://e68web01.itomtest.com' \
+  -H 'Referer: https://e68web01.itomtest.com/Dynamic' \
+  -d '{"pageNum":1,"pageSize":20}'
+
+### 15. 游戏设置列表
+curl -X POST 'https://e68web01.itomtest.com/api/friend/gameSetting/1.0/pageList' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -H 'Cookie: __snaker__id=jvOJbjKJWgJZ7mEl; JSESSIONID=E85595B704A736F259DBA0CAC72DCF0C' \
+  -H 'Origin: https://e68web01.itomtest.com' \
+  -H 'Referer: https://e68web01.itomtest.com/Dynamic' \
+  -d '{"pageNum":1,"pageSize":20}'
+
+### 16. 获取话题列表
+curl -X POST 'https://e68web01.itomtest.com/api/friend/topic/1.0/queryTitle' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -H 'Cookie: __snaker__id=jvOJbjKJWgJZ7mEl; JSESSIONID=E85595B704A736F259DBA0CAC72DCF0C' \
+  -H 'Origin: https://e68web01.itomtest.com' \
+  -H 'Referer: https://e68web01.itomtest.com/Dynamic' \
+  -d '{}'
+
+### 17. 话题详情页查询
+curl -X POST 'https://e68web01.itomtest.com/api/friend/topic/1.0/queryDetails' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -H 'Cookie: __snaker__id=jvOJbjKJWgJZ7mEl; JSESSIONID=E85595B704A736F259DBA0CAC72DCF0C' \
+  -H 'Origin: https://e68web01.itomtest.com' \
+  -H 'Referer: https://e68web01.itomtest.com/Dynamic' \
+  -d '{"topicId":1,"pageNum":1,"pageSize":20}'
+
+### 18. 获取任务列表
+curl -X POST 'https://e68web01.itomtest.com/api/friend/task/1.0/queryTasks' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -H 'Cookie: __snaker__id=jvOJbjKJWgJZ7mEl; JSESSIONID=E85595B704A736F259DBA0CAC72DCF0C' \
+  -H 'Origin: https://e68web01.itomtest.com' \
+  -H 'Referer: https://e68web01.itomtest.com/Dynamic' \
+  -d '{"userId":489714}'
+
+### 19. 文件上传
+curl -X POST 'https://e68web01.itomtest.com/api/friend/upload/1.0/upload' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Cookie: __snaker__id=jvOJbjKJWgJZ7mEl; JSESSIONID=E85595B704A736F259DBA0CAC72DCF0C' \
+  -H 'Origin: https://e68web01.itomtest.com' \
+  -H 'Referer: https://e68web01.itomtest.com/Dynamic' \
+  -F 'files=@/path/to/file1.jpg' \
+  -F 'files=@/path/to/file2.jpg' \
+  -F 'product=lh'
+
+### 20. 评论列表
+curl -X POST 'https://e68web01.itomtest.com/api/friend/circleComments/1.0/pageList' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -H 'Cookie: __snaker__id=jvOJbjKJWgJZ7mEl; JSESSIONID=E85595B704A736F259DBA0CAC72DCF0C' \
+  -H 'Origin: https://e68web01.itomtest.com' \
+  -H 'Referer: https://e68web01.itomtest.com/Dynamic' \
+  -d '{"circleId":1689288,"pageNum":1,"pageSize":20}'
+
+### 21. 发表评论
+curl -X POST 'https://e68web01.itomtest.com/api/friend/circleComments/1.0/saveComments' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -H 'Cookie: __snaker__id=jvOJbjKJWgJZ7mEl; JSESSIONID=E85595B704A736F259DBA0CAC72DCF0C' \
+  -H 'Origin: https://e68web01.itomtest.com' \
+  -H 'Referer: https://e68web01.itomtest.com/Dynamic' \
+  -d '{"circleId":1689288,"userId":489714,"content":"这是一条测试评论"}'
+
+### 22. 举报
+curl -X POST 'https://e68web01.itomtest.com/api/friend/report/1.0/saveReport' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -H 'Cookie: __snaker__id=jvOJbjKJWgJZ7mEl; JSESSIONID=E85595B704A736F259DBA0CAC72DCF0C' \
+  -H 'Origin: https://e68web01.itomtest.com' \
+  -H 'Referer: https://e68web01.itomtest.com/Dynamic' \
+  -d '{"reportName":"adults123","beReportName":"user2","fCircleId":1689288,"content":"违规内容","reportReason":"广告"}'

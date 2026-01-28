@@ -1,0 +1,2325 @@
+
+================================================================================
+🚀 FriendController API 测试执行 - 2026-01-28 21:06:42
+================================================================================
+
+
+[1/21] 1. getUser
+  URL: https://e68web01.itomtest.com/api/friend/user/1.0/getUser
+  状态: ✅ PASS | HTTP: 200 | 耗时: 324.9ms
+  响应码: 10000 | 消息: 成功
+
+[2/21] 2. getMyPraiseCount
+  URL: https://e68web01.itomtest.com/api/friend/user/1.0/getMyPraiseCount
+  状态: ❌ FAIL | HTTP: 200 | 耗时: 141.8ms
+  响应码: 101 | 消息: 系统失败
+
+[3/21] 3. update
+  URL: https://e68web01.itomtest.com/api/friend/user/1.0/update
+  状态: ✅ PASS | HTTP: 200 | 耗时: 424.3ms
+  响应码: 10000 | 消息: 成功
+
+[4/21] 4. saveFollow
+  URL: https://e68web01.itomtest.com/api/friend/user/1.0/saveFollow
+  状态: ❌ FAIL | HTTP: 200 | 耗时: 132.3ms
+  响应码: 101 | 消息: 您已关注过该用户
+
+[5/21] 5. readCount
+  URL: https://e68web01.itomtest.com/api/friend/user/1.0/readCount
+  状态: ❌ FAIL | HTTP: 200 | 耗时: 158.2ms
+  响应码: 101 | 消息: 系统失败
+
+[6/21] 6. saveShare
+  URL: https://e68web01.itomtest.com/api/friend/user/1.0/saveShare
+  状态: ✅ PASS | HTTP: 200 | 耗时: 149.6ms
+  响应码: 10000 | 消息: 成功
+
+[7/21] 7. saveChangePraise
+  URL: https://e68web01.itomtest.com/api/friend/user/1.0/saveChangePraise
+  状态: ✅ PASS | HTTP: 200 | 耗时: 433.3ms
+  响应码: 10000 | 消息: 成功
+
+[8/21] 8. getLevel
+  URL: https://e68web01.itomtest.com/api/friend/levelSetting/1.0/getLevel
+  状态: ✅ PASS | HTTP: 200 | 耗时: 141.5ms
+  响应码: 10000 | 消息: 成功
+
+[9/21] 9. board-index
+  URL: https://e68web01.itomtest.com/api/friend/board/index/getByLevel
+  状态: ✅ PASS | HTTP: 200 | 耗时: 161.2ms
+  响应码: 10000 | 消息: 成功
+
+[10/21] 10. board-guess
+  URL: https://e68web01.itomtest.com/api/friend/board/guess/getByLevel
+  状态: ✅ PASS | HTTP: 200 | 耗时: 176.0ms
+  响应码: 10000 | 消息: 成功
+
+[11/21] 11. getCountList
+  URL: https://e68web01.itomtest.com/api/friend/circle/1.0/getCountList
+  状态: ✅ PASS | HTTP: 200 | 耗时: 146.0ms
+  响应码: 10000 | 消息: 成功
+
+[12/21] 12. saveCircle
+  URL: https://e68web01.itomtest.com/api/friend/circle/1.0/saveCircle
+  状态: ❌ FAIL | HTTP: 200 | 耗时: 153.4ms
+  响应码: 101 | 消息: 网络繁忙，请稍后重试！
+
+[13/21] 13. pageList-circle
+  URL: https://e68web01.itomtest.com/api/friend/circle/2.0/pageList
+  状态: ✅ PASS | HTTP: 200 | 耗时: 759.7ms
+  响应码: 10000 | 消息: 成功
+
+[14/21] 14. pageList-index
+  URL: https://e68web01.itomtest.com/api/friend/indexSetting/1.0/pageList
+  状态: ✅ PASS | HTTP: 200 | 耗时: 258.7ms
+  响应码: 10000 | 消息: 成功
+
+[15/21] 15. pageList-game
+  URL: https://e68web01.itomtest.com/api/friend/gameSetting/1.0/pageList
+  状态: ✅ PASS | HTTP: 200 | 耗时: 166.4ms
+  响应码: 10000 | 消息: 成功
+
+[16/21] 16. queryTitle
+  URL: https://e68web01.itomtest.com/api/friend/topic/1.0/queryTitle
+  状态: ✅ PASS | HTTP: 200 | 耗时: 258.6ms
+  响应码: 10000 | 消息: 成功
+
+[17/21] 17. queryDetails
+  URL: https://e68web01.itomtest.com/api/friend/topic/1.0/queryDetails
+  状态: ✅ PASS | HTTP: 200 | 耗时: 156.1ms
+  响应码: 10000 | 消息: 成功
+
+[18/21] 18. queryTasks
+  URL: https://e68web01.itomtest.com/api/friend/task/1.0/queryTasks
+  状态: ✅ PASS | HTTP: 200 | 耗时: 291.6ms
+  响应码: 10000 | 消息: 成功
+
+[19/21] 19. pageList-comments
+  URL: https://e68web01.itomtest.com/api/friend/circleComments/1.0/pageList
+  状态: ✅ PASS | HTTP: 200 | 耗时: 311.9ms
+  响应码: 10000 | 消息: 成功
+
+[20/21] 20. saveComments
+  URL: https://e68web01.itomtest.com/api/friend/circleComments/1.0/saveComments
+  状态: ❌ FAIL | HTTP: 200 | 耗时: 135.2ms
+  响应码: 101 | 消息: 系统失败
+
+[21/21] 21. saveReport
+  URL: https://e68web01.itomtest.com/api/friend/report/1.0/saveReport
+  状态: ❌ FAIL | HTTP: 200 | 耗时: 139.7ms
+  响应码: 101 | 消息: 系统失败
+
+====================================================================================================
+📊 测试汇总 - 快速预览
+====================================================================================================
+序号    API名称                     状态       HTTP   响应码      耗时      
+----------------------------------------------------------------------------------------------------
+1     1. getUser                ✅        200    10000    325ms   
+2     2. getMyPraiseCount       ❌        200    101      142ms   
+3     3. update                 ✅        200    10000    424ms   
+4     4. saveFollow             ❌        200    101      132ms   
+5     5. readCount              ❌        200    101      158ms   
+6     6. saveShare              ✅        200    10000    150ms   
+7     7. saveChangePraise       ✅        200    10000    433ms   
+8     8. getLevel               ✅        200    10000    141ms   
+9     9. board-index            ✅        200    10000    161ms   
+10    10. board-guess           ✅        200    10000    176ms   
+11    11. getCountList          ✅        200    10000    146ms   
+12    12. saveCircle            ❌        200    101      153ms   
+13    13. pageList-circle       ✅        200    10000    760ms   
+14    14. pageList-index        ✅        200    10000    259ms   
+15    15. pageList-game         ✅        200    10000    166ms   
+16    16. queryTitle            ✅        200    10000    259ms   
+17    17. queryDetails          ✅        200    10000    156ms   
+18    18. queryTasks            ✅        200    10000    292ms   
+19    19. pageList-comments     ✅        200    10000    312ms   
+20    20. saveComments          ❌        200    101      135ms   
+21    21. saveReport            ❌        200    101      140ms   
+----------------------------------------------------------------------------------------------------
+
+总计: 21 | ✅ 通过: 15 | ❌ 失败: 6 | 成功率: 71.4%
+
+耗时统计: 总计 5020ms | 平均 239ms | 最快 132ms | 最慢 760ms
+====================================================================================================
+
+
+📋 详细结果 - 逐项展开
+====================================================================================================
+
+【 1】 1. getUser
+----------------------------------------------------------------------------------------------------
+URL: https://e68web01.itomtest.com/api/friend/user/1.0/getUser
+状态: ✅ PASS
+HTTP状态码: 200 | 响应码: 10000 | 消息: 成功
+耗时: 324.9ms
+
+请求参数:
+{
+  "id": "488714",
+  "userId": "488714"
+}
+
+完整响应数据:
+{
+  "code": "10000",
+  "data": {
+    "id": 488714,
+    "userName": "adults123",
+    "nickName": "test",
+    "headUrl": "https://example.com/new.png",
+    "product": "lh",
+    "isSpeak": 0,
+    "noSpeakNummer": {},
+    "status": "Y",
+    "createTime": 1768475918000,
+    "createUser": {},
+    "updateTime": {},
+    "updateUser": {},
+    "pushOrders": {},
+    "pushOrdersSys": {},
+    "authentication": {},
+    "levelConfigId": {},
+    "levelConfigIdSys": {},
+    "titleConfigId": {},
+    "titleConfigIdSys": {},
+    "totalPopularity": {},
+    "redOrderRate": {},
+    "profitRate": {},
+    "freeTimes": {},
+    "freeTimesSys": {},
+    "fireIcon": {},
+    "totalPopularityType": {},
+    "redOrderRateType": {},
+    "profitRateType": {},
+    "totalPopularityMonthly": {},
+    "redOrderRateMonthly": {},
+    "followNum": 4,
+    "fassNum": 0,
+    "isFollow": 0,
+    "followUserId": {},
+    "userLevel": 0,
+    "totalRelease": {},
+    "totalPopularityShow": 0,
+    "numberBuyer": {},
+    "fanBonus": {},
+    "pushOrderBonus": {},
+    "purchaseBonus": {},
+    "totalPopularityStrShow": "粉丝分数:0*1=0##推单分数:null*1=0##购买分数:null*1=0##总人气:0+0+0=0",
+    "redOrderRateShow": 0.0,
+    "totalHit": {},
+    "redOrderRateStrShow": "总发布:0##总命中:0##红单率:0/0=0%",
+    "totalSalesSecond": {},
+    "totalSalesPercentage": {},
+    "totalClicks": {},
+    "totalPurchase": {},
+    "levelConfigIdName": {},
+    "titleConfigIdNum": 0,
+    "operatorType": {},
+    "freeTimesType": {},
+    "profitRateShow": 0.0,
+    "profitRateStr": "总投注:0.0##总盈亏:0.0##收益率:0.0/0.0=0%",
+    "totalBetAmount": {},
+    "totalWinLossAmount": {}
+  },
+  "message": "成功"
+}
+----------------------------------------------------------------------------------------------------
+
+【 2】 2. getMyPraiseCount
+----------------------------------------------------------------------------------------------------
+URL: https://e68web01.itomtest.com/api/friend/user/1.0/getMyPraiseCount
+状态: ❌ FAIL
+HTTP状态码: 200 | 响应码: 101 | 消息: 系统失败
+耗时: 141.8ms
+
+请求参数:
+{
+  "userId": "488714"
+}
+
+完整响应数据:
+{
+  "code": "101",
+  "data": {},
+  "message": "系统失败"
+}
+----------------------------------------------------------------------------------------------------
+
+【 3】 3. update
+----------------------------------------------------------------------------------------------------
+URL: https://e68web01.itomtest.com/api/friend/user/1.0/update
+状态: ✅ PASS
+HTTP状态码: 200 | 响应码: 10000 | 消息: 成功
+耗时: 424.3ms
+
+请求参数:
+{
+  "id": "488714",
+  "nickName": "test",
+  "headUrl": "https://example.com/new.png"
+}
+
+完整响应数据:
+{
+  "code": "10000",
+  "data": {},
+  "message": "成功"
+}
+----------------------------------------------------------------------------------------------------
+
+【 4】 4. saveFollow
+----------------------------------------------------------------------------------------------------
+URL: https://e68web01.itomtest.com/api/friend/user/1.0/saveFollow
+状态: ❌ FAIL
+HTTP状态码: 200 | 响应码: 101 | 消息: 您已关注过该用户
+耗时: 132.3ms
+
+请求参数:
+{
+  "userId": "488714",
+  "beUserId": 100001,
+  "type": "1"
+}
+
+完整响应数据:
+{
+  "code": "101",
+  "data": {},
+  "message": "您已关注过该用户"
+}
+----------------------------------------------------------------------------------------------------
+
+【 5】 5. readCount
+----------------------------------------------------------------------------------------------------
+URL: https://e68web01.itomtest.com/api/friend/user/1.0/readCount
+状态: ❌ FAIL
+HTTP状态码: 200 | 响应码: 101 | 消息: 系统失败
+耗时: 158.2ms
+
+请求参数:
+{
+  "type": "1",
+  "id": 1689288
+}
+
+完整响应数据:
+{
+  "code": "101",
+  "data": {},
+  "message": "系统失败"
+}
+----------------------------------------------------------------------------------------------------
+
+【 6】 6. saveShare
+----------------------------------------------------------------------------------------------------
+URL: https://e68web01.itomtest.com/api/friend/user/1.0/saveShare
+状态: ✅ PASS
+HTTP状态码: 200 | 响应码: 10000 | 消息: 成功
+耗时: 149.6ms
+
+请求参数:
+{
+  "userId": 489714,
+  "circleId": 1689288
+}
+
+完整响应数据:
+{
+  "code": "10000",
+  "data": {},
+  "message": "成功"
+}
+----------------------------------------------------------------------------------------------------
+
+【 7】 7. saveChangePraise
+----------------------------------------------------------------------------------------------------
+URL: https://e68web01.itomtest.com/api/friend/user/1.0/saveChangePraise
+状态: ✅ PASS
+HTTP状态码: 200 | 响应码: 10000 | 消息: 成功
+耗时: 433.3ms
+
+请求参数:
+{
+  "userId": 489714,
+  "praiseType": "1",
+  "type": "1",
+  "circleId": 1689288
+}
+
+完整响应数据:
+{
+  "code": "10000",
+  "data": {},
+  "message": "成功"
+}
+----------------------------------------------------------------------------------------------------
+
+【 8】 8. getLevel
+----------------------------------------------------------------------------------------------------
+URL: https://e68web01.itomtest.com/api/friend/levelSetting/1.0/getLevel
+状态: ✅ PASS
+HTTP状态码: 200 | 响应码: 10000 | 消息: 成功
+耗时: 141.5ms
+
+请求参数:
+{
+  "account": "adults123",
+  "money": 0,
+  "levelId": "1"
+}
+
+完整响应数据:
+{
+  "code": "10000",
+  "data": {
+    "id": {},
+    "name": {},
+    "account": {},
+    "flag": "Y",
+    "operateType": {},
+    "operateValue": {},
+    "isPublish": "Y",
+    "isPraise": "Y",
+    "isComment": "Y",
+    "product": {},
+    "createTime": {},
+    "createUser": {},
+    "updateTime": {},
+    "updateUser": {},
+    "itemName": {}
+  },
+  "message": "成功"
+}
+----------------------------------------------------------------------------------------------------
+
+【 9】 9. board-index
+----------------------------------------------------------------------------------------------------
+URL: https://e68web01.itomtest.com/api/friend/board/index/getByLevel
+状态: ✅ PASS
+HTTP状态码: 200 | 响应码: 10000 | 消息: 成功
+耗时: 161.2ms
+
+请求参数:
+{
+  "boardLevel": 1
+}
+
+完整响应数据:
+{
+  "code": "10000",
+  "data": [
+    {
+      "id": 45,
+      "boardTitle": "老虎机",
+      "boardLevel": 1
+    },
+    {
+      "id": 46,
+      "boardTitle": "棋牌",
+      "boardLevel": 1
+    },
+    {
+      "id": 47,
+      "boardTitle": "真人",
+      "boardLevel": 1
+    },
+    {
+      "id": 48,
+      "boardTitle": "体育",
+      "boardLevel": 1
+    },
+    {
+      "id": 49,
+      "boardTitle": "电竞",
+      "boardLevel": 1
+    },
+    {
+      "id": 50,
+      "boardTitle": "其他",
+      "boardLevel": 1
+    }
+  ],
+  "message": "成功"
+}
+----------------------------------------------------------------------------------------------------
+
+【10】 10. board-guess
+----------------------------------------------------------------------------------------------------
+URL: https://e68web01.itomtest.com/api/friend/board/guess/getByLevel
+状态: ✅ PASS
+HTTP状态码: 200 | 响应码: 10000 | 消息: 成功
+耗时: 176.0ms
+
+请求参数:
+{
+  "boardLevel": 1
+}
+
+完整响应数据:
+{
+  "code": "10000",
+  "data": [],
+  "message": "成功"
+}
+----------------------------------------------------------------------------------------------------
+
+【11】 11. getCountList
+----------------------------------------------------------------------------------------------------
+URL: https://e68web01.itomtest.com/api/friend/circle/1.0/getCountList
+状态: ✅ PASS
+HTTP状态码: 200 | 响应码: 10000 | 消息: 成功
+耗时: 146.0ms
+
+请求参数:
+{
+  "time": "1706345600000"
+}
+
+完整响应数据:
+{
+  "code": "10000",
+  "data": {
+    "count": 16211
+  },
+  "message": "成功"
+}
+----------------------------------------------------------------------------------------------------
+
+【12】 12. saveCircle
+----------------------------------------------------------------------------------------------------
+URL: https://e68web01.itomtest.com/api/friend/circle/1.0/saveCircle
+状态: ❌ FAIL
+HTTP状态码: 200 | 响应码: 101 | 消息: 网络繁忙，请稍后重试！
+耗时: 153.4ms
+
+请求参数:
+{
+  "userId": 489714,
+  "content": "test"
+}
+
+完整响应数据:
+{
+  "code": "101",
+  "data": {},
+  "message": "网络繁忙，请稍后重试！"
+}
+----------------------------------------------------------------------------------------------------
+
+【13】 13. pageList-circle
+----------------------------------------------------------------------------------------------------
+URL: https://e68web01.itomtest.com/api/friend/circle/2.0/pageList
+状态: ✅ PASS
+HTTP状态码: 200 | 响应码: 10000 | 消息: 成功
+耗时: 759.7ms
+
+请求参数:
+{
+  "pageNum": 1,
+  "pageSize": 20
+}
+
+完整响应数据:
+{
+  "code": "10000",
+  "data": {
+    "pageNum": 1,
+    "pageSize": 20,
+    "size": 20,
+    "startRow": 1,
+    "endRow": 20,
+    "total": 12302,
+    "pages": 616,
+    "list": [
+      {
+        "id": 1692098,
+        "userId": 426109,
+        "isPaise": "N",
+        "isPaiseList": {},
+        "userName": "LH867152",
+        "userLevel": 15,
+        "nickName": "Win哥",
+        "headUrl": "https://tg.shdunjiusy.com/lh/friend/facf75c9-533a-470c-89e4-600f91f0e078.jpeg",
+        "content": "🎉 恭喜以下五位幸运玩家获得年货好礼！\ndfvhgf\n太子爷༗࿆༣\nallow2000\n还能有什么\n生死有命富贵在天\n\n请以上玩家尽快联系在线客服 / 专属客服，完成收货信息登记。\n\n📢 更多精彩活动持续进行中，\n记得关注 【Win哥动态账号】，\n下一个大奖，很可能就是你！💥",
+        "commentCount": 2,
+        "praiseCount": 16,
+        "status": 0,
+        "createTime": 1769511496000,
+        "showTime": "2026-01-27 18:58:16",
+        "videoPath": {},
+        "videoImg": {},
+        "imagePath": {},
+        "circleSort": 1,
+        "hot": 0,
+        "bright": 0,
+        "type": 0,
+        "topicId": {},
+        "topicIcon": {},
+        "topicTitle": {},
+        "voteThemes": [],
+        "imageList": []
+      },
+      {
+        "id": 1672646,
+        "userId": 426109,
+        "isPaise": "N",
+        "isPaiseList": {},
+        "userName": "LH867152",
+        "userLevel": 15,
+        "nickName": "Win哥",
+        "headUrl": "https://tg.shdunjiusy.com/lh/friend/facf75c9-533a-470c-89e4-600f91f0e078.jpeg",
+        "content": "🎊 2026 鸿运开局，红包从 1 月开始！ 🎊\n\n📅 活动时间： 2026 年 1 月 1 日 – 1 月 31 日\n新年好运开局！完成【元旦开门红】任务，轻松领取专属红包👇\n\n🔥 活动一｜首投达标领红包\n\n新年首次投注，当日首次投注额满 3888 元\n前往动态圈完成晒图申请\n即可领取 8 元红包\n\n🎁 活动二｜连续存款领红包\n\n活动期间，连续存款（中断不计）\n每日存款 ≥100 元\n奖励如下：\n连续 3 天：18 元红包\n连续 5 天：28 元红包\n连续 7 天：38 元红包\n满足要求请于动态圈晒图申请，过时不补\n\n📌 活动说明：\n每位玩家两项活动各限参与一次\n彩金将于次日 18:00 前发放（5倍水）",
+        "commentCount": 18,
+        "praiseCount": 52,
+        "status": 0,
+        "createTime": 1767231517000,
+        "showTime": "2026-01-01 09:38:37",
+        "videoPath": {},
+        "videoImg": {},
+        "imagePath": {},
+        "circleSort": 1,
+        "hot": 0,
+        "bright": 0,
+        "type": 0,
+        "topicId": {},
+        "topicIcon": {},
+        "topicTitle": {},
+        "voteThemes": [],
+        "imageList": [
+          "https://tg.shdunjiusy.com/lh/friend/d455434c-4fb6-46bc-a2d4-26679dc1e92b.jpg"
+        ]
+      },
+      {
+        "id": 1548042,
+        "userId": 426109,
+        "isPaise": "N",
+        "isPaiseList": {},
+        "userName": "LH867152",
+        "userLevel": 15,
+        "nickName": "Win哥",
+        "headUrl": "https://tg.shdunjiusy.com/lh/friend/facf75c9-533a-470c-89e4-600f91f0e078.jpeg",
+        "content": "【永久域名】牢记： lw8.vip",
+        "commentCount": 15,
+        "praiseCount": 6,
+        "status": 0,
+        "createTime": 1753519012000,
+        "showTime": "2025-07-26 16:36:52",
+        "videoPath": {},
+        "videoImg": {},
+        "imagePath": {},
+        "circleSort": 1,
+        "hot": 0,
+        "bright": 0,
+        "type": 1,
+        "topicId": {},
+        "topicIcon": {},
+        "topicTitle": {},
+        "voteThemes": [],
+        "imageList": []
+      },
+      {
+        "id": 1522606,
+        "userId": 426109,
+        "isPaise": "N",
+        "isPaiseList": {},
+        "userName": "LH867152",
+        "userLevel": 15,
+        "nickName": "Win哥",
+        "headUrl": "https://tg.shdunjiusy.com/lh/friend/facf75c9-533a-470c-89e4-600f91f0e078.jpeg",
+        "content": "【优惠通知】VIP系统重磅上线，豪礼等您解锁\n全新VIP新15个等级，晋级尊享会员权益：\n专属福利、限时特权、优先体验等惊喜不断！\n即刻加入VIP行列，开启属于您的荣耀之旅！",
+        "commentCount": 1,
+        "praiseCount": 5,
+        "status": 0,
+        "createTime": 1750745713000,
+        "showTime": "2025-06-24 14:15:13",
+        "videoPath": {},
+        "videoImg": {},
+        "imagePath": {},
+        "circleSort": 1,
+        "hot": 1,
+        "bright": 0,
+        "type": 1,
+        "topicId": {},
+        "topicIcon": {},
+        "topicTitle": {},
+        "voteThemes": [],
+        "imageList": []
+      },
+      {
+        "id": 1434908,
+        "userId": 426109,
+        "isPaise": "N",
+        "isPaiseList": {},
+        "userName": "LH867152",
+        "userLevel": 15,
+        "nickName": "Win哥",
+        "headUrl": "https://tg.shdunjiusy.com/lh/friend/facf75c9-533a-470c-89e4-600f91f0e078.jpeg",
+        "content": "【温馨提醒】近期有诈骗团伙使用微信联系客户，绑定诈骗人员的提款地址，请客户注意，官方无微信等私下提款方式，请使用官网在线客服或专属客服联系方式确认，避免上当受骗！🔥🔥",
+        "commentCount": 9,
+        "praiseCount": 9,
+        "status": 0,
+        "createTime": 1742268666000,
+        "showTime": "2025-03-18 11:31:06",
+        "videoPath": {},
+        "videoImg": {},
+        "imagePath": {},
+        "circleSort": 1,
+        "hot": 1,
+        "bright": 0,
+        "type": 1,
+        "topicId": {},
+        "topicIcon": {},
+        "topicTitle": {},
+        "voteThemes": [],
+        "imageList": []
+      },
+      {
+        "id": 1692826,
+        "userId": 426776,
+        "isPaise": "N",
+        "isPaiseList": {},
+        "userName": "LW890870",
+        "userLevel": 8,
+        "nickName": "一路长虹",
+        "headUrl": "https://tg.shdunjiusy.com/lh/friend/1881d8d3-42d3-45a0-9319-a6e0490b8bc5.JPG",
+        "content": "彩金",
+        "commentCount": 0,
+        "praiseCount": 0,
+        "status": 2,
+        "createTime": 1769605239000,
+        "showTime": "6分钟前",
+        "videoPath": {},
+        "videoImg": {},
+        "imagePath": {},
+        "circleSort": 0,
+        "hot": 0,
+        "bright": 0,
+        "type": 0,
+        "topicId": 1682,
+        "topicIcon": "https://tg.shdunjiusy.com/lh/friend/6d7b399c-7ed3-463b-a388-169980520408.png",
+        "topicTitle": "#PG晒图赢彩金#",
+        "voteThemes": [],
+        "imageList": [
+          "https://tg.shdunjiusy.com/lh/friend/be718b37-4f45-4f8c-8592-f85b132b02ed.jpg",
+          "https://tg.shdunjiusy.com/lh/friend/0be40dab-5661-4dc1-8d75-1122fe22ccce.jpg"
+        ]
+      },
+      {
+        "id": 1692814,
+        "userId": 427845,
+        "isPaise": "N",
+        "isPaiseList": {},
+        "userName": "LH871110",
+        "userLevel": 7,
+        "nickName": "重新来过",
+        "headUrl": "https://tg.shdunjiusy.com/lh/friend/b2a1a858-d56d-4037-9035-fb21808fa8e5.jpeg",
+        "content": "PP可以冲！兄弟们好运连连！！！本来打开游戏进去四块钱的注，我特么改成一块二，第一把直接进免费活动。",
+        "commentCount": 0,
+        "praiseCount": 0,
+        "status": 0,
+        "createTime": 1769603726000,
+        "showTime": "31分钟前",
+        "videoPath": {},
+        "videoImg": {},
+        "imagePath": {},
+        "circleSort": 0,
+        "hot": 0,
+        "bright": 0,
+        "type": 0,
+        "topicId": {},
+        "topicIcon": {},
+        "topicTitle": {},
+        "voteThemes": [],
+        "imageList": [
+          "https://tg.shdunjiusy.com/lh/friend/b252894b-99f0-4701-a60c-034457e06d96.jpg",
+          "https://tg.shdunjiusy.com/lh/friend/aeb185ee-1ea0-4bf2-86b1-4de3e6693352.jpg",
+          "https://tg.shdunjiusy.com/lh/friend/a876030f-5937-42e8-affd-83fd418e0739.jpg"
+        ]
+      },
+      {
+        "id": 1692800,
+        "userId": 426883,
+        "isPaise": "N",
+        "isPaiseList": {},
+        "userName": "LH8016877",
+        "userLevel": 7,
+        "nickName": "zhuanwan",
+        "headUrl": "https://tg.shdunjiusy.com/lh/friend/fcada26f-b82d-4b60-b772-05642d5c38f7.png",
+        "content": "好吧……",
+        "commentCount": 1,
+        "praiseCount": 0,
+        "status": 0,
+        "createTime": 1769601969000,
+        "showTime": "1小时前",
+        "videoPath": {},
+        "videoImg": {},
+        "imagePath": {},
+        "circleSort": 0,
+        "hot": 0,
+        "bright": 0,
+        "type": 0,
+        "topicId": 1682,
+        "topicIcon": "https://tg.shdunjiusy.com/lh/friend/6d7b399c-7ed3-463b-a388-169980520408.png",
+        "topicTitle": "#PG晒图赢彩金#",
+        "voteThemes": [],
+        "imageList": [
+          "https://tg.shdunjiusy.com/lh/friend/8d2a1a1f-4baa-43ea-84d5-58abc1d9769d.jpg",
+          "https://tg.shdunjiusy.com/lh/friend/a538e5e1-6ec4-4420-93ed-fe5e94eb4d58.jpg"
+        ]
+      },
+      {
+        "id": 1692772,
+        "userId": 427845,
+        "isPaise": "N",
+        "isPaiseList": {},
+        "userName": "LH871110",
+        "userLevel": 7,
+        "nickName": "重新来过",
+        "headUrl": "https://tg.shdunjiusy.com/lh/friend/b2a1a858-d56d-4037-9035-fb21808fa8e5.jpeg",
+        "content": "虎子哥，审核通过一下",
+        "commentCount": 2,
+        "praiseCount": 0,
+        "status": 0,
+        "createTime": 1769596389000,
+        "showTime": "2小时前",
+        "videoPath": {},
+        "videoImg": {},
+        "imagePath": {},
+        "circleSort": 0,
+        "hot": 0,
+        "bright": 0,
+        "type": 0,
+        "topicId": {},
+        "topicIcon": {},
+        "topicTitle": {},
+        "voteThemes": [],
+        "imageList": [
+          "https://tg.shdunjiusy.com/lh/friend/6ca4dd2f-633c-47e7-a380-05ce9ede6913.jpg",
+          "https://tg.shdunjiusy.com/lh/friend/1e0b9fd5-1fb4-4d4d-9d17-36ccb982d464.jpg",
+          "https://tg.shdunjiusy.com/lh/friend/a0ba6482-b959-42f5-999e-b663f68a18c9.jpg",
+          "https://tg.shdunjiusy.com/lh/friend/a95e28e9-631c-4e98-b6bd-2288f1ebd615.jpg"
+        ]
+      },
+      {
+        "id": 1692760,
+        "userId": 488714,
+        "isPaise": "N",
+        "isPaiseList": {},
+        "userName": "adults123",
+        "userLevel": 0,
+        "nickName": "test",
+        "headUrl": "https://example.com/new.png",
+        "content": "what’s the meaning ",
+        "commentCount": 0,
+        "praiseCount": 0,
+        "status": 1,
+        "createTime": 1769595044000,
+        "showTime": "2小时前",
+        "videoPath": {},
+        "videoImg": {},
+        "imagePath": {},
+        "circleSort": 0,
+        "hot": 0,
+        "bright": 0,
+        "type": 0,
+        "topicId": 2082,
+        "topicIcon": "https://tg.shdunjiusy.com/lh/friend/8736ffa4-11bb-4fe7-81c4-902d5ee43e3c.png",
+        "topicTitle": "#1月好运时刻#",
+        "voteThemes": [],
+        "imageList": []
+      },
+      {
+        "id": 1692756,
+        "userId": 488714,
+        "isPaise": "N",
+        "isPaiseList": {},
+        "userName": "adults123",
+        "userLevel": 0,
+        "nickName": "test",
+        "headUrl": "https://example.com/new.png",
+        "content": "Hhhhhhhhhh",
+        "commentCount": 0,
+        "praiseCount": 0,
+        "status": 1,
+        "createTime": 1769594902000,
+        "showTime": "2小时前",
+        "videoPath": {},
+        "videoImg": {},
+        "imagePath": {},
+        "circleSort": 0,
+        "hot": 0,
+        "bright": 0,
+        "type": 0,
+        "topicId": {},
+        "topicIcon": {},
+        "topicTitle": {},
+        "voteThemes": [],
+        "imageList": [
+          "https://tg.shdunjiusy.com/lh/friend/5ec1b5b9-ed05-4d87-8fc7-0682c25bac66.jpeg"
+        ]
+      },
+      {
+        "id": 1692754,
+        "userId": 488714,
+        "isPaise": "N",
+        "isPaiseList": {},
+        "userName": "adults123",
+        "userLevel": 0,
+        "nickName": "test",
+        "headUrl": "https://example.com/new.png",
+        "content": "What’s wrong ",
+        "commentCount": 0,
+        "praiseCount": 0,
+        "status": 1,
+        "createTime": 1769594884000,
+        "showTime": "2小时前",
+        "videoPath": {},
+        "videoImg": {},
+        "imagePath": {},
+        "circleSort": 0,
+        "hot": 0,
+        "bright": 0,
+        "type": 0,
+        "topicId": 2082,
+        "topicIcon": "https://tg.shdunjiusy.com/lh/friend/8736ffa4-11bb-4fe7-81c4-902d5ee43e3c.png",
+        "topicTitle": "#1月好运时刻#",
+        "voteThemes": [],
+        "imageList": []
+      },
+      {
+        "id": 1692752,
+        "userId": 488714,
+        "isPaise": "N",
+        "isPaiseList": {},
+        "userName": "adults123",
+        "userLevel": 0,
+        "nickName": "test",
+        "headUrl": "https://example.com/new.png",
+        "content": "红红火火恍恍惚惚",
+        "commentCount": 0,
+        "praiseCount": 0,
+        "status": 1,
+        "createTime": 1769594863000,
+        "showTime": "2小时前",
+        "videoPath": {},
+        "videoImg": {},
+        "imagePath": {},
+        "circleSort": 0,
+        "hot": 0,
+        "bright": 0,
+        "type": 0,
+        "topicId": {},
+        "topicIcon": {},
+        "topicTitle": {},
+        "voteThemes": [],
+        "imageList": [
+          "https://tg.shdunjiusy.com/lh/friend/ac3d6523-e18c-4ccd-ba46-47da5d863ba6.jpeg"
+        ]
+      },
+      {
+        "id": 1692750,
+        "userId": 488714,
+        "isPaise": "N",
+        "isPaiseList": {},
+        "userName": "adults123",
+        "userLevel": 0,
+        "nickName": "test",
+        "headUrl": "https://example.com/new.png",
+        "content": "嘿嘿",
+        "commentCount": 0,
+        "praiseCount": 0,
+        "status": 1,
+        "createTime": 1769594846000,
+        "showTime": "2小时前",
+        "videoPath": {},
+        "videoImg": {},
+        "imagePath": {},
+        "circleSort": 0,
+        "hot": 0,
+        "bright": 0,
+        "type": 0,
+        "topicId": {},
+        "topicIcon": {},
+        "topicTitle": {},
+        "voteThemes": [],
+        "imageList": [
+          "https://tg.shdunjiusy.com/lh/friend/1fc21431-4ddc-45b1-bc12-d98c8250d393.jpeg"
+        ]
+      },
+      {
+        "id": 1692746,
+        "userId": 488714,
+        "isPaise": "N",
+        "isPaiseList": {},
+        "userName": "adults123",
+        "userLevel": 0,
+        "nickName": "test",
+        "headUrl": "https://example.com/new.png",
+        "content": "嘿嘿",
+        "commentCount": 0,
+        "praiseCount": 0,
+        "status": 1,
+        "createTime": 1769594745000,
+        "showTime": "3小时前",
+        "videoPath": {},
+        "videoImg": {},
+        "imagePath": {},
+        "circleSort": 0,
+        "hot": 0,
+        "bright": 0,
+        "type": 0,
+        "topicId": {},
+        "topicIcon": {},
+        "topicTitle": {},
+        "voteThemes": [],
+        "imageList": [
+          "https://tg.shdunjiusy.com/lh/friend/1b18df30-6734-4e28-be76-7055d71253bd.jpeg",
+          "https://tg.shdunjiusy.com/lh/friend/2bdaa052-4b17-4638-adb7-ec61cee14569.jpeg"
+        ]
+      },
+      {
+        "id": 1692744,
+        "userId": 484765,
+        "isPaise": "N",
+        "isPaiseList": {},
+        "userName": "LW8875308",
+        "userLevel": 7,
+        "nickName": "不再充一分钱",
+        "headUrl": "https://tg.shdunjiusy.com/lh/friend/ff6feaff-0787-4ea2-8486-5d594e5d2a54.jpg",
+        "content": "\n",
+        "commentCount": 1,
+        "praiseCount": 0,
+        "status": 0,
+        "createTime": 1769594175000,
+        "showTime": "3小时前",
+        "videoPath": {},
+        "videoImg": {},
+        "imagePath": {},
+        "circleSort": 0,
+        "hot": 0,
+        "bright": 0,
+        "type": 0,
+        "topicId": 1682,
+        "topicIcon": "https://tg.shdunjiusy.com/lh/friend/6d7b399c-7ed3-463b-a388-169980520408.png",
+        "topicTitle": "#PG晒图赢彩金#",
+        "voteThemes": [],
+        "imageList": [
+          "https://tg.shdunjiusy.com/lh/friend/338c2f6f-1dfd-4730-95a9-75a418582466.jpg",
+          "https://tg.shdunjiusy.com/lh/friend/f44d23c8-e4b3-4c20-877e-c6d139f1914e.jpg"
+        ]
+      },
+      {
+        "id": 1692726,
+        "userId": 480106,
+        "isPaise": "N",
+        "isPaiseList": {},
+        "userName": "LW8555873",
+        "userLevel": 4,
+        "nickName": "一个字，吊",
+        "headUrl": "https://tg.shdunjiusy.com/lh/friend/666fa038-4338-4fed-8fba-1a217f5354df.JPG",
+        "content": "换十个游戏都是一样，搞不赢，删了，玩的心态都爆炸了，得气死，",
+        "commentCount": 0,
+        "praiseCount": 0,
+        "status": 1,
+        "createTime": 1769591352000,
+        "showTime": "3小时前",
+        "videoPath": {},
+        "videoImg": {},
+        "imagePath": {},
+        "circleSort": 0,
+        "hot": 0,
+        "bright": 0,
+        "type": 0,
+        "topicId": {},
+        "topicIcon": {},
+        "topicTitle": {},
+        "voteThemes": [],
+        "imageList": []
+      },
+      {
+        "id": 1692724,
+        "userId": 427344,
+        "isPaise": "N",
+        "isPaiseList": {},
+        "userName": "w13201",
+        "userLevel": 7,
+        "nickName": "大哥别杀我",
+        "headUrl": "https://tg.shdunjiusy.com/lh/friend/5be7713b-bee1-42ce-b903-d8b10ead4182.png",
+        "content": "费劲扒拉半天截图。你倒是审核啊？别人能通过你跳过我。什么意思",
+        "commentCount": 0,
+        "praiseCount": 0,
+        "status": 1,
+        "createTime": 1769591254000,
+        "showTime": "3小时前",
+        "videoPath": {},
+        "videoImg": {},
+        "imagePath": {},
+        "circleSort": 0,
+        "hot": 0,
+        "bright": 0,
+        "type": 0,
+        "topicId": {},
+        "topicIcon": {},
+        "topicTitle": {},
+        "voteThemes": [],
+        "imageList": []
+      },
+      {
+        "id": 1692698,
+        "userId": 443430,
+        "isPaise": "N",
+        "isPaiseList": {},
+        "userName": "A837842446",
+        "userLevel": 7,
+        "nickName": "爆浆",
+        "headUrl": "https://tg.shdunjiusy.com/lh/friend/8c61e93b-ecda-40ff-863e-1a322b30eac6.jpeg",
+        "content": "连续充值申请",
+        "commentCount": 0,
+        "praiseCount": 2,
+        "status": 0,
+        "createTime": 1769589452000,
+        "showTime": "4小时前",
+        "videoPath": {},
+        "videoImg": {},
+        "imagePath": {},
+        "circleSort": 0,
+        "hot": 0,
+        "bright": 0,
+        "type": 0,
+        "topicId": {},
+        "topicIcon": {},
+        "topicTitle": {},
+        "voteThemes": [],
+        "imageList": [
+          "https://tg.shdunjiusy.com/lh/friend/9deb781f-a043-43a6-b586-daf9a667e592.jpeg",
+          "https://tg.shdunjiusy.com/lh/friend/62697162-b581-4ab5-ae9e-49ee4ebd83b7.jpeg"
+        ]
+      },
+      {
+        "id": 1692684,
+        "userId": 456674,
+        "isPaise": "N",
+        "isPaiseList": {},
+        "userName": "LH879908",
+        "userLevel": 8,
+        "nickName": "久伴梦醒魂末归",
+        "headUrl": "https://tg.shdunjiusy.com/lh/friend/469bef13-c36a-4b9f-af60-20d0c27bc837.JPG",
+        "content": "现在pg不怎么出奖了，小注都不行",
+        "commentCount": 0,
+        "praiseCount": 2,
+        "status": 0,
+        "createTime": 1769587281000,
+        "showTime": "5小时前",
+        "videoPath": {},
+        "videoImg": {},
+        "imagePath": {},
+        "circleSort": 0,
+        "hot": 0,
+        "bright": 0,
+        "type": 0,
+        "topicId": {},
+        "topicIcon": {},
+        "topicTitle": {},
+        "voteThemes": [],
+        "imageList": []
+      }
+    ],
+    "prePage": 0,
+    "nextPage": 2,
+    "isFirstPage": true,
+    "isLastPage": false,
+    "hasPreviousPage": false,
+    "hasNextPage": true,
+    "navigatePages": 8,
+    "navigatepageNums": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "navigateFirstPage": 1,
+    "navigateLastPage": 8,
+    "firstPage": 1,
+    "lastPage": 8
+  },
+  "message": "成功"
+}
+----------------------------------------------------------------------------------------------------
+
+【14】 14. pageList-index
+----------------------------------------------------------------------------------------------------
+URL: https://e68web01.itomtest.com/api/friend/indexSetting/1.0/pageList
+状态: ✅ PASS
+HTTP状态码: 200 | 响应码: 10000 | 消息: 成功
+耗时: 258.7ms
+
+请求参数:
+{
+  "pageNum": 1,
+  "pageSize": 20
+}
+
+完整响应数据:
+{
+  "code": "10000",
+  "data": {
+    "pageNum": 1,
+    "pageSize": 20,
+    "size": 20,
+    "startRow": 1,
+    "endRow": 20,
+    "total": 734,
+    "pages": 37,
+    "list": [
+      {
+        "id": 240283,
+        "type": "体育",
+        "content": "<p><img src=\"https://tg.shdunjiusy.com/lh/friend/68c8a984-9295-416a-92af-c389406d7564.png\" title=\"\" alt=\"体育.png\"/><br/></p><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\">01月28日讯 NBA常规赛，76人主场迎战雄鹿的比赛已经结束，最终76人以139-122击败雄鹿。</span></p><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\">76人球员乔尔-恩比德本场比赛首发登场29分钟，全场24投11中，三分4中1，罚球6中6砍下29分9篮板5助攻1抢断。</span></p><p><br/></p>",
+        "publish": {},
+        "indexSort": 1,
+        "indexType": 1,
+        "flag": "Y",
+        "product": "lh",
+        "publishTime": 1769588215000,
+        "failureTime": 1895818616000,
+        "commentCount": 0,
+        "praiseCount": 0,
+        "readCount": 3,
+        "title": "恩比德全场24投11中，三分4中1砍下29分9篮板5助攻1抢断",
+        "imgUrl": "https://tg.shdunjiusy.com/lh/friend/ef7f31fb-6020-4724-ac79-e1481b6b2aef.png",
+        "videoUrl": {},
+        "liveUrl": {},
+        "createTime": 1769588231000,
+        "createUser": {},
+        "updateTime": {},
+        "updateUser": {},
+        "userId": 422415,
+        "userName": "ARM001",
+        "nickName": "追风少年",
+        "showTime": "4小时前",
+        "isPaise": "N",
+        "isPaiseList": {},
+        "imageList": [
+          "https://tg.shdunjiusy.com/lh/friend/ef7f31fb-6020-4724-ac79-e1481b6b2aef.png"
+        ],
+        "imgUrlList": {},
+        "voteThemes": {}
+      },
+      {
+        "id": 240183,
+        "type": "老虎机",
+        "content": "<p><span style=\"font-size: 36px;\">˗ˏˋ🎉ˎˊ˗少林足球˗ˏˋ🎉ˎˊ˗</span></p><p><span style=\"font-size: 36px;\">游戏平台：PG老虎机</span></p><p><span style=\"font-size: 36px;\">投注金额：50元</span></p><p><span style=\"font-size: 36px;\">中奖金额：32,320元</span><br/><img src=\"https://tg.shdunjiusy.com/lh/friend/6cf27988-d5ac-4b6c-9c26-0e2a0d28b5c9.png\" title=\"\" alt=\"1.png\"/><br/><img src=\"https://tg.shdunjiusy.com/lh/friend/1b15c2f5-4571-40ad-a859-e89569e1a523.png\" title=\"\" alt=\"2.png\"/><br/><img src=\"https://tg.shdunjiusy.com/lh/friend/d5bfab5e-3b99-468c-981d-091c7a7f4ba3.png\" title=\"\" alt=\"3.png\"/></p><p><br/></p>",
+        "publish": {},
+        "indexSort": 1,
+        "indexType": 1,
+        "flag": "Y",
+        "product": "lh",
+        "publishTime": 1769567420000,
+        "failureTime": 1895797821000,
+        "commentCount": 0,
+        "praiseCount": 0,
+        "readCount": 51,
+        "title": "PG【少林足球】爆分老虎机分享",
+        "imgUrl": "https://tg.shdunjiusy.com/lh/friend/126f599c-9a3f-437e-b069-1ff6b9109aa4.png",
+        "videoUrl": {},
+        "liveUrl": {},
+        "createTime": 1769567430000,
+        "createUser": {},
+        "updateTime": {},
+        "updateUser": {},
+        "userId": 422415,
+        "userName": "ARM001",
+        "nickName": "追风少年",
+        "showTime": "10小时前",
+        "isPaise": "N",
+        "isPaiseList": {},
+        "imageList": [
+          "https://tg.shdunjiusy.com/lh/friend/126f599c-9a3f-437e-b069-1ff6b9109aa4.png"
+        ],
+        "imgUrlList": {},
+        "voteThemes": {}
+      },
+      {
+        "id": 240089,
+        "type": "win哥播报",
+        "content": "<p><span style=\"font-size: 36px;\">🦋【双线齐开 · 一战封神】🦋<br/>&nbsp;1 月 24 日—1 月 25日玩家 zl**13***在 PP 老虎机 &amp; DB 体育 双线火力全开，强势爆发！</span></p><p><span style=\"font-size: 36px;\">🔥 这不仅仅是运气爆发，而是一场真实发生的高光时刻！</span></p><p><span style=\"font-size: 36px;\">在 PP 老虎机 《奥林匹斯之门·超神力》 中，玩家状态全面拉满，超能力护体，<br/>⚡ 一波命中 562,500 元，爽快收割，表现封神！</span></p><p><img src=\"https://tg.shdunjiusy.com/lh/friend/34ffe34f-c4aa-45b4-9f46-63397cc99aea.png\" title=\"\" alt=\"8.png\"/><br/><img src=\"https://tg.shdunjiusy.com/lh/friend/b06fc547-1c29-40be-ba80-5099f4464bdb.png\" title=\"\" alt=\"88.png\"/><br/><br/></p><p><span style=\"font-size: 48px;\">如果说老虎机拼的是运气，那么体育连中拼的就是实力！</span></p><p><span style=\"font-size: 48px;\">该玩家在 DB 体育 串关出击，🎯 4 单全中，强势拿下 290,151.29 元！</span><br/><img src=\"https://tg.shdunjiusy.com/lh/friend/2deff241-8f35-4bab-8587-738b339612af.png\" title=\"\" alt=\"图像 (1) (1).png\"/><br/><img src=\"https://tg.shdunjiusy.com/lh/friend/47465d8e-29bf-49eb-94d1-3ff034b28491.png\" title=\"\" alt=\"图像 (2) (1).png\"/><br/><span style=\"font-size: 36px;\">🔥 这不是巧合，而是判断、胆识与执行力全面到位的结果！<br data-start=\"62\" data-end=\"65\"/>⚡ 实力在线，好运加持，胜利自然水到渠成！</span><img src=\"https://tg.shdunjiusy.com/lh/friend/bb0e399d-09c5-4dc2-a510-7bc5b52b7d05.png\" title=\"\" alt=\"图像 (4) (1).png\"/><br/></p><p><span style=\"font-size: 36px;\">勇敢出手，紧跟节奏，下一个赢家或许就是你！🔥</span></p><p><span style=\"font-size: 36px;\">🎰 PP 老虎机等你来爆分<br/>⚽ DB 体育火力全开，赢在判断</span></p><p><span style=\"font-size: 36px;\">Win哥再次恭喜 zl**13*** 玩家斩获 811,944.28 元，<br/>✨ 好运，也正在走向正在看这条动态的你！</span></p><p><br/></p>",
+        "publish": {},
+        "indexSort": 1,
+        "indexType": 1,
+        "flag": "Y",
+        "product": "lh",
+        "publishTime": 1769496337000,
+        "failureTime": 1895726738000,
+        "commentCount": 0,
+        "praiseCount": 0,
+        "readCount": 91,
+        "title": "恭喜玩家 zl**13***双线齐开，一战封神，斩获 811,944.28 元！",
+        "imgUrl": "https://tg.shdunjiusy.com/lh/friend/ac787e74-69b1-478a-9255-852a84802225.png",
+        "videoUrl": {},
+        "liveUrl": {},
+        "createTime": 1769496351000,
+        "createUser": {},
+        "updateTime": {},
+        "updateUser": {},
+        "userId": 422415,
+        "userName": "ARM001",
+        "nickName": "追风少年",
+        "showTime": "2026-01-27 14:45:51",
+        "isPaise": "N",
+        "isPaiseList": {},
+        "imageList": [
+          "https://tg.shdunjiusy.com/lh/friend/ac787e74-69b1-478a-9255-852a84802225.png"
+        ],
+        "imgUrlList": {},
+        "voteThemes": {}
+      },
+      {
+        "id": 240087,
+        "type": "电竞",
+        "content": "<p><span style=\"font-size: 36px;\">随着LPL第一赛段的比赛逐渐进行，目前赛程也是结束了前两周的比拼来到第三周。经历前两周的激烈角逐，目前联赛当中实力和战绩均处于第一梯队的，是去年就有不错表现的AL与BLG两支强队。让人意外的是，JDG这支在转会期阵容大换血的老牌战队异军突起，成为现阶段LPL最大的搅局者。</span></p><p><span style=\"font-size:inherit;\"><img src=\"https://tg.shdunjiusy.com/lh/friend/365f7c1c-ef11-40ee-8d17-decf779fa925.png\" title=\"\" alt=\"电竞.png\"/><br/><span style=\"font-size: 36px;\">截止今天的比赛打完，JDG以4胜2负的战绩超过BLG位居登峰组第一，这在一个月前可能是谁也不敢想的战绩。毕竟虽然JDG今年的阵容也是投入了不少预算组建出来的，但是除了Gala以外其他位置上都不算LPL的明星选手，也没有大牌韩援的加盟。</span><span style=\"font-size:inherit;\"><br/><img src=\"https://tg.shdunjiusy.com/lh/friend/8e6ed16f-44f0-4fae-872a-be7408a4c31b.png\" title=\"\" alt=\"电竞1.png\"/><br/></span></span></p><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\">在今年的第一场大型赛事德杯，JDG派出了全主力参赛，虽然打进了决赛却被实力相比去年有所削弱的iG零封，这让观众在LPL新赛季前对他们不太看好。而第一赛段开始后，JDG也是输给了iG和WBG两支队伍，整体状态和实力的波动很大。然而随着最近两场比赛连续力克BLG，也体现出了他们有着很高的上限。</span></p><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\">随着今天的比赛以2-1击败BLG，这也意味着在第一赛段JDG完成了对BLG的双杀。在组内赛阶段两支队伍不会再碰面，这也意味着BLG想复仇还得等到之后的淘汰赛。而在这场比赛之后，JDG除了场上五名选手的表现受到称赞以外，他们今年大价钱引入的教练Tabe也获得了观众的认可。</span></p><p><img src=\"https://tg.shdunjiusy.com/lh/friend/a6952ec9-ab7f-4cdc-8213-90e35ea2261e.png\" title=\"\" alt=\"电竞2.png\"/><br/><span style=\"font-size: 36px;\">过去几年Tabe通过自己出色的执教履历，证明了他就是目前LPL真正的国产第一教练。去年在AL这支阵容不算特别豪华的队伍，带队打出了LPL全年保二争一的出色成绩，今年来到JDG又化腐朽为神奇，让这支以新人为主的队伍跻身强队行列，Tabe对得起他拿的每一分钱，只能说贵有贵的道理了！<br/></span><img src=\"https://tg.shdunjiusy.com/lh/friend/0d0c795f-82f5-4563-aa38-50ac989e28e2.png\" title=\"\" alt=\"电竞3.png\"/><br/><span style=\"font-size: 36px;\">大家怎么看这件事呢？欢迎在下方评论区留言，分享自己的看法。</span></p>",
+        "publish": {},
+        "indexSort": 1,
+        "indexType": 1,
+        "flag": "Y",
+        "product": "lh",
+        "publishTime": 1769492939000,
+        "failureTime": 1895723341000,
+        "commentCount": 0,
+        "praiseCount": 0,
+        "readCount": 0,
+        "title": "LPL最强战队易主! JDG双杀BLG登顶LPL，国一教实至名归?",
+        "imgUrl": "https://tg.shdunjiusy.com/lh/friend/8f4b73ee-fbd3-4704-9e28-d61f4bea9af4.png",
+        "videoUrl": {},
+        "liveUrl": {},
+        "createTime": 1769492992000,
+        "createUser": {},
+        "updateTime": {},
+        "updateUser": {},
+        "userId": 422415,
+        "userName": "ARM001",
+        "nickName": "追风少年",
+        "showTime": "2026-01-27 13:49:52",
+        "isPaise": "N",
+        "isPaiseList": {},
+        "imageList": [
+          "https://tg.shdunjiusy.com/lh/friend/8f4b73ee-fbd3-4704-9e28-d61f4bea9af4.png"
+        ],
+        "imgUrlList": {},
+        "voteThemes": {}
+      },
+      {
+        "id": 240085,
+        "type": "体育",
+        "content": "<p><img src=\"https://tg.shdunjiusy.com/lh/friend/022805f7-c29b-4a73-9171-338a8304843c.png\" title=\"\" alt=\"体育.png\"/><br/></p><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\">01月27日讯 今天NBA常规赛湖人客场对阵公牛的比赛已经结束。全场战罢，湖人以129-118战胜公牛。</span></p><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\">本场比赛，湖人球员卢卡-东契奇出战38分钟，25投15中，其中三分球14投8中，罚球12投8中，得到46分7篮板11助攻。</span></p><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\">东契奇在2024年1月27日曾砍下73分10篮板7助攻，今日又砍下46分7篮板11助攻。</span></p><p><br/></p>",
+        "publish": {},
+        "indexSort": 1,
+        "indexType": 1,
+        "flag": "Y",
+        "product": "lh",
+        "publishTime": 1769492571000,
+        "failureTime": 1895722972000,
+        "commentCount": 0,
+        "praiseCount": 0,
+        "readCount": 1,
+        "title": "东契奇24年1月27日砍下73分10板7助，26年又砍下46分7板11助",
+        "imgUrl": "https://tg.shdunjiusy.com/lh/friend/4b4f526b-1bb0-4744-b4be-a0823d9e3e48.png",
+        "videoUrl": {},
+        "liveUrl": {},
+        "createTime": 1769492583000,
+        "createUser": {},
+        "updateTime": {},
+        "updateUser": {},
+        "userId": 422415,
+        "userName": "ARM001",
+        "nickName": "追风少年",
+        "showTime": "2026-01-27 13:43:03",
+        "isPaise": "N",
+        "isPaiseList": {},
+        "imageList": [
+          "https://tg.shdunjiusy.com/lh/friend/4b4f526b-1bb0-4744-b4be-a0823d9e3e48.png"
+        ],
+        "imgUrlList": {},
+        "voteThemes": {}
+      },
+      {
+        "id": 240083,
+        "type": "老虎机",
+        "content": "<p><span style=\"font-size: 36px;\">˗ˏˋ🎉ˎˊ˗赏金女王˗ˏˋ🎉ˎˊ˗</span></p><p><span style=\"font-size: 36px;\">游戏平台：PG老虎机</span></p><p><span style=\"font-size: 36px;\">投注金额：50元</span></p><p><span style=\"font-size: 36px;\">中奖金额：50987元</span><br/><img src=\"https://tg.shdunjiusy.com/lh/friend/6ee06618-2119-429e-9076-08b57f3c5714.png\" title=\"\" alt=\"1.png\"/><br/><img src=\"https://tg.shdunjiusy.com/lh/friend/3c58ee12-4815-4f16-94aa-19218584e677.png\" title=\"\" alt=\"2.png\"/><br/><img src=\"https://tg.shdunjiusy.com/lh/friend/74def90c-c1ae-4ce2-a2a2-adb55ea5b6a1.png\" title=\"\" alt=\"3.png\"/></p><p><br/></p>",
+        "publish": {},
+        "indexSort": 1,
+        "indexType": 1,
+        "flag": "Y",
+        "product": "lh",
+        "publishTime": 1769492387000,
+        "failureTime": 1895722788000,
+        "commentCount": 0,
+        "praiseCount": 0,
+        "readCount": 109,
+        "title": "PG【赏金女王】爆分老虎机分享",
+        "imgUrl": "https://tg.shdunjiusy.com/lh/friend/d3a8bebc-3e14-4d0a-acd1-3ef73a1299da.png",
+        "videoUrl": {},
+        "liveUrl": {},
+        "createTime": 1769492400000,
+        "createUser": {},
+        "updateTime": {},
+        "updateUser": {},
+        "userId": 422415,
+        "userName": "ARM001",
+        "nickName": "追风少年",
+        "showTime": "2026-01-27 13:40:00",
+        "isPaise": "N",
+        "isPaiseList": {},
+        "imageList": [
+          "https://tg.shdunjiusy.com/lh/friend/d3a8bebc-3e14-4d0a-acd1-3ef73a1299da.png"
+        ],
+        "imgUrlList": {},
+        "voteThemes": {}
+      },
+      {
+        "id": 239985,
+        "type": "体育",
+        "content": "<p><span style=\"font-size: 36px;\">北京时间1月26日，NBA常规赛继续进行。在今天一场西部对决中，勇士队客场111-85击败森林狼队，终结两连败，战绩变成26胜21负，继续排名西部第8位。<span style=\"font-size: inherit;\"><br/><img src=\"https://tg.shdunjiusy.com/lh/friend/97938274-24cc-41d9-a78f-a810c4666215.png\" title=\"\" alt=\"1.png\"/><br/>勇士队今天很快打出12-0的完美开局，随后他们遭到了森林狼队的顽强反扑。好在勇士队多次利用森林狼队的失误得分，勇士队次节比赛遭到森林狼队的追分，上半场结束仅领先1分。第三节比赛开始，勇士队在库里带领下再度打出进攻高潮，建立两位数领先。之后勇士队继续扩大分差，很快领先达到20分以上，森林狼队无力追分，勇士队拿到胜利。<span style=\"font-size: inherit;\"><br/><img src=\"https://tg.shdunjiusy.com/lh/friend/03ac138f-e340-467d-9661-1a6c828e993b.png\" title=\"\" alt=\"3.png\"/><br/><span style=\"font-size: inherit;\">库里今天扛起了勇士队进攻大旗，全场比赛出场28分钟，18投7中，其中三分球10中3，罚球9中9，合计得到26分2篮板7助攻，同时多达4个抢断，正负值为+16！需要说明的是，在今天比赛之后，库里超越哈弗里切克追平皮尔斯，总得分升至并列历史第19位，他下一个要超越的球星是马刺队传奇邓肯（26496分）。<br/><img src=\"https://tg.shdunjiusy.com/lh/friend/b694b4d0-8577-4b86-b707-aa64f86362b8.png\" title=\"\" alt=\"2.png\"/><br/><span style=\"font-size: inherit;\">除了库里之外，波杰姆斯基得到12分5篮板6助攻，穆迪砍下19分8篮板，追梦得到2分5篮板5助攻，霍福德得到10分5篮板，替补出场的梅尔顿得到12分，理查德得到10分。值得一提的是，勇士今天全队命中15记三分，总抢断数达到20个！<br/><img src=\"https://tg.shdunjiusy.com/lh/friend/c21e4b79-5cab-41af-824f-31c2b5095234.png\" title=\"\" alt=\"4.png\"/><br/></span></span></span></span></span><span style=\"font-size: 36px;\">需要说明的是，自从巴特勒赛季报销之后，这是勇士队拿到的首场胜利，此前他们遭遇两连败。在今天取胜之后，勇士队战绩变成26胜21负，继续排名西部第8位，目前他们距离身前的森林狼队缩小到1.5个胜场的差距，领先身后的开拓者队2.5个胜场。</span><span style=\"font-size: 36px;\"><span style=\"font-size: inherit;\"><span style=\"font-size: inherit;\"><span style=\"font-size: inherit;\"><span style=\"font-size: inherit;\"></span></span></span></span></span></p><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\">根据赛程安排，勇士队将于明天继续客场挑战森林狼队，他们能否再度取胜呢？让我们拭目以待！</span></p><p><span style=\"font-size: inherit;\"></span><br/></p>",
+        "publish": {},
+        "indexSort": 1,
+        "indexType": 1,
+        "flag": "Y",
+        "product": "lh",
+        "publishTime": 1769405284000,
+        "failureTime": 1895635685000,
+        "commentCount": 0,
+        "praiseCount": 0,
+        "readCount": 1,
+        "title": "勇士终获巴特勒报销后首胜! 库里引领6人上双 全队20记抢断太疯狂",
+        "imgUrl": "https://tg.shdunjiusy.com/lh/friend/0fd06d14-1e7e-44bd-8d5a-bf8f76d964f7.png",
+        "videoUrl": {},
+        "liveUrl": {},
+        "createTime": 1769405323000,
+        "createUser": {},
+        "updateTime": {},
+        "updateUser": {},
+        "userId": 422415,
+        "userName": "ARM001",
+        "nickName": "追风少年",
+        "showTime": "2026-01-26 13:28:43",
+        "isPaise": "N",
+        "isPaiseList": {},
+        "imageList": [
+          "https://tg.shdunjiusy.com/lh/friend/0fd06d14-1e7e-44bd-8d5a-bf8f76d964f7.png"
+        ],
+        "imgUrlList": {},
+        "voteThemes": {}
+      },
+      {
+        "id": 239983,
+        "type": "老虎机",
+        "content": "<p><span style=\"font-size: 36px;\">˗ˏˋ🎉ˎˊ˗麻将大胜3–黑金龙耀˗ˏˋ🎉ˎˊ˗</span></p><p><span style=\"font-size: 36px;\">游戏平台：PP老虎机</span></p><p><span style=\"font-size: 36px;\">投注金额：10元</span></p><p><span style=\"font-size: 36px;\">中奖金额：50290元</span><br/><img src=\"https://tg.shdunjiusy.com/lh/friend/39ccb3a0-c60d-4286-be2b-eaa1452288c3.png\" title=\"\" alt=\"1.png\"/><br/><img src=\"https://tg.shdunjiusy.com/lh/friend/a1422853-f55b-45c3-918b-99b2f67d1d8f.png\" title=\"\" alt=\"2.png\"/><br/><img src=\"https://tg.shdunjiusy.com/lh/friend/303b9e1e-f68c-40a0-b424-7d2278c8fe4a.png\" title=\"\" alt=\"3.png\"/></p><p><br/></p>",
+        "publish": {},
+        "indexSort": 1,
+        "indexType": 1,
+        "flag": "Y",
+        "product": "lh",
+        "publishTime": 1769400264000,
+        "failureTime": 1895630665000,
+        "commentCount": 0,
+        "praiseCount": 0,
+        "readCount": 141,
+        "title": "PP【麻将大胜3–黑金龙耀】爆分老虎机分享",
+        "imgUrl": "https://tg.shdunjiusy.com/lh/friend/e06202b3-8f94-4c29-b212-9e055a9e77ba.jpg",
+        "videoUrl": {},
+        "liveUrl": {},
+        "createTime": 1769400273000,
+        "createUser": {},
+        "updateTime": {},
+        "updateUser": {},
+        "userId": 422415,
+        "userName": "ARM001",
+        "nickName": "追风少年",
+        "showTime": "2026-01-26 12:04:33",
+        "isPaise": "N",
+        "isPaiseList": {},
+        "imageList": [
+          "https://tg.shdunjiusy.com/lh/friend/e06202b3-8f94-4c29-b212-9e055a9e77ba.jpg"
+        ],
+        "imgUrlList": {},
+        "voteThemes": {}
+      },
+      {
+        "id": 239889,
+        "type": "棋牌",
+        "content": "<h1 style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\"><strong>梭哈高手技巧——惊险两跳</strong></span></h1><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\">在梭哈中，成为高手不仅仅依靠运气，更需要娴熟的技巧和深刻的理解。尤其是“惊险的两跳”——理解效用值并借机运用，和玩转心理策略——是提升水平的关键。下面将详细阐述这两个方面的技巧：</span></p><h3 style=\"margin-bottom:16px;margin-top:16px;\"><span style=\"font-size: 36px;\"><strong>一、理解效用值并借机运用</strong></span></h3><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\"><strong>效用值</strong>：效用值是在不同决策下可能的收益和损失的预期值。计算效用值可以帮助你在面对决策时选择最有利的方案。</span></p><h3 style=\"margin-bottom:16px;margin-top:16px;\"><span style=\"font-size: 36px;\"><strong>1. 计算效用值</strong></span></h3><ul class=\" list-paddingleft-2\"><li><p><span style=\"font-size: 36px;\"><strong>基本概念</strong>：效用值是评估每种可能决策带来的预期收益。计算时需要考虑所有可能的结果及其发生的概率。</span></p></li><li><p><span style=\"font-size: 36px;\"><strong>例子</strong>：</span></p></li><ul class=\" list-paddingleft-2\" style=\"list-style-type: square;\"><li><p><span style=\"font-size: 36px;\">假设你手牌为10kkA，对手手牌为998j。牌面上已经有20W的台面分，对手加注40W，你估计对手有A底的可能性为40%。</span></p></li><li><p><span style=\"font-size: 36px;\">如果你选择放弃，你的损失是20W，效用值为-20W。</span></p></li><li><p><span style=\"font-size: 36px;\">如果你选择跟注，假设最终牌面分为60W，那么你可能的效用值计算如下：</span></p></li><li><p><span style=\"font-size: 36px;\">跟注成功的收益：60W * 40% = 24W</span></p></li><li><p><span style=\"font-size: 36px;\">跟注失败的损失：-60W * 60% = -36W</span></p></li><li><p><span style=\"font-size: 36px;\">总效用值：24W - 36W = -12W<br/>结果表明，虽然两种方案的效用值都为负，但跟注的效用值（-12W）相比放弃的效用值（-20W）更高，说明跟注的相对损失较小。</span></p></li></ul></ul><h3 style=\"margin-bottom:16px;margin-top:16px;\"><span style=\"font-size: 36px;\"><strong>2. 应用效用值</strong></span></h3><ul class=\" list-paddingleft-2\"><li><p><span style=\"font-size: 36px;\"><strong>避免轻易放弃</strong>：效用值计算告诉我们，不要因为一时的损失就轻易放弃。如果对手的加注行为并不总是反映出真实的牌面情况，跟注可能会更有利。</span></p></li><li><p><span style=\"font-size: 36px;\"><strong>利用效用值</strong>：在做决策时，将效用值作为一个参考工具，帮助你更科学地判断跟注、加注或放弃的时机。</span></p></li></ul><h3 style=\"margin-bottom:16px;margin-top:16px;\"><span style=\"font-size: 36px;\"><strong>二、玩转心理策略</strong></span></h3><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\"><strong>心理策略</strong>：通过操控对手的心理状态，让对手误判你的牌面，从而获得更多的筹码或避免损失。</span></p><h3 style=\"margin-bottom:16px;margin-top:16px;\"><span style=\"font-size: 36px;\"><strong>1. 掌握心理策略的关键</strong></span></h3><ul class=\" list-paddingleft-2\"><li><p><span style=\"font-size: 36px;\"><strong>营造假象</strong>：</span></p></li><ul class=\" list-paddingleft-2\" style=\"list-style-type: square;\"><li><p><span style=\"font-size: 36px;\"><strong>持续加注</strong>：如果你持有强牌，可以持续加注来营造出你手中牌大的假象。这样，即使对手有较强的牌，也可能因为你的加注而选择放弃。</span></p></li><li><p><span style=\"font-size: 36px;\"><strong>虚张声势</strong>：如果你的牌不好，可以通过高额加注来误导对手，使他们认为你手中有强牌，从而让他们放弃。</span></p></li></ul><li><p><span style=\"font-size: 36px;\"><strong>变换策略</strong>：</span></p></li><ul class=\" list-paddingleft-2\" style=\"list-style-type: square;\"><li><p><span style=\"font-size: 36px;\"><strong>从激进到保守</strong>：在牌局中如果你不断加注，突然改为小额下注或过牌，可能会让对手误以为你手中的牌很弱，从而进行过度的加注。</span></p></li><li><p><span style=\"font-size: 36px;\"><strong>从保守到激进</strong>：如果你一开始采取保守策略，然后突然大幅加注，对手可能会感到惊讶并且难以判断你的真实意图。</span></p></li></ul></ul><h3 style=\"margin-bottom:16px;margin-top:16px;\"><span style=\"font-size: 36px;\"><strong>2. 实际案例分析</strong></span></h3><ul class=\" list-paddingleft-2\"><li><p><span style=\"font-size: 36px;\"><strong>案例1：偷鸡的策略</strong></span></p></li><ul class=\" list-paddingleft-2\" style=\"list-style-type: square;\"><li><p><span style=\"font-size: 36px;\">假设你手中牌面QJ，对方手中牌面10J。牌局进行到第四张牌，你的牌面变成QJ8，对方牌面变成10JK。你可以在对方认为自己有强牌时，进行高额加注。对方因为不确定你是否有强牌，可能会选择放弃，从而让你赢得这一轮。</span></p></li></ul><li><p><span style=\"font-size: 36px;\"><strong>案例2：利用心理策略</strong></span></p></li><ul class=\" list-paddingleft-2\" style=\"list-style-type: square;\"><li><p><span style=\"font-size: 36px;\">假设双方各100W的筹码，牌面分为12W。你手中牌面为顺面非顺，对方可能有小对。你加注10W，显示出有较强的牌面，而当对方反应激烈时，你突然再加注，这样对方可能认为你的牌极强，从而选择放弃，最终实现偷鸡。</span></p></li></ul></ul><h3 style=\"margin-bottom:16px;margin-top:16px;\"><span style=\"font-size: 36px;\"><strong>总结</strong></span></h3><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\">要在梭哈中脱颖而出，除了运气之外，更要熟练掌握效用值计算和心理策略。通过理解效用值，你能够做出更加合理的决策；通过运用心理策略，你可以影响对手的判断，争取更多的胜利。掌握这两种技巧后，你将能够在梭哈游戏中如鱼得水，成为真正的高手。</span></p><p><br/></p>",
+        "publish": {},
+        "indexSort": 1,
+        "indexType": 1,
+        "flag": "Y",
+        "product": "lh",
+        "publishTime": 1769336287000,
+        "failureTime": 1895566688000,
+        "commentCount": 0,
+        "praiseCount": 0,
+        "readCount": 0,
+        "title": "梭哈高手技巧——惊险两跳",
+        "imgUrl": "https://tg.shdunjiusy.com/lh/friend/4a03affa-2156-4be4-b398-e7839a42f5aa.png",
+        "videoUrl": {},
+        "liveUrl": {},
+        "createTime": 1769336293000,
+        "createUser": {},
+        "updateTime": {},
+        "updateUser": {},
+        "userId": 422415,
+        "userName": "ARM001",
+        "nickName": "追风少年",
+        "showTime": "2026-01-25 18:18:13",
+        "isPaise": "N",
+        "isPaiseList": {},
+        "imageList": [
+          "https://tg.shdunjiusy.com/lh/friend/4a03affa-2156-4be4-b398-e7839a42f5aa.png"
+        ],
+        "imgUrlList": {},
+        "voteThemes": {}
+      },
+      {
+        "id": 239887,
+        "type": "真人",
+        "content": "<p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size:inherit;\"><img src=\"https://tg.shdunjiusy.com/lh/friend/0cc3328b-8059-4d20-b8cd-b4be0b8e592b.png\" title=\"\" alt=\"百家乐.png\"/><br/><span style=\"font-size: 36px;\">大多数阅读本文的真人赌场玩家可能比三张牌百家乐更了解三张牌扑克。对于那些处于黑暗中的人来说，这是可以理解的，因为有很多赌场游戏可以玩。三张牌百家乐是经典百家乐游戏的精彩快节奏版本。学习起来很简单，尤其是有了正确的指南。这篇文章讨论了玩三张牌百家乐的规则、策略和技巧。</span></span></p><h3 style=\"margin-bottom:16px;margin-top:16px;\"><span style=\"font-size: 36px;\"><strong>什么是三张牌百家乐？</strong></span></h3><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\">三张牌百家乐是一些澳门赌场中流行的百家乐游戏。游戏是 类似于传统的百家乐 从某种意义上说，双方都会收到三张牌，而图片牌的数量决定获胜者。图片卡片或面部卡片是物有所值的卡片。</span></p><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\"><span style=\"font-size: inherit;\">也就是说，三张牌百家乐使用标准的52张牌组，所有牌面朝上。</span><br/><span style=\"font-size: inherit;\">在收到牌之前，玩家必须对庄家或玩家的位置下注。在这个阶段，玩家还可以进行一项可选的边注，将在本指南的后面介绍。</span><br/><span style=\"font-size: inherit;\">请注意，面牌和十位没有任何价值。此外，A 值一分，其余牌代表其面值。对于那些以前玩过百家乐的人来说，这并不是什么新鲜事。</span></span></p><h3 style=\"margin-bottom:16px;margin-top:16px;\"><span style=\"font-size: 36px;\"><strong>三张牌百家乐与标准百家乐</strong></span></h3><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\">那么，三张牌百家乐与传统百家乐有什么不同呢？在这个游戏中，最好的手牌组合是三张相同价值的面牌。例如，玩家可以获得三个价值 18 的六分球。实际上，这是 8，因为 9 是百家乐的最高分数。</span></p><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\">同时，得分最高的一方将赢得本轮比赛。但是，如果玩家的积分相等，则拥有更多面值牌的一方将占据一席之地。因此，拥有 6+6+6 的玩家会战胜拥有 Q+2+6 的玩家，因为他们的面值更高。如果玩家的牌面值和照片相同，游戏也可能以平局或平局结束。</span></p><h3 style=\"margin-bottom:16px;margin-top:16px;\"><span style=\"font-size: 36px;\"><strong>三张牌百家乐派彩</strong></span></h3><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\">就像在经典的百家乐游戏中一样，获胜的手牌赔率为偶数（1:1）。这意味着，如果玩家幸运，下注10美元将获得20美元的奖金（10美元的下注+10美元的胜利）。</span></p><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\">这并不全是按薪水计算的。如果玩家赢了六手牌（组合无关紧要），他们将获得 2:1 的奖金。此外，平局投注的赔率为 25:1，尽管赢得这些投注的几率相当高。</span></p><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\">玩家在 最好的真人赌场网站 也熟悉庄家下注获胜的5％佣金。这同样适用于越来越受欢迎的百家乐变体。</span></p><h3 style=\"margin-bottom:16px;margin-top:16px;\"><span style=\"font-size: 36px;\"><strong>三张牌百家乐边注</strong></span></h3><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\">在大多数情况下，三张牌百家乐有两个可选的龙奖金和三王投注。以下是简要概述：</span></p><h3 style=\"margin-bottom:16px;margin-top:16px;\"><span style=\"font-size: 36px;\"><strong>国王奖励</strong></span></h3><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\">如果玩家得分为8或更高，则该赌注将获得赔付，而较高的手牌吸引的彩金要高得多。三张国王的赔率为 50:1，三张面牌的赔率为 25:1。此外，任何九分和八分的得分分别为 3:1 和 2:1。</span></p><h3 style=\"margin-bottom:16px;margin-top:16px;\"><span style=\"font-size: 36px;\"><strong>巨龙奖励</strong></span></h3><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\">如果玩家以至少 5 分击败庄家，则该边注获胜。与三王奖金投注一样，玩家获得的奖金更大，获胜积分越多。</span></p><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\">以下是支出：</span></p><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\"><span style=\"font-size: inherit;\">以 5 分获胜：1:1</span><br/><span style=\"font-size: inherit;\">以 6 分获胜：3:1</span><br/><span style=\"font-size: inherit;\">以 7 分获胜：5:1</span><br/><span style=\"font-size: inherit;\">以 8 分获胜：10:1</span><br/><span style=\"font-size: inherit;\">以 9 分获胜：20:1</span><br/><span style=\"font-size: inherit;\">以 10 分获胜：50:1</span></span></p><h3 style=\"margin-bottom:16px;margin-top:16px;\"><span style=\"font-size: 36px;\"><strong>三张牌百家乐技巧和策略</strong></span></h3><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\">没有行之有效的解决方案可以减少三张牌百家乐的输球次数。问题是，百家乐是一种机会游戏，这意味着任何策略都无法增加 玩家回报率 (RTP)。这同样适用于所有其他人 在线真人赌场游戏，可能除了电子扑克和二十一点。</span></p><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\">但是玩家不必仅仅因为不能盲目玩而盲目地玩游戏 减少庄家优势。</span></p><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\"><span style=\"font-size: inherit;\">首先，避免像瘟疫一样的平局下注，因为赢得这个赌注的几率很小。但是 50:1 的最大支出可能是不可抗拒的。</span><br/><span style=\"font-size: inherit;\">另一个技巧虽然不会起到多大作用，但还是让玩家下注，而不是庄家。尽管庄家的赌注通常会略微低一些，但庄家的5％佣金使其成为没有吸引力的选择。简而言之，不要为赌场做毛驴工作!</span><br/><span style=\"font-size: inherit;\">最后，练习资金管理，知道百家乐的结果纯粹是靠运气的。制定充足的预算，负责任地使用预算，而不会造成损失。玩家还应考虑使用诸如Martingale和Paroli之类的博彩系统来更好地管理自己的财务。</span></span></p><p><br/></p>",
+        "publish": {},
+        "indexSort": 1,
+        "indexType": 1,
+        "flag": "Y",
+        "product": "lh",
+        "publishTime": 1769336170000,
+        "failureTime": 1895566571000,
+        "commentCount": 0,
+        "praiseCount": 0,
+        "readCount": 1,
+        "title": "三张牌百家乐技巧和策略",
+        "imgUrl": "https://tg.shdunjiusy.com/lh/friend/90636efc-2010-4fd8-a303-47f563681784.png",
+        "videoUrl": {},
+        "liveUrl": {},
+        "createTime": 1769336176000,
+        "createUser": {},
+        "updateTime": {},
+        "updateUser": {},
+        "userId": 422415,
+        "userName": "ARM001",
+        "nickName": "追风少年",
+        "showTime": "2026-01-25 18:16:16",
+        "isPaise": "N",
+        "isPaiseList": {},
+        "imageList": [
+          "https://tg.shdunjiusy.com/lh/friend/90636efc-2010-4fd8-a303-47f563681784.png"
+        ],
+        "imgUrlList": {},
+        "voteThemes": {}
+      },
+      {
+        "id": 239885,
+        "type": "体育",
+        "content": "<p><span style=\"font-size: 36px;\">北京时间1月25日，英超联赛第23轮展开争夺，这一夜太刺激，利物浦惨遭补时压哨绝杀，曼城零封垫底对.</span><span style=\"font-size:inherit;\"><br/><img src=\"https://tg.shdunjiusy.com/lh/friend/81b42cc2-7b9c-412a-89d3-abf4d6dcfec8.png\" title=\"\" alt=\"1.png\"/><br/></span></p><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\">蓝月亮迅速发难，边中精准配合，马尔穆什近距离包抄抢射得手，相当完美的开局，随即又是熟悉传控节奏，僵持一段时间，禁区疑似造成防守手球犯规，但主裁和VAR没有表示引争议，既然如此，他们就只能靠自己解决问题，临近中场新援塞门约强力终结，一切尽在掌握。</span><span style=\"font-size:inherit;\"><br/><img src=\"https://tg.shdunjiusy.com/lh/friend/d41162d3-44ea-45b1-8a76-6403250bdc54.png\" title=\"\" alt=\"2.png\"/><br/><span style=\"font-size: 36px;\">作为联赛垫底的狼队，确实难以撼动对面的防线，威胁寥寥无几，始终遭遇牵制格外被动，下半场队伍连续换人调整，进攻踢得愈发主动，只可惜没能有所建树。曼城经典的打法，领先之后放缓节奏，逐渐保持防守阵型，防线众志成城，没让对手找到破绽，2比0告捷，赛后相互拥抱证明队伍相当团结。</span><span style=\"font-size:inherit;\"><br/><img src=\"https://tg.shdunjiusy.com/lh/friend/05acb410-d063-4933-bb22-cc21441306e4.png\" title=\"\" alt=\"3.png\"/><br/><span style=\"font-size: 36px;\">坐镇主场的伯恩茅斯斗志昂扬，虽说绝对机会不少，但他们总能有所收获，先是大范围传到禁区制造解围失误，埃万尼尔松站出来首开纪录，接着乘胜追击，再度通过地面球的精准策动，希门尼斯终结扩大比分。利物浦似乎又遇到熟悉问题，没攻没守简直迷茫，极其困难的局面，范戴克角球回合破门扳回一城，这得以稳定军心，上半场缩小到1球差距。</span><span style=\"font-size:inherit;\"><br/><img src=\"https://tg.shdunjiusy.com/lh/friend/7ec8b8fd-c3de-4c14-962d-85d07fb0188f.png\" title=\"\" alt=\"4.png\"/><br/></span></span></span></p><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\">下半场的利物浦连续换人试图改善进攻，只是看起来没有“药到病除”，实际效果不尽人意，时间逐渐流逝，背负的压力倍增，最后把握任意球机会，战术配合出其不意，索博直接远射破门绝平，过程着实艰难。剩余时间伯恩茅斯没有放弃，补时最后时刻天降奇兵，阿德利上演压哨进球绝杀， 3比2力克劲旅，全取三分。<br/>截止本个比赛日，<strong>英超最新积分榜如下</strong>，曼城先赛一场落后榜首四分；利物浦前四不稳，曼联有希望实现反超。</span><span style=\"font-size: inherit;\"><br/><img src=\"https://tg.shdunjiusy.com/lh/friend/c75b0a97-bd24-4aa9-aad5-7ebf3e10f147.png\" title=\"\" alt=\"5.png\"/></span></p><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size:inherit;\"><span style=\"font-size:inherit;\"><span style=\"font-size:inherit;\"></span></span></span><br/></p><p><span style=\"font-size:inherit;\"></span><br/></p>",
+        "publish": {},
+        "indexSort": 1,
+        "indexType": 1,
+        "flag": "Y",
+        "product": "lh",
+        "publishTime": 1769335956000,
+        "failureTime": 1895566358000,
+        "commentCount": 0,
+        "praiseCount": 0,
+        "readCount": 0,
+        "title": "英超太刺激，利物浦遭压哨绝杀! 积分榜如下：曼城落后榜首四分!",
+        "imgUrl": "https://tg.shdunjiusy.com/lh/friend/d26d7f3a-0b09-41d1-ac33-6d11cff1b433.png",
+        "videoUrl": {},
+        "liveUrl": {},
+        "createTime": 1769335963000,
+        "createUser": {},
+        "updateTime": {},
+        "updateUser": {},
+        "userId": 422415,
+        "userName": "ARM001",
+        "nickName": "追风少年",
+        "showTime": "2026-01-25 18:12:43",
+        "isPaise": "N",
+        "isPaiseList": {},
+        "imageList": [
+          "https://tg.shdunjiusy.com/lh/friend/d26d7f3a-0b09-41d1-ac33-6d11cff1b433.png"
+        ],
+        "imgUrlList": {},
+        "voteThemes": {}
+      },
+      {
+        "id": 239883,
+        "type": "老虎机",
+        "content": "<p><span style=\"font-size: 36px;\">˗ˏˋ🎉ˎˊ˗麻将胡了˗ˏˋ🎉ˎˊ˗</span></p><p><span style=\"font-size: 36px;\">游戏平台：PG老虎机</span></p><p><span style=\"font-size: 36px;\">投注金额：100元</span></p><p><span style=\"font-size: 36px;\">中奖金额：32200元</span><br/><img src=\"https://tg.shdunjiusy.com/lh/friend/c131171d-77db-4aa7-99b7-c7e646bdcbb8.png\" title=\"\" alt=\"1.png\"/><br/><img src=\"https://tg.shdunjiusy.com/lh/friend/b57cc513-4ab0-4e9c-9247-52f9b13244a9.png\" title=\"\" alt=\"2.png\"/><br/><img src=\"https://tg.shdunjiusy.com/lh/friend/329e32fe-5ea0-45d3-80a7-48cb17d41ac6.png\" title=\"\" alt=\"3.png\"/><br/><img src=\"https://tg.shdunjiusy.com/lh/friend/cf8230b1-0bd2-4fa5-86fa-c2073386c0ac.png\" title=\"\" alt=\"4.png\"/></p><p><br/></p>",
+        "publish": {},
+        "indexSort": 1,
+        "indexType": 1,
+        "flag": "Y",
+        "product": "lh",
+        "publishTime": 1769333139000,
+        "failureTime": 1895563541000,
+        "commentCount": 0,
+        "praiseCount": 0,
+        "readCount": 131,
+        "title": "PG【麻将胡了】爆分老虎机分享",
+        "imgUrl": "https://tg.shdunjiusy.com/lh/friend/c90e00be-b909-4dc0-893a-534fc36b3b99.jpg",
+        "videoUrl": {},
+        "liveUrl": {},
+        "createTime": 1769333151000,
+        "createUser": {},
+        "updateTime": {},
+        "updateUser": {},
+        "userId": 422415,
+        "userName": "ARM001",
+        "nickName": "追风少年",
+        "showTime": "2026-01-25 17:25:51",
+        "isPaise": "N",
+        "isPaiseList": {},
+        "imageList": [
+          "https://tg.shdunjiusy.com/lh/friend/c90e00be-b909-4dc0-893a-534fc36b3b99.jpg"
+        ],
+        "imgUrlList": {},
+        "voteThemes": {}
+      },
+      {
+        "id": 239787,
+        "type": "其他",
+        "content": "<p><span style=\"font-size: 36px;\">在博彩网站上，11选5是一款备受欢迎的数字彩票游戏，其简单易懂的玩法和丰厚的奖金吸引了众多玩家的参与。然而，想要在11选5游戏中获得好成绩，并非仅仅依赖于运气，更需要一些选号技巧和聪明的玩法。本文将为您详细介绍乐鱼网络赌博平台上的11选5选号技巧和最聪明的玩法，帮助您在游戏中取得更多的胜利！<br/><br/></span></p><h3 style=\"margin-bottom:16px;margin-top:16px;\"><span style=\"font-size: 36px;\"><strong>11选5选选号技巧</strong></span></h3><h3 style=\"margin-bottom:16px;margin-top:16px;\"><span style=\"font-size: 36px;\"><strong>分析历史数据</strong></span></h3><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\">在选择号码时，可以通过分析历史数据来确定哪些号码出现的频率较高，哪些号码出现的频率较低。可以倾向于选择一些历史上频繁出现的号码，以增加中奖的几率。</span></p><h3 style=\"margin-bottom:16px;margin-top:16px;\"><span style=\"font-size: 36px;\"><strong>均匀分布选择</strong></span></h3><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\">在选号时，可以尽量选择均匀分布的号码，即选择不同的号码来分布在不同的位置上。这样可以避免出现过于集中的号码组合，增加中奖的机会。</span></p><h3 style=\"margin-bottom:16px;margin-top:16px;\"><span style=\"font-size: 36px;\"><strong>避免连号</strong></span></h3><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\">在选号时，可以尽量避免选择连号，即相邻号码的组合。因为连号的出现概率相对较低，选择连号的中奖几率也相对较低。</span></p><h3 style=\"margin-bottom:16px;margin-top:16px;\"><span style=\"font-size: 36px;\"><strong>注重奇偶比例</strong></span></h3><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\">可以根据历史数据分析奇偶号码的比例，选择奇偶比例较为平衡的号码组合。一般来说，奇偶比例较为平衡的号码组合中奖的几率会更高。</span></p><h3 style=\"margin-bottom:16px;margin-top:16px;\"><span style=\"font-size: 36px;\"><strong>最聪明的玩法</strong></span></h3><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\"><span style=\"font-size: inherit;\">多倍投注</span><br/><span style=\"font-size: inherit;\">多倍投注是一种常见的玩法，即在同一期号码中选择多个号码组合进行投注。通过多倍投注，可以增加中奖的机会，但也会增加投注的成本。</span></span></p><h3 style=\"margin-bottom:16px;margin-top:16px;\"><span style=\"font-size: 36px;\"><strong>胆拖投注</strong></span></h3><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\">胆拖投注是一种灵活的玩法，可以选择一定数量的“胆码”和一定数量的“拖码”进行投注。通过胆拖投注，可以灵活组合号码，增加中奖的机会。</span></p><p><img src=\"https://tg.shdunjiusy.com/lh/friend/7e235274-5a60-4cd9-952f-677e6fd7ed7d.png\" title=\"\" alt=\"彩票.png\"/><br/><span style=\"font-size:inherit;\"></span></p><h3 style=\"margin-bottom:16px;margin-top:16px;\"><span style=\"font-size: 36px;\"><strong>追号投注</strong></span></h3><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\">追号投注是一种自动连续投注的玩法，即选择在多期开奖中连续投注相同的号码组合。通过追号投注，可以在多期开奖中增加中奖的机会。</span></p><h3 style=\"margin-bottom:16px;margin-top:16px;\"><span style=\"font-size: 36px;\"><strong>网络投注合买</strong></span></h3><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\">网络投注合买是一种集体投注的玩法，即多名玩家联合投注一组号码。通过网络投注合买，可以分担投注成本，增加中奖的机会，并且可以与其他玩家分享中奖的喜悦。</span></p><h3 style=\"margin-bottom:16px;margin-top:16px;\"><span style=\"font-size: 36px;\"><strong>结语</strong></span></h3><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\">通过以上的选号技巧和最聪明的玩法，相信您已经对在博彩网站上的11选5游戏有了更深入的了解。希望您在游戏中取得丰厚的回报，并尽情享受游戏的乐趣！</span></p><p><br/></p>",
+        "publish": {},
+        "indexSort": 1,
+        "indexType": 1,
+        "flag": "Y",
+        "product": "lh",
+        "publishTime": 1769222172000,
+        "failureTime": 1895452573000,
+        "commentCount": 0,
+        "praiseCount": 0,
+        "readCount": 0,
+        "title": "11选5选号技巧与最聪明的玩法！",
+        "imgUrl": "https://tg.shdunjiusy.com/lh/friend/c5f4ee82-7d2c-4d7b-bfe8-131aba7da86d.png",
+        "videoUrl": {},
+        "liveUrl": {},
+        "createTime": 1769222207000,
+        "createUser": {},
+        "updateTime": {},
+        "updateUser": {},
+        "userId": 422415,
+        "userName": "ARM001",
+        "nickName": "追风少年",
+        "showTime": "2026-01-24 10:36:47",
+        "isPaise": "N",
+        "isPaiseList": {},
+        "imageList": [
+          "https://tg.shdunjiusy.com/lh/friend/c5f4ee82-7d2c-4d7b-bfe8-131aba7da86d.png"
+        ],
+        "imgUrlList": {},
+        "voteThemes": {}
+      },
+      {
+        "id": 239785,
+        "type": "体育",
+        "content": "<p><img src=\"https://tg.shdunjiusy.com/lh/friend/3cdcaf4f-bf2b-4389-814a-f079ed1000d1.png\" title=\"\" alt=\"体育.png\"/><br/></p><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\">01月24日讯 今日NBA常规赛，开拓者对阵猛龙。</span></p><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\">猛龙官方更新球队伤病报告：因脚踝伤势缺席7场的RJ-巴雷特今日将迎来复出。</span></p><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\">巴雷特本赛季出战23场，场均拿到19.6分5篮板3.7助攻。</span></p><p><br/></p>",
+        "publish": {},
+        "indexSort": 1,
+        "indexType": 1,
+        "flag": "Y",
+        "product": "lh",
+        "publishTime": 1769221938000,
+        "failureTime": 1895452340000,
+        "commentCount": 0,
+        "praiseCount": 0,
+        "readCount": 0,
+        "title": "猛龙官方：RJ-巴雷特将在今日对阵开拓者的比赛中复出",
+        "imgUrl": "https://tg.shdunjiusy.com/lh/friend/0445c70c-9dc4-493e-84e0-33a9f9909f05.png",
+        "videoUrl": {},
+        "liveUrl": {},
+        "createTime": 1769221951000,
+        "createUser": {},
+        "updateTime": {},
+        "updateUser": {},
+        "userId": 422415,
+        "userName": "ARM001",
+        "nickName": "追风少年",
+        "showTime": "2026-01-24 10:32:31",
+        "isPaise": "N",
+        "isPaiseList": {},
+        "imageList": [
+          "https://tg.shdunjiusy.com/lh/friend/0445c70c-9dc4-493e-84e0-33a9f9909f05.png"
+        ],
+        "imgUrlList": {},
+        "voteThemes": {}
+      },
+      {
+        "id": 239783,
+        "type": "老虎机",
+        "content": "<p><span style=\"font-size: 36px;\">˗ˏˋ🎉ˎˊ˗单手跳高高˗ˏˋ🎉ˎˊ˗</span></p><p><span style=\"font-size: 36px;\">游戏平台：CQ9老虎机</span></p><p><span style=\"font-size: 36px;\">投注金额：60元</span></p><p><span style=\"font-size: 36px;\">中奖金额：44598元</span><br/><img src=\"https://tg.shdunjiusy.com/lh/friend/c9d9ce6c-1d21-4170-822a-2061ea52d857.png\" title=\"\" alt=\"1.png\"/><br/><img src=\"https://tg.shdunjiusy.com/lh/friend/774a5124-e86a-4aa6-af71-6b30c5878e8a.png\" title=\"\" alt=\"2.png\"/><br/><img src=\"https://tg.shdunjiusy.com/lh/friend/1c3c9ebc-393c-4169-8098-3b480be77392.png\" title=\"\" alt=\"3.png\"/><br/><img src=\"https://tg.shdunjiusy.com/lh/friend/83b592af-6e1f-4d7f-b3ec-9c9755936c1d.png\" title=\"\" alt=\"4.png\"/></p><p><br/></p>",
+        "publish": {},
+        "indexSort": 1,
+        "indexType": 1,
+        "flag": "Y",
+        "product": "lh",
+        "publishTime": 1769221732000,
+        "failureTime": 1895452133000,
+        "commentCount": 0,
+        "praiseCount": 0,
+        "readCount": 132,
+        "title": "CQ9【单手跳高高】爆分老虎机分享",
+        "imgUrl": "https://tg.shdunjiusy.com/lh/friend/f00b60b7-8ff7-4815-bb09-8dcb30c28f3f.jpg",
+        "videoUrl": {},
+        "liveUrl": {},
+        "createTime": 1769221740000,
+        "createUser": {},
+        "updateTime": {},
+        "updateUser": {},
+        "userId": 422415,
+        "userName": "ARM001",
+        "nickName": "追风少年",
+        "showTime": "2026-01-24 10:29:00",
+        "isPaise": "N",
+        "isPaiseList": {},
+        "imageList": [
+          "https://tg.shdunjiusy.com/lh/friend/f00b60b7-8ff7-4815-bb09-8dcb30c28f3f.jpg"
+        ],
+        "imgUrlList": {},
+        "voteThemes": {}
+      },
+      {
+        "id": 239585,
+        "type": "体育",
+        "content": "<p><img src=\"https://tg.shdunjiusy.com/lh/friend/2c65d1aa-3e84-4697-91d4-1ba63a5a0c54.png\" title=\"\" alt=\"1.png\"/><br/><span style=\"font-size: 36px;\">北京时间1月23日76人主场对阵火箭，全场比赛结束76人以128-122成功击败了火箭。近6场比赛中76人仅仅取得了2胜4负的战绩，这样的情况下76人直接掉到了东部第六的位置，而且今日比赛根据ESPN预测，火箭胜率为63.5%，76人胜率只有36.5%。火箭在取得了3连胜后升到了西部第四的位置，同时据ClutchPoints名记Brett Siegel报道，联盟消息人士透露，火箭对莫兰特毫无兴趣，他们正在评估DFS+多个次轮的回报。本场比赛76人首发为：马克西、埃奇库姆、乌布雷、乔治和恩比德，火箭首发为：阿门、奥科吉、杜兰特、史密斯和申京。<br/></span><span style=\"font-size:inherit;\"><img src=\"https://tg.shdunjiusy.com/lh/friend/fe7e745f-9f0f-4996-9601-6e8ef5e61694.png\" title=\"\" alt=\"2.png\"/><br/><span style=\"font-size: 36px;\">第一节比赛乔治扣篮得分，随后火箭打出一波6-0，乌布雷连得5分后申京上篮得分，史密斯扣篮得分后埃奇库姆也完成扣篮，火箭一波9-3后恩比德扣篮得分，阿门打成2+1后76人打出一波10-2，奥科吉命中三分后马克西上篮得分，末尾阶段两队进攻对轰，第一节比赛结束火箭领先2分。第二节比赛恩比德罚球得分，杜兰特打成2+1后巴洛、恩比德内线得分，杜兰特投篮命中后76人打出一波6-0，谢泼德命中三分申京内线得分，埃奇库姆上篮得分后巴洛扣篮得分，随后火箭打出一波12-4，博纳罚球得分后杜兰特也罚球得分，末尾阶段76人打出一波14-3，半场比赛结束火箭落后7分。<br/></span><span style=\"font-size:inherit;\"><img src=\"https://tg.shdunjiusy.com/lh/friend/5bf6a4c7-b479-4688-b3d1-4520b4d0b295.png\" title=\"\" alt=\"3.png\"/><br/><span style=\"font-size: 36px;\">第三节比赛杜兰特命中三分，马克西投篮命中后杜兰特继续命中三分，阿门扣篮得分后76人打出一波8-2，杜兰特命中三分后马克西抛投命中，乌布雷扣篮得分后申京连得3分，史密斯扣篮得分后恩比德罚球得分，乌布雷连得4分后76人领先到9分。暂停后火箭打出一波9-0，最后时刻乔治中投命中，三节比赛结束76人领先2分。第四节比赛恩比德投篮得分，沃特福德内线得分后火箭打出一波17-2，恩比德命中三分后史密斯扣篮得分，火箭领先到8分。暂停后恩比德、马克西突破得分，伊森命中三分后马克西连得5分，伊森命中三分后乔治也命中三分，马克西投篮命中后杜兰特抛投命中，后面马克西上篮得分，最终两队打进加时赛。<br/></span><span style=\"font-size:inherit;\"><img src=\"https://tg.shdunjiusy.com/lh/friend/21d372f6-a6f5-4d4f-be38-a09a8a5eaac6.png\" title=\"\" alt=\"4.png\"/><br/><span style=\"font-size: 36px;\">加时赛乔治命中三分，埃奇库姆上篮得分后杜兰特命中三分，阿门上篮得分后马克西突破得分，乌布雷反击得分后杜兰特投篮命中，后面马克西连得4分，最终76人加时险胜火箭。本场比赛76人赢得相当不容易，76人在领先时被火箭也就算了，在第四节比赛最后时刻裁判出现严重误判情况，当时马克西进攻已经是先打板了，后续杜兰特才完成封盖，但是裁判却未能响哨，也正是裁判这次误判让两队打进加时赛，不过接下来乔治开始得分不说，马克西也持续得分，最终76人还是赢得比赛胜利，全场比赛结束恩比德得到了32分15篮板10助攻的数据，马克西得到了36分2篮板10助攻的数据，乔治得到了10分7篮板4助攻的数据。</span></span></span></span></p><p><span style=\"font-size: inherit;\"><img src=\"https://tg.shdunjiusy.com/lh/friend/98f3bdfa-9f4b-4ed7-81eb-aff22b836fb6.png\" title=\"\" alt=\"5.png\"/><br/><span style=\"font-size: 36px;\">火箭输掉比赛杜兰特也是犯大错，这场比赛杜兰特出现了很多失误不说，在加时赛最后阶段杜兰特出现进攻失误真的让火箭非常被动，而且后续杜兰特进攻状态也不佳，所以火箭输掉比赛杜兰特必须承责，全场比赛结束杜兰特得到了36分7篮板3助攻8失误的数据。而申京这场比赛也打得拉胯，在面对恩比德的时候申京打得糟糕不说，在加时赛关键时刻申京还被乔治封盖，全场比赛结束申京15中5得到了13分8篮板7助攻的数据。其他的火箭球员，阿门得到了17分6篮板9助攻的数据，史密斯得到了13分4篮板5助攻的数据，谢泼德得到了14分1篮板4助攻的数据。</span></span></p>",
+        "publish": {},
+        "indexSort": 1,
+        "indexType": 1,
+        "flag": "Y",
+        "product": "lh",
+        "publishTime": 1769140467000,
+        "failureTime": 1895370869000,
+        "commentCount": 0,
+        "praiseCount": 0,
+        "readCount": 0,
+        "title": "76人加时险胜! 杜兰特36+7犯大错，恩比德32+15裁判误判，申京13+8拉胯",
+        "imgUrl": "https://tg.shdunjiusy.com/lh/friend/e794ef6c-f08b-4029-ad4d-2212a53e540a.png",
+        "videoUrl": {},
+        "liveUrl": {},
+        "createTime": 1769140509000,
+        "createUser": {},
+        "updateTime": {},
+        "updateUser": {},
+        "userId": 422415,
+        "userName": "ARM001",
+        "nickName": "追风少年",
+        "showTime": "2026-01-23 11:55:09",
+        "isPaise": "N",
+        "isPaiseList": {},
+        "imageList": [
+          "https://tg.shdunjiusy.com/lh/friend/e794ef6c-f08b-4029-ad4d-2212a53e540a.png"
+        ],
+        "imgUrlList": {},
+        "voteThemes": {}
+      },
+      {
+        "id": 239583,
+        "type": "老虎机",
+        "content": "<p><span style=\"font-size: 36px;\">˗ˏˋ🎉ˎˊ˗奥林匹斯之门超神力˗ˏˋ🎉ˎˊ˗</span></p><p><span style=\"font-size: 36px;\">游戏平台：PP老虎机</span></p><p><span style=\"font-size: 36px;\">投注金额：500元</span></p><p><span style=\"font-size: 36px;\">中奖金额：258250元</span><br/><img src=\"https://tg.shdunjiusy.com/lh/friend/7e7a50e8-e2dd-49f7-833a-64a73f4d5b58.png\" title=\"\" alt=\"1.png\"/><br/><img src=\"https://tg.shdunjiusy.com/lh/friend/4ff5005a-9e94-4559-9d8b-e4db50ccd2bc.png\" title=\"\" alt=\"2.png\"/><br/><img src=\"https://tg.shdunjiusy.com/lh/friend/4b2dd8a1-104b-4afd-baf2-6e7c0bdcbde5.png\" title=\"\" alt=\"3.png\"/></p><p><br/></p>",
+        "publish": {},
+        "indexSort": 1,
+        "indexType": 1,
+        "flag": "Y",
+        "product": "lh",
+        "publishTime": 1769136554000,
+        "failureTime": 1895366956000,
+        "commentCount": 1,
+        "praiseCount": 0,
+        "readCount": 161,
+        "title": "PP【奥林匹斯之门超神力】爆分老虎机分享",
+        "imgUrl": "https://tg.shdunjiusy.com/lh/friend/4b466576-d44c-469a-971a-8bb402a9d6a1.jpg",
+        "videoUrl": {},
+        "liveUrl": {},
+        "createTime": 1769136576000,
+        "createUser": {},
+        "updateTime": {},
+        "updateUser": {},
+        "userId": 422415,
+        "userName": "ARM001",
+        "nickName": "追风少年",
+        "showTime": "2026-01-23 10:49:36",
+        "isPaise": "N",
+        "isPaiseList": {},
+        "imageList": [
+          "https://tg.shdunjiusy.com/lh/friend/4b466576-d44c-469a-971a-8bb402a9d6a1.jpg"
+        ],
+        "imgUrlList": {},
+        "voteThemes": {}
+      },
+      {
+        "id": 239483,
+        "type": "电竞",
+        "content": "<p><span style=\"font-size: 36px;\">经过漫长的休整期之后，重组的LPL 2026第一赛段终于在1月14日，正式拉开序幕。各支重组之后的队伍，将向第一赛段的冠军发起挑战，特别提示一下，第一赛段的冠军有80点的积分哦。<br/></span><span style=\"font-size:inherit;\"><img src=\"https://tg.shdunjiusy.com/lh/friend/3bcbdb49-a878-4932-8be2-1cc35c588294.png\" title=\"\" alt=\"1.png\"/><br/><span style=\"font-size: 36px;\">按照赛程安排，1月22日的比赛，由三场比赛组成，OMG大战UP，TT挑战EDG，以及WE大战NIP组成。他们究竟谁能赢下比，让我们一起来看一下吧。<br/></span><span style=\"font-size:inherit;\"><img src=\"https://tg.shdunjiusy.com/lh/friend/6898c660-47e2-4ab5-a477-7243b92968a5.png\" title=\"\" alt=\"2.png\"/><br/><span style=\"font-size: 36px;\">第一局比赛，OMG蓝色方，禁用：石头人，妮蔻，阿卡丽，阿狸，瑞兹，选用：Hery兰博，Juhan猴子，Haichao岩雀，Starry厄斐琉斯，Moham泰坦；UP红色方，禁用：杰斯，韦鲁斯，发条，锤石，蔚，选用：Liangchen奎桑提，Grizzly皇子，Saber妮蔻，Hena芸阿娜，Xiaoxia布隆<br/></span><span style=\"font-size:inherit;\"><img src=\"https://tg.shdunjiusy.com/lh/friend/a2783cf6-d16b-443c-9099-8a2af9df5505.png\" title=\"\" alt=\"3.png\"/><br/><span style=\"font-size: 36px;\">结果第一局比赛，双方各打了半场好局，UP笑到最后。3分钟左右：猴子gank下路配合自家双人组击杀对方ad拿下一血；10分钟左右：猴子游走上路越塔强杀奎桑提；15分钟左右：双方河道爆发团战，UP优先集火对方上单打出一换一拿下先锋；23分钟左右：OMG猴子抢下小龙但是被击杀，岩雀也被抓到送出人头，UP拿下大龙；27分钟左右：UP拿下水龙魂后开团逐个击破打出零换四；30分钟左右：UP拿下大龙对方想要强开但是被瞬间融化，UP追击打出一换四推上中路高地；最终32分01秒：UP再次进攻对方基地，OMG无力阻挡被一波推平。<br/></span><span style=\"font-size:inherit;\"><img src=\"https://tg.shdunjiusy.com/lh/friend/cd3f2d28-b80e-472f-9b5d-25e5f20352c2.png\" title=\"\" alt=\"4.png\"/><br/></span></span></span></span></p><p><span style=\"font-size: 36px;\">第二局比赛，OMG蓝色方，禁用：杰斯，韦鲁斯，发条，石头人，琪亚娜，选用：Hery挖掘机，Juhan巨魔，Haichao沙皇，Starry女枪，Moham曙光；UP红色方，禁用：波比，妮蔻，阿卡丽，芮尔，牛头，选用：Liangchen塞恩，Grizzly梦魇，Saber瑞兹，Hena飞机，Xiaoxia洛</span></p><p><img src=\"https://tg.shdunjiusy.com/lh/friend/3a581f0e-5fba-44e0-97f6-1af86edcf372.png\" title=\"\" alt=\"5.png\"/><br/><span style=\"font-size:inherit;\"><span style=\"font-size: inherit;\"></span><span style=\"font-size: 36px;\">结果第二局比赛，两队打出了反转，经济几经拉扯，UP再次笑到最后。5分钟左右：梦魇入侵野区被对方巨魔抓到一路追击送出一血；8分钟左右：UP众人集结果断闪现留人击杀巨魔；18分钟左右：双方河道附件拉扯，UP先行撤退挖掘机闪现顶飞瑞兹拿下人头；22分钟左右：双方中路爆发团战，UP集火收掉巨魔随后击杀挖掘机留住沙皇拿下人头打出一换三；23分钟左右：塞恩开车留人，瑞兹大招传送配合队友击杀下路双人组，再逐个收掉上中野拿下大龙；最终33分50秒：UP携大龙buff推上高地一波结束比赛<br/></span><img src=\"https://tg.shdunjiusy.com/lh/friend/d93f2eb5-fb3e-43ab-9369-cd7d875ee8c0.png\" title=\"\" alt=\"6.png\"/><br/><span style=\"font-size: 36px;\"><strong>最终UP零封OMG，也算是为自己添上了一笔胜场</strong></span><br/></span></p>",
+        "publish": {},
+        "indexSort": 1,
+        "indexType": 1,
+        "flag": "Y",
+        "product": "lh",
+        "publishTime": 1769076720000,
+        "failureTime": 1895307124000,
+        "commentCount": 0,
+        "praiseCount": 0,
+        "readCount": 0,
+        "title": "LPL春季赛：耗时太久，LNG拒绝让一追二赢下LGD",
+        "imgUrl": "https://tg.shdunjiusy.com/lh/friend/148d52c6-2ac5-4e19-96a7-b163630e14e4.png",
+        "videoUrl": {},
+        "liveUrl": {},
+        "createTime": 1769076779000,
+        "createUser": {},
+        "updateTime": {},
+        "updateUser": {},
+        "userId": 422415,
+        "userName": "ARM001",
+        "nickName": "追风少年",
+        "showTime": "2026-01-22 18:12:59",
+        "isPaise": "N",
+        "isPaiseList": {},
+        "imageList": [
+          "https://tg.shdunjiusy.com/lh/friend/148d52c6-2ac5-4e19-96a7-b163630e14e4.png"
+        ],
+        "imgUrlList": {},
+        "voteThemes": {}
+      },
+      {
+        "id": 239385,
+        "type": "体育",
+        "content": "<p><img src=\"https://tg.shdunjiusy.com/lh/friend/6df29262-5ed0-47b9-825d-66352f928364.png\" title=\"\" alt=\"体育.png\"/><br/></p><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\">01月22日讯 今日，美媒《NBATradeReport》在官方社媒上报道了勇士近期的交易流言情况。</span></p><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\">《NBATradeReport》报道称：“金州勇士对篮网的尼古拉斯-克拉克斯顿和国王的德马尔-德罗赞均有兴趣。</span></p><p style=\"margin-bottom:16px;margin-top:0px;\"><span style=\"font-size: 36px;\">有消息称勇士、篮网、国王正探讨三方交易的可行性，以各取所需填补阵容短板。”</span></p><p><br/></p>",
+        "publish": {},
+        "indexSort": 1,
+        "indexType": 1,
+        "flag": "Y",
+        "product": "lh",
+        "publishTime": 1769047462000,
+        "failureTime": 1895277880000,
+        "commentCount": 1,
+        "praiseCount": 0,
+        "readCount": 3,
+        "title": "美媒：勇士有意德罗赞和克拉克斯顿，正讨论三方交易可能性",
+        "imgUrl": "https://tg.shdunjiusy.com/lh/friend/c0a4848e-3f07-4fcf-83ff-6e18cbcb4862.png",
+        "videoUrl": {},
+        "liveUrl": {},
+        "createTime": 1769047487000,
+        "createUser": {},
+        "updateTime": {},
+        "updateUser": {},
+        "userId": 422415,
+        "userName": "ARM001",
+        "nickName": "追风少年",
+        "showTime": "2026-01-22 10:04:47",
+        "isPaise": "N",
+        "isPaiseList": {},
+        "imageList": [
+          "https://tg.shdunjiusy.com/lh/friend/c0a4848e-3f07-4fcf-83ff-6e18cbcb4862.png"
+        ],
+        "imgUrlList": {},
+        "voteThemes": {}
+      },
+      {
+        "id": 239383,
+        "type": "老虎机",
+        "content": "<p><span style=\"font-size: 36px;\">˗ˏˋ🎉ˎˊ˗水牛闪电战 II™˗ˏˋ🎉ˎˊ˗</span></p><p><span style=\"font-size: 36px;\">游戏平台：PT老虎机</span></p><p><span style=\"font-size: 36px;\">投注金额：120元</span></p><p><span style=\"font-size: 36px;\">中奖金额：58620元</span><br/><img src=\"https://tg.shdunjiusy.com/lh/friend/7aa4a351-c6d8-466a-a1c8-d1d40810d7d7.png\" title=\"\" alt=\"1.png\"/><br/><img src=\"https://tg.shdunjiusy.com/lh/friend/2b0c25c9-1a09-49ce-b145-a922b3b55c8e.png\" title=\"\" alt=\"2.png\"/></p><p><br/></p>",
+        "publish": {},
+        "indexSort": 1,
+        "indexType": 1,
+        "flag": "Y",
+        "product": "lh",
+        "publishTime": 1769047216000,
+        "failureTime": 1895277618000,
+        "commentCount": 0,
+        "praiseCount": 0,
+        "readCount": 162,
+        "title": "PT【水牛闪电战 II™】爆分老虎机分享",
+        "imgUrl": "https://tg.shdunjiusy.com/lh/friend/392a6d6b-91dc-4efe-a269-79a99505b686.jpg",
+        "videoUrl": {},
+        "liveUrl": {},
+        "createTime": 1769047231000,
+        "createUser": {},
+        "updateTime": {},
+        "updateUser": {},
+        "userId": 422415,
+        "userName": "ARM001",
+        "nickName": "追风少年",
+        "showTime": "2026-01-22 10:00:31",
+        "isPaise": "N",
+        "isPaiseList": {},
+        "imageList": [
+          "https://tg.shdunjiusy.com/lh/friend/392a6d6b-91dc-4efe-a269-79a99505b686.jpg"
+        ],
+        "imgUrlList": {},
+        "voteThemes": {}
+      }
+    ],
+    "prePage": 0,
+    "nextPage": 2,
+    "isFirstPage": true,
+    "isLastPage": false,
+    "hasPreviousPage": false,
+    "hasNextPage": true,
+    "navigatePages": 8,
+    "navigatepageNums": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "navigateFirstPage": 1,
+    "navigateLastPage": 8,
+    "firstPage": 1,
+    "lastPage": 8
+  },
+  "message": "成功"
+}
+----------------------------------------------------------------------------------------------------
+
+【15】 15. pageList-game
+----------------------------------------------------------------------------------------------------
+URL: https://e68web01.itomtest.com/api/friend/gameSetting/1.0/pageList
+状态: ✅ PASS
+HTTP状态码: 200 | 响应码: 10000 | 消息: 成功
+耗时: 166.4ms
+
+请求参数:
+{
+  "pageNum": 1,
+  "pageSize": 20
+}
+
+完整响应数据:
+{
+  "code": "10000",
+  "data": {
+    "pageNum": 1,
+    "pageSize": 3,
+    "size": 3,
+    "startRow": 0,
+    "endRow": 2,
+    "total": 3,
+    "pages": 1,
+    "list": [
+      {
+        "id": 87553,
+        "cnGame": "麻将胡了2",
+        "enGame": "Mahjong Ways 2",
+        "gameId": "74",
+        "platform": "PG",
+        "gameSort": 1,
+        "beginTime": 1727712000000,
+        "endTime": 2043640628000,
+        "content": "Mahjong Ways 2",
+        "path": "https://tg.shdunjiusy.com/lh/friend/8db5d390-ea5a-40bd-a6cb-4ce2c69c15ae.jpg",
+        "flag": {},
+        "product": "lh",
+        "createTime": 1729144642000,
+        "createUser": "lhtest",
+        "updateTime": 1730956683000,
+        "updateUser": "lhtest",
+        "openMode": "2",
+        "openModeLabel": {},
+        "gameCode": "74",
+        "trdflag": "N",
+        "gamelanguage": "zh_CN",
+        "transferCode": "newpg",
+        "gameflag": "2"
+      },
+      {
+        "id": 72861,
+        "cnGame": "西游争霸™",
+        "enGame": "Magic Journey™",
+        "gameId": "vs8magicjourn",
+        "platform": "PP",
+        "gameSort": 1,
+        "beginTime": 1590637850000,
+        "endTime": 1798646400000,
+        "content": "Magic Journey™",
+        "path": "https://tg.shdunjiusy.com/yl/friend/fb325d95-fe3a-4179-b680-c20e7b04209f.jpg",
+        "flag": {},
+        "product": "lh",
+        "createTime": 1590637866000,
+        "createUser": "l8test",
+        "updateTime": 1730956743000,
+        "updateUser": "lhtest",
+        "openMode": "2",
+        "openModeLabel": {},
+        "gameCode": "vs8magicjourn",
+        "trdflag": "N",
+        "gamelanguage": "zh-cn",
+        "transferCode": "pp",
+        "gameflag": "2"
+      },
+      {
+        "id": 56006,
+        "cnGame": "跳高高2",
+        "enGame": "Jump High 2",
+        "gameId": "179",
+        "platform": "CQ9",
+        "gameSort": 1,
+        "beginTime": 1590384879000,
+        "endTime": 1885132800000,
+        "content": "Jump High 2",
+        "path": "https://tg.shdunjiusy.com/yl/friend/19608777-59a4-4b4a-8ce9-5408b288a6d8.jpg",
+        "flag": {},
+        "product": "lh",
+        "createTime": 1590384894000,
+        "createUser": "l8test",
+        "updateTime": 1730956753000,
+        "updateUser": "lhtest",
+        "openMode": "2",
+        "openModeLabel": {},
+        "gameCode": "179",
+        "trdflag": "N",
+        "gamelanguage": "zh_CN",
+        "transferCode": "newcq9",
+        "gameflag": "2"
+      }
+    ],
+    "prePage": 0,
+    "nextPage": 0,
+    "isFirstPage": true,
+    "isLastPage": true,
+    "hasPreviousPage": false,
+    "hasNextPage": false,
+    "navigatePages": 8,
+    "navigatepageNums": [
+      1
+    ],
+    "navigateFirstPage": 1,
+    "navigateLastPage": 1,
+    "firstPage": 1,
+    "lastPage": 1
+  },
+  "message": "成功"
+}
+----------------------------------------------------------------------------------------------------
+
+【16】 16. queryTitle
+----------------------------------------------------------------------------------------------------
+URL: https://e68web01.itomtest.com/api/friend/topic/1.0/queryTitle
+状态: ✅ PASS
+HTTP状态码: 200 | 响应码: 10000 | 消息: 成功
+耗时: 258.6ms
+
+请求参数:
+{}
+
+完整响应数据:
+{
+  "code": "10000",
+  "data": [
+    {
+      "id": 2082,
+      "topicIcon": "https://tg.shdunjiusy.com/lh/friend/8736ffa4-11bb-4fe7-81c4-902d5ee43e3c.png",
+      "topicTitle": "#1月好运时刻#",
+      "joinUserNumber": 66
+    },
+    {
+      "id": 2062,
+      "topicIcon": "https://tg.shdunjiusy.com/lh/friend/1cd98123-5964-4501-ab4a-8101b6c97aea.png",
+      "topicTitle": "#官网改版大揭秘，一起来说说你的看法吧#",
+      "joinUserNumber": 20
+    },
+    {
+      "id": 2042,
+      "topicIcon": "https://tg.shdunjiusy.com/lh/friend/d32c2557-02ee-4015-aaca-1b6d21cbab52.png",
+      "topicTitle": "#12月幸运尾号#",
+      "joinUserNumber": 34
+    },
+    {
+      "id": 1982,
+      "topicIcon": "https://tg.shdunjiusy.com/lh/friend/f40a0440-f039-4631-aa6a-7ef3589ce292.jpg",
+      "topicTitle": "#詹姆斯第23赛季，还能场均20+吗？ 🏀#",
+      "joinUserNumber": 23
+    },
+    {
+      "id": 1782,
+      "topicIcon": "https://tg.shdunjiusy.com/lh/friend/0258abdc-2833-4f1d-9d84-95410afbe350.png",
+      "topicTitle": "#全新VIP系统上线，您有什么看法？#",
+      "joinUserNumber": 54
+    },
+    {
+      "id": 1682,
+      "topicIcon": "https://tg.shdunjiusy.com/lh/friend/6d7b399c-7ed3-463b-a388-169980520408.png",
+      "topicTitle": "#PG晒图赢彩金#",
+      "joinUserNumber": 534
+    },
+    {
+      "id": 1502,
+      "topicIcon": "https://tg.shdunjiusy.com/lh/friend/a5cad8ea-543a-4b5a-988b-8f71bcc40fe4.jpg",
+      "topicTitle": "#使用虚拟币都在哪一个交易所呢？#",
+      "joinUserNumber": 12
+    },
+    {
+      "id": 1382,
+      "topicIcon": "https://tg.shdunjiusy.com/yl/friend/51731886-6280-466f-8872-35663f9af128.jpg",
+      "topicTitle": "#下一个奖池你觉得是什么游戏#",
+      "joinUserNumber": 80
+    },
+    {
+      "id": 1383,
+      "topicIcon": "https://tg.shdunjiusy.com/yl/friend/96e8b1fd-de61-4745-b89c-925713b6e868.jpg",
+      "topicTitle": "#老虎机or真人，你更pick哪一个#",
+      "joinUserNumber": 93
+    }
+  ],
+  "message": "成功"
+}
+----------------------------------------------------------------------------------------------------
+
+【17】 17. queryDetails
+----------------------------------------------------------------------------------------------------
+URL: https://e68web01.itomtest.com/api/friend/topic/1.0/queryDetails
+状态: ✅ PASS
+HTTP状态码: 200 | 响应码: 10000 | 消息: 成功
+耗时: 156.1ms
+
+请求参数:
+{
+  "topicId": 1,
+  "pageNum": 1,
+  "pageSize": 20
+}
+
+完整响应数据:
+{
+  "code": "10000",
+  "data": {
+    "id": 1,
+    "topicTitle": "老虎机or真人，你更pick哪一个",
+    "topicDetails": "老虎机or真人，你更pick哪一个？",
+    "topicIcon": "https://tg.shdunjiusy.com/yl/friend/96e8b1fd-de61-4745-b89c-925713b6e868.jpg",
+    "joinUserNumber": 0,
+    "appVoPageInfo": {}
+  },
+  "message": "成功"
+}
+----------------------------------------------------------------------------------------------------
+
+【18】 18. queryTasks
+----------------------------------------------------------------------------------------------------
+URL: https://e68web01.itomtest.com/api/friend/task/1.0/queryTasks
+状态: ✅ PASS
+HTTP状态码: 200 | 响应码: 10000 | 消息: 成功
+耗时: 291.6ms
+
+请求参数:
+{
+  "userId": 489714
+}
+
+完整响应数据:
+{
+  "code": "10000",
+  "data": [
+    {
+      "id": 80,
+      "userTaskId": {},
+      "taskType": 0,
+      "prize": 100,
+      "isComplete": 0,
+      "taskCode": "nick_name",
+      "taskTitle": "首次设置昵称",
+      "taskIcon": "https://tg.shdunjiusy.com/yl/friend/c826f7e2-7840-48d6-be9c-760ad17669cc.png",
+      "taskDetails": "首次设置朋友圈昵称，可以获得100积分奖励"
+    },
+    {
+      "id": 81,
+      "userTaskId": {},
+      "taskType": 0,
+      "prize": 100,
+      "isComplete": 0,
+      "taskCode": "photo",
+      "taskTitle": "首次修改社区头像",
+      "taskIcon": "https://tg.shdunjiusy.com/yl/friend/c9586d94-9d03-4f8f-aa27-e7197c5c1a89.png",
+      "taskDetails": "首次修改社区头像即可获得100积分奖励"
+    },
+    {
+      "id": 82,
+      "userTaskId": {},
+      "taskType": 0,
+      "prize": 100,
+      "isComplete": 0,
+      "taskCode": "follow",
+      "taskTitle": "首次进行关注行为",
+      "taskIcon": "https://tg.shdunjiusy.com/yl/friend/cdc9e846-0349-4608-8937-308582dffadb.png",
+      "taskDetails": "首次进行关注其他玩家，可以获得100积分奖励"
+    },
+    {
+      "id": 84,
+      "userTaskId": {},
+      "taskType": 0,
+      "prize": 100,
+      "isComplete": 0,
+      "taskCode": "comments",
+      "taskTitle": "首次评论成功",
+      "taskIcon": "https://tg.shdunjiusy.com/yl/friend/96234340-d32a-4fe9-9270-b7705130654b.png",
+      "taskDetails": "首次评论成功（文字回复不少于8字，不可和其他玩家内容一致），可获得100积分奖励"
+    },
+    {
+      "id": 85,
+      "userTaskId": {},
+      "taskType": 0,
+      "prize": 100,
+      "isComplete": 0,
+      "taskCode": "share",
+      "taskTitle": "首次转发帖子到微信朋友圈",
+      "taskIcon": "https://tg.shdunjiusy.com/yl/friend/f8066de7-f943-47bc-9f89-84408638b236.png",
+      "taskDetails": "首次转发优质内容帖子到朋友圈，可以获得100积分奖励"
+    },
+    {
+      "id": 86,
+      "userTaskId": {},
+      "taskType": 0,
+      "prize": 100,
+      "isComplete": 0,
+      "taskCode": "circle",
+      "taskTitle": "首次发帖成功",
+      "taskIcon": "https://tg.shdunjiusy.com/yl/friend/d947c222-e77d-454a-999e-da411276f7ce.png",
+      "taskDetails": "首次发帖子中上传图片，可获得100积分奖励"
+    },
+    {
+      "id": 88,
+      "userTaskId": {},
+      "taskType": 0,
+      "prize": 100,
+      "isComplete": 0,
+      "taskCode": "topic",
+      "taskTitle": "首次参与讨论话题",
+      "taskIcon": "https://tg.shdunjiusy.com/yl/friend/8fc636fa-957b-4e7c-bacf-d55d2b5f8585.png",
+      "taskDetails": "首次参与话题讨论，可以获得100积分奖励"
+    },
+    {
+      "id": 89,
+      "userTaskId": {},
+      "taskType": 1,
+      "prize": 100,
+      "isComplete": 0,
+      "taskCode": "praise",
+      "taskTitle": "每日点赞3次",
+      "taskIcon": "https://tg.shdunjiusy.com/yl/friend/0d3c3b8e-c862-43a8-8459-3f8fd8f8f963.png",
+      "taskDetails": "每日为帖子或评论点赞3次，可共获得100积分奖励（不足3次无积分）"
+    },
+    {
+      "id": 90,
+      "userTaskId": {},
+      "taskType": 1,
+      "prize": 100,
+      "isComplete": 0,
+      "taskCode": "share",
+      "taskTitle": "每日分享1次",
+      "taskIcon": "https://tg.shdunjiusy.com/yl/friend/4d775da3-5f6b-4056-b296-dd525b2e42eb.png",
+      "taskDetails": "每日分享帖子至朋友圈，可获得100积分奖励"
+    },
+    {
+      "id": 92,
+      "userTaskId": {},
+      "taskType": 1,
+      "prize": 8000,
+      "isComplete": 0,
+      "taskCode": "circle_sort",
+      "taskTitle": "帖子被加精1次",
+      "taskIcon": "https://tg.shdunjiusy.com/yl/friend/e462fff0-8c86-48ec-909c-1587ebdc25c5.png",
+      "taskDetails": "成功发帖后，帖子被设置为“精选”帖，则奖励8000积分"
+    }
+  ],
+  "message": "成功"
+}
+----------------------------------------------------------------------------------------------------
+
+【19】 19. pageList-comments
+----------------------------------------------------------------------------------------------------
+URL: https://e68web01.itomtest.com/api/friend/circleComments/1.0/pageList
+状态: ✅ PASS
+HTTP状态码: 200 | 响应码: 10000 | 消息: 成功
+耗时: 311.9ms
+
+请求参数:
+{
+  "circleId": 1689288,
+  "pageNum": 1,
+  "pageSize": 20
+}
+
+完整响应数据:
+{
+  "code": "10000",
+  "data": {
+    "pageNum": 1,
+    "pageSize": 20,
+    "size": 0,
+    "startRow": 0,
+    "endRow": 0,
+    "total": 0,
+    "pages": 0,
+    "list": [],
+    "prePage": 0,
+    "nextPage": 0,
+    "isFirstPage": true,
+    "isLastPage": false,
+    "hasPreviousPage": false,
+    "hasNextPage": false,
+    "navigatePages": 8,
+    "navigatepageNums": [],
+    "navigateFirstPage": 0,
+    "navigateLastPage": 0,
+    "firstPage": 0,
+    "lastPage": 0
+  },
+  "message": "成功"
+}
+----------------------------------------------------------------------------------------------------
+
+【20】 20. saveComments
+----------------------------------------------------------------------------------------------------
+URL: https://e68web01.itomtest.com/api/friend/circleComments/1.0/saveComments
+状态: ❌ FAIL
+HTTP状态码: 200 | 响应码: 101 | 消息: 系统失败
+耗时: 135.2ms
+
+请求参数:
+{
+  "circleId": 1689288,
+  "userId": 489714,
+  "content": "test"
+}
+
+完整响应数据:
+{
+  "code": "101",
+  "data": {},
+  "message": "系统失败"
+}
+----------------------------------------------------------------------------------------------------
+
+【21】 21. saveReport
+----------------------------------------------------------------------------------------------------
+URL: https://e68web01.itomtest.com/api/friend/report/1.0/saveReport
+状态: ❌ FAIL
+HTTP状态码: 200 | 响应码: 101 | 消息: 系统失败
+耗时: 139.7ms
+
+请求参数:
+{
+  "reportName": "adults123",
+  "beReportName": "user2",
+  "fCircleId": 1689288,
+  "content": "test",
+  "reportReason": "test"
+}
+
+完整响应数据:
+{
+  "code": "101",
+  "data": {},
+  "message": "系统失败"
+}
+----------------------------------------------------------------------------------------------------
