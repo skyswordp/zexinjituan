@@ -61,19 +61,19 @@ class APITester:
         ]
         
         # 单独处理文件上传测试（需要 multipart/form-data）
-        # 路径: /api/friend/upload/1.0/upload?product=yl -> dc-api-friend:/api/friend/upload/1.0/upload
+        # 路径: /api/friend/upload/1.0/upload?product=lh -> dc-api-friend:/api/friend/upload/1.0/upload
         # 说明: product通过URL参数传递，因为multipart请求没有JSON body，SessionTimeoutInterceptor无法设置paramJson
         # 参考: FriendController.forwardToFriendApiUpload() 会将前端参数放入data字段后AES加密
         self.upload_tests = [
             {
                 'name': '22. 文件上传 - 图片',
-                'url': 'https://e68web01.itomtest.com/api/friend/upload/1.0/upload?product=yl',
+                'url': 'https://e68web01.itomtest.com/api/friend/upload/1.0/upload?product=lh',
                 'files': {'file': ('architecture.png', open(r'C:\Users\DEVTrump\projects\docs-1\FriendController\朋友圈产品交互架构图.png', 'rb'), 'image/png')},
                 'data': {}
             },
             {
                 'name': '23. 文件上传 - 视频',
-                'url': 'https://e68web01.itomtest.com/api/friend/upload/1.0/upload?product=yl',
+                'url': 'https://e68web01.itomtest.com/api/friend/upload/1.0/upload?product=lh',
                 'files': {'file': ('test_video.mp4', open(r'C:\Users\DEVTrump\projects\docs-1\FriendController\朋友圈产品交互架构图.png', 'rb'), 'image/png')},
                 'data': {}
             },
