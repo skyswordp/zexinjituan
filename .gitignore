@@ -1,2 +1,12 @@
 logs/*.log
 logs/*.log.*
+
+# 忽略所有 Git 子项目
+appweb/
+crm-server/
+crm-vue/
+DC-API-2018/
+dc-parent/
+png/
+production-docs-detail/
+DC-Workspace/
