@@ -68,13 +68,13 @@ class APITester:
             {
                 'name': '22. 文件上传 - 图片',
                 'url': 'https://e68web01.itomtest.com/api/friend/upload/1.0/upload?product=yl',
-                'files': {'file': ('test_image.png', BytesIO(b'\x89PNG\r\n\x1a\n' + b'\x00' * 100), 'image/png')},  # 简单的 PNG 头
+                'files': {'file': ('architecture.png', open(r'C:\Users\DEVTrump\projects\docs-1\FriendController\朋友圈产品交互架构图.png', 'rb'), 'image/png')},
                 'data': {}
             },
             {
                 'name': '23. 文件上传 - 视频',
                 'url': 'https://e68web01.itomtest.com/api/friend/upload/1.0/upload?product=yl',
-                'files': {'file': ('test_video.mp4', BytesIO(b'\x00\x00\x00\x20ftypisom' + b'\x00' * 100), 'video/mp4')},  # 简单的 MP4 头
+                'files': {'file': ('test_video.mp4', open(r'C:\Users\DEVTrump\projects\docs-1\FriendController\朋友圈产品交互架构图.png', 'rb'), 'image/png')},
                 'data': {}
             },
         ]
