@@ -55,5 +55,6 @@
   "python-envs.defaultEnvManager": "ms-python.python:system",
   "python-envs.pythonProjects": [],
   "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx8G -Xms512m -XX:+UseStringDeduplication -Xlog:disable",
-  "java.jdt.ls.java.home": "C:\\Program Files\\Java\\jdk1.8.0_101"
+  "java.jdt.ls.java.home": "C:\\Program Files\\Java\\jdk1.8.0_101",
+  "github.copilot.appmod.autoCreateMetadata": false
 }
