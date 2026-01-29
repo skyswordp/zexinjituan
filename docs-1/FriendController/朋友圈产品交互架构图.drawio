@@ -1,0 +1,64 @@
+<mxfile host="65bd71144e">
+    <diagram id="friend-circle-architecture" name="朋友圈产品交互架构">
+        <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="title" value="朋友圈产品交互架构总览" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=28;fontStyle=1;fontColor=#1A1A1A;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="40" width="800" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="user-start" value="👤 用户进入&lt;br&gt;朋友圈" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+                    <mxGeometry x="680" y="120" width="240" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="module-profile" value="&lt;b&gt;📱 个人中心&lt;/b&gt;&lt;br&gt;&lt;br&gt;• getUser - 查看资料&lt;br&gt;• update - 编辑资料&lt;br&gt;• getLevel - 查询等级" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;align=left;verticalAlign=top;fontSize=14;spacingLeft=10;spacingTop=10;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="300" width="230" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="module-follow" value="&lt;b&gt;👥 关注/粉丝&lt;/b&gt;&lt;br&gt;&lt;br&gt;• getList - 查看列表&lt;br&gt;• saveFollow - 关注/取消" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;align=left;verticalAlign=top;fontSize=14;spacingLeft=10;spacingTop=10;" vertex="1" parent="1">
+                    <mxGeometry x="350" y="300" width="230" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="module-circle" value="&lt;b&gt;📝 朋友圈动态&lt;/b&gt;&lt;br&gt;&lt;br&gt;• saveCircle - 发布动态&lt;br&gt;• pageList - 动态列表&lt;br&gt;• readCount - 浏览计数" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;align=left;verticalAlign=top;fontSize=14;spacingLeft=10;spacingTop=10;" vertex="1" parent="1">
+                    <mxGeometry x="620" y="300" width="230" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="module-interact" value="&lt;b&gt;💬 点赞/评论&lt;/b&gt;&lt;br&gt;&lt;br&gt;• saveChangePraise - 点赞&lt;br&gt;• saveComments - 评论&lt;br&gt;• saveShare - 分享" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;align=left;verticalAlign=top;fontSize=14;spacingLeft=10;spacingTop=10;" vertex="1" parent="1">
+                    <mxGeometry x="890" y="300" width="230" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="module-topic" value="&lt;b&gt;🔥 话题广场&lt;/b&gt;&lt;br&gt;&lt;br&gt;• queryTitle - 话题列表&lt;br&gt;• queryDetails - 话题详情" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b0e3e6;strokeColor=#0e8088;align=left;verticalAlign=top;fontSize=14;spacingLeft=10;spacingTop=10;" vertex="1" parent="1">
+                    <mxGeometry x="160" y="500" width="230" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="module-task" value="&lt;b&gt;🎯 任务中心&lt;/b&gt;&lt;br&gt;&lt;br&gt;• queryTasks - 任务列表" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;align=left;verticalAlign=top;fontSize=14;spacingLeft=10;spacingTop=10;" vertex="1" parent="1">
+                    <mxGeometry x="460" y="500" width="230" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="module-board" value="&lt;b&gt;🎲 板块功能&lt;/b&gt;&lt;br&gt;&lt;br&gt;• index/getByLevel&lt;br&gt;• guess/getByLevel" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fad7ac;strokeColor=#b46504;align=left;verticalAlign=top;fontSize=14;spacingLeft=10;spacingTop=10;" vertex="1" parent="1">
+                    <mxGeometry x="760" y="500" width="230" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="arrow-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#999999;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="user-start" target="module-profile">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="arrow-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#999999;exitX=0.4;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="user-start" target="module-follow">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="arrow-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#6C8EBF;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="user-start" target="module-circle">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="arrow-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#999999;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="user-start" target="module-interact">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="arrow-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#999999;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="module-circle" target="module-topic">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="arrow-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#999999;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="module-circle" target="module-task">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="arrow-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#999999;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="module-circle" target="module-board">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="note-api" value="&lt;b style=&quot;font-size: 16px;&quot;&gt;📌 接口规范说明&lt;/b&gt;&lt;br&gt;&lt;br&gt;✅ 请求方式：POST&lt;br&gt;&lt;br&gt;✅ 统一返回格式：&lt;br&gt;&lt;font face=&quot;Courier New&quot;&gt;{&lt;br&gt;  &quot;code&quot;: &quot;200&quot;,&lt;br&gt;  &quot;message&quot;: &quot;成功&quot;,&lt;br&gt;  &quot;data&quot;: {...}&lt;br&gt;}&lt;/font&gt;&lt;br&gt;&lt;br&gt;✅ 统一入参：&lt;br&gt;• product: 产品标识 (yl/at)&lt;br&gt;• userId: 用户ID&lt;br&gt;• pageNum/pageSize: 分页&lt;br&gt;&lt;br&gt;✅ AES加密：&lt;br&gt;&lt;font face=&quot;Courier New&quot;&gt;KEY=smkldospdosldaaa&lt;br&gt;IV=0000000000000000&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff4e6;strokeColor=#d79b00;align=left;verticalAlign=top;fontSize=13;spacingLeft=15;spacingTop=15;" vertex="1" parent="1">
+                    <mxGeometry x="1200" y="120" width="320" height="440" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend" value="&lt;b style=&quot;font-size: 14px;&quot;&gt;图例说明&lt;/b&gt;&lt;br&gt;&lt;br&gt;🟠 橙色 - 个人中心&amp;nbsp; &amp;nbsp;🟢 绿色 - 社交关系&lt;br&gt;🟣 紫色 - 动态内容&amp;nbsp; &amp;nbsp;🔴 粉色 - 互动功能&lt;br&gt;🔵 青色 - 话题广场&amp;nbsp; &amp;nbsp;🟡 黄色 - 任务系统&amp;nbsp; &amp;nbsp;🟤 棕色 - 板块功能" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=top;fontSize=13;spacingLeft=15;spacingTop=10;fontColor=#333333;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="660" width="1040" height="100" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

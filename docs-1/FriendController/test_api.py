@@ -12,6 +12,7 @@ import time
 import os
 from datetime import datetime
 from typing import Dict, List, Tuple
+from io import BytesIO
 
 # 禁用 SSL 警告（测试环境）
 requests.packages.urllib3.disable_warnings()
@@ -33,15 +34,16 @@ class APITester:
         self.log_file = os.path.join(self.log_dir, f"api_test_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log")
         
         self.log_content = []  # 日志内容缓冲
+        self.summary_text = ""  # 汇总信息（写到日志最上方）
         
         self.tests = [
-            {'name': '1. getUser', 'url': 'https://e68web01.itomtest.com/api/friend/user/1.0/getUser', 'body': {'id': '488714', 'userId': '488714'}},
-            {'name': '2. getMyPraiseCount', 'url': 'https://e68web01.itomtest.com/api/friend/user/1.0/getMyPraiseCount', 'body': {'userId': '488714'}},
+            {'name': '1. getUser', 'url': 'https://e68web01.itomtest.com/api/friend/user/1.0/getUser', 'body': {'id': '489714', 'userId': '489714'}},
+            {'name': '2. getMyPraiseCount', 'url': 'https://e68web01.itomtest.com/api/friend/user/1.0/getMyPraiseCount', 'body': {'userId': '489714'}},
             {'name': '3. update', 'url': 'https://e68web01.itomtest.com/api/friend/user/1.0/update', 'body': {'id': '488714', 'nickName': 'test', 'headUrl': 'https://example.com/new.png'}},
-            {'name': '4. saveFollow', 'url': 'https://e68web01.itomtest.com/api/friend/user/1.0/saveFollow', 'body': {'userId': '488714', 'beUserId': '100001', 'type': '1'}},
+            {'name': '4. saveFollow', 'url': 'https://e68web01.itomtest.com/api/friend/user/1.0/saveFollow', 'body': {'userId': '489714', 'beUserId': '489715', 'type': '2'}},  # type: 1=关注, 2=取消关注
             {'name': '5. readCount', 'url': 'https://e68web01.itomtest.com/api/friend/user/1.0/readCount', 'body': {'type': '1', 'id': '1689288'}},
-            {'name': '6. saveShare', 'url': 'https://e68web01.itomtest.com/api/friend/user/1.0/saveShare', 'body': {'userId': 489714, 'circleId': 1689288}},
-            {'name': '7. saveChangePraise', 'url': 'https://e68web01.itomtest.com/api/friend/user/1.0/saveChangePraise', 'body': {'userId': 489714, 'praiseType': '1', 'type': '1', 'circleId': 1689288}},
+            {'name': '6. saveShare', 'url': 'https://e68web01.itomtest.com/api/friend/user/1.0/saveShare', 'body': {'userId': '489714', 'circleId': '1689288'}},
+            {'name': '7. saveChangePraise', 'url': 'https://e68web01.itomtest.com/api/friend/user/1.0/saveChangePraise', 'body': {'userId': '489714', 'praiseType': '1', 'type': '1', 'circleId': '1689288'}},
             {'name': '8. getLevel', 'url': 'https://e68web01.itomtest.com/api/friend/levelSetting/1.0/getLevel', 'body': {'account': 'adults123', 'money': 0, 'levelId': '1'}},
             {'name': '9. board-index', 'url': 'https://e68web01.itomtest.com/api/friend/board/index/getByLevel', 'body': {'boardLevel': 1}},
             {'name': '10. board-guess', 'url': 'https://e68web01.itomtest.com/api/friend/board/guess/getByLevel', 'body': {'boardLevel': 1}},
@@ -52,10 +54,29 @@ class APITester:
             {'name': '15. pageList-game', 'url': 'https://e68web01.itomtest.com/api/friend/gameSetting/1.0/pageList', 'body': {'pageNum': 1, 'pageSize': 20}},
             {'name': '16. queryTitle', 'url': 'https://e68web01.itomtest.com/api/friend/topic/1.0/queryTitle', 'body': {}},
             {'name': '17. queryDetails', 'url': 'https://e68web01.itomtest.com/api/friend/topic/1.0/queryDetails', 'body': {'topicId': 1, 'pageNum': 1, 'pageSize': 20}},
-            {'name': '18. queryTasks', 'url': 'https://e68web01.itomtest.com/api/friend/task/1.0/queryTasks', 'body': {'userId': 489714}},
+            {'name': '18. queryTasks', 'url': 'https://e68web01.itomtest.com/api/friend/task/1.0/queryTasks', 'body': {'userId': '489714'}},
             {'name': '19. pageList-comments', 'url': 'https://e68web01.itomtest.com/api/friend/circleComments/1.0/pageList', 'body': {'circleId': 1689288, 'pageNum': 1, 'pageSize': 20}},
             {'name': '20. saveComments', 'url': 'https://e68web01.itomtest.com/api/friend/circleComments/1.0/saveComments', 'body': {'circleId': '1689288', 'userId': '489714', 'content': 'test'}},
             {'name': '21. saveReport', 'url': 'https://e68web01.itomtest.com/api/friend/report/1.0/saveReport', 'body': {'id': '1689288', 'userId': '489714', 'type': '1', 'reportReason': 'test'}},
+        ]
+        
+        # 单独处理文件上传测试（需要 multipart/form-data）
+        # 路径: /api/friend/upload/1.0/upload?product=yl -> dc-api-friend:/api/friend/upload/1.0/upload
+        # 说明: product通过URL参数传递，因为multipart请求没有JSON body，SessionTimeoutInterceptor无法设置paramJson
+        # 参考: FriendController.forwardToFriendApiUpload() 会将前端参数放入data字段后AES加密
+        self.upload_tests = [
+            {
+                'name': '22. 文件上传 - 图片',
+                'url': 'https://e68web01.itomtest.com/api/friend/upload/1.0/upload?product=yl',
+                'files': {'file': ('test_image.png', BytesIO(b'\x89PNG\r\n\x1a\n' + b'\x00' * 100), 'image/png')},  # 简单的 PNG 头
+                'data': {}
+            },
+            {
+                'name': '23. 文件上传 - 视频',
+                'url': 'https://e68web01.itomtest.com/api/friend/upload/1.0/upload?product=yl',
+                'files': {'file': ('test_video.mp4', BytesIO(b'\x00\x00\x00\x20ftypisom' + b'\x00' * 100), 'video/mp4')},  # 简单的 MP4 头
+                'data': {}
+            },
         ]
         
         self.results = []
@@ -88,6 +109,10 @@ class APITester:
     def flush_log(self):
         """刷新日志到文件"""
         with open(self.log_file, 'w', encoding='utf-8') as f:
+            if self.summary_text:
+                f.write(self.summary_text)
+                if not self.summary_text.endswith("\n"):
+                    f.write("\n")
             f.write('\n'.join(self.log_content))
     
     def print_header(self):
@@ -191,6 +216,97 @@ class APITester:
         self.results.append(result)
         return result
     
+    def run_upload_test(self, test_idx: int, test: Dict) -> Dict:
+        """执行文件上传测试"""
+        name = test['name']
+        url = test['url']
+        files = test['files']
+        data = test['data']
+        
+        # 控制台显示进度
+        progress = f"[{test_idx:2d}/{len(self.tests) + len(self.upload_tests)}] {name} ... "
+        print(progress, end='', flush=True)
+        
+        try:
+            start_time = time.time()
+            
+            # 文件上传使用 multipart/form-data，不需要 Content-Type: application/json
+            headers = {k: v for k, v in self.headers.items() if k != 'Content-Type'}
+            
+            response = requests.post(
+                url,
+                files=files,
+                data=data,
+                headers=headers,
+                timeout=10,
+                verify=False
+            )
+            elapsed_ms = (time.time() - start_time) * 1000
+            
+            status_code = response.status_code
+            response_text = response.text
+            
+            # 尝试解析JSON
+            try:
+                response_json = response.json()
+            except:
+                response_json = None
+            
+            # 判断成功/失败
+            if status_code == 200 and response_json and response_json.get('code') == '10000':
+                status = "✅ PASS"
+                self.pass_count += 1
+            else:
+                status = "❌ FAIL"
+                self.fail_count += 1
+            
+            # 简要输出到控制台
+            print(status)
+            
+            # 详细信息写入日志
+            self.log(f"\n[{test_idx}/{len(self.tests) + len(self.upload_tests)}] {name}")
+            self.log(f"  URL: {url}")
+            self.log(f"  状态: {status} | HTTP: {status_code} | 耗时: {elapsed_ms:.1f}ms")
+            self.log(f"  上传文件: {list(files.keys())[0]}")
+            if response_json:
+                self.log(f"  响应码: {response_json.get('code', 'N/A')} | 消息: {response_json.get('message', 'N/A')}")
+            
+            result = {
+                'name': name,
+                'url': url,
+                'body': data,
+                'status': 'PASS' if (status_code == 200 and response_json and response_json.get('code') == '10000') else 'FAIL',
+                'status_code': status_code,
+                'elapsed_ms': elapsed_ms,
+                'response': response_json if response_json else response_text,
+                'error': None,
+                'file': files
+            }
+            
+        except Exception as e:
+            print(f"❌ FAIL")
+            self.fail_count += 1
+            
+            self.log(f"\n[{test_idx}/{len(self.tests) + len(self.upload_tests)}] {name}")
+            self.log(f"  URL: {url}")
+            self.log(f"  状态: ❌ FAIL")
+            self.log(f"  错误: {str(e)}")
+            
+            result = {
+                'name': name,
+                'url': url,
+                'body': data,
+                'status': 'FAIL',
+                'status_code': None,
+                'elapsed_ms': None,
+                'response': None,
+                'error': str(e),
+                'file': files
+            }
+        
+        self.results.append(result)
+        return result
+    
     def print_summary(self):
         """汇总信息写入日志"""
         summary = "\n" + "="*100 + "\n📊 测试汇总 - 快速预览\n" + "="*100 + "\n"
@@ -218,7 +334,8 @@ class APITester:
         
         summary += "="*100 + "\n"
         
-        self.log(summary)
+        # 汇总放到日志最上方
+        self.summary_text = summary
     
     def print_details(self):
         """详细结果写入日志"""
@@ -264,8 +381,13 @@ class APITester:
         """执行所有测试"""
         self.print_header()
         
+        # 执行常规JSON接口测试
         for idx, test in enumerate(self.tests, 1):
             self.run_test(idx, test)
+        
+        # 执行文件上传测试
+        for idx, test in enumerate(self.upload_tests, len(self.tests) + 1):
+            self.run_upload_test(idx, test)
         
         self.print_summary()
         

@@ -12,7 +12,12 @@
       "Bash(git status:*)",
       "Bash(find:*)",
       "Bash(reg query \"HKCU\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Internet Settings\" /v ProxyEnable)",
-      "Bash(git fetch:*)"
+      "Bash(git fetch:*)",
+      "Bash(powershell:*)",
+      "Bash(python generate_architecture_diagram.py:*)",
+      "Bash(cmd.exe /c \"cd C:\\\\Users\\\\DEVTrump\\\\projects\\\\docs-1\\\\FriendController && python generate_architecture_diagram.py\")",
+      "Bash(cmd.exe /c \"cd C:\\\\Users\\\\DEVTrump\\\\projects\\\\docs-1\\\\FriendController && copy /Y product-interaction-doc.md 产品交互文档.md\")",
+      "Bash(python:*)"
     ],
     "deny": [],
     "ask": []
