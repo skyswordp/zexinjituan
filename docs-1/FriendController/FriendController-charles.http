@@ -5,6 +5,7 @@ curl -X POST 'https://e68web01.itomtest.com/api/friend/user/1.0/getUser' \
   -H 'Cookie: __snaker__id=jvOJbjKJWgJZ7mEl; JSESSIONID=E85595B704A736F259DBA0CAC72DCF0C' \
   -H 'Origin: https://e68web01.itomtest.com' \
   -H 'Referer: https://e68web01.itomtest.com/Dynamic' \
+  -H 'X-Debug-Enabled: true' \
   -d '{"id":"488714","userId":"488714"}'
 
 ### 2. 获取我的点赞数量

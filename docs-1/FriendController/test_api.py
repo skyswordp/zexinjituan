@@ -23,7 +23,8 @@ class APITester:
             'Content-Type': 'application/json;charset=UTF-8',
             'Cookie': '__snaker__id=jvOJbjKJWgJZ7mEl; JSESSIONID=E85595B704A736F259DBA0CAC72DCF0C',
             'Origin': 'https://e68web01.itomtest.com',
-            'Referer': 'https://e68web01.itomtest.com/Dynamic'
+            'Referer': 'https://e68web01.itomtest.com/Dynamic',
+            'X-Debug-Enabled': 'true'  # ✅ 开启网关层 debug 模式，返回 traceId
         }
         
         # 初始化日志目录
@@ -64,6 +65,25 @@ class APITester:
     def log(self, msg: str):
         """写入日志"""
         self.log_content.append(msg)
+    
+    def generate_curl_command(self, url: str, body: Dict, headers: Dict) -> str:
+        """生成 PowerShell 可执行的 CURL 命令"""
+        # PowerShell 格式的 CURL 命令
+        curl_cmd = f'curl.exe -X POST "{url}" `\n'
+        
+        # 添加所有 headers
+        for key, value in headers.items():
+            # PowerShell 需要转义双引号
+            escaped_value = value.replace('"', '\\"')
+            curl_cmd += f'  -H "{key}: {escaped_value}" `\n'
+        
+        # 添加 body（JSON 格式）
+        json_body = json.dumps(body, ensure_ascii=False)
+        # PowerShell 中单引号不需要转义内部双引号
+        curl_cmd += f"  -d '{json_body}' `\n"
+        curl_cmd += "  --insecure"
+        
+        return curl_cmd
     
     def flush_log(self):
         """刷新日志到文件"""
@@ -123,6 +143,14 @@ class APITester:
             self.log(f"  状态: {status} | HTTP: {status_code} | 耗时: {elapsed_ms:.1f}ms")
             if response_json:
                 self.log(f"  响应码: {response_json.get('code', 'N/A')} | 消息: {response_json.get('message', 'N/A')}")
+                # 打印 debug 信息（如果有）
+                if '_debug' in response_json:
+                    self.log(f"  🔍 Debug: {response_json['_debug']}")
+            
+            # 生成 PowerShell 可执行的 CURL 命令
+            curl_cmd = self.generate_curl_command(url, body, self.headers)
+            self.log(f"\n  📋 PowerShell CURL 命令:")
+            self.log(f"  {curl_cmd}")
             
             result = {
                 'name': name,
@@ -143,6 +171,11 @@ class APITester:
             self.log(f"  URL: {url}")
             self.log(f"  状态: ❌ FAIL")
             self.log(f"  错误: {str(e)}")
+            
+            # 异常时也打印 CURL 命令，方便手动调试
+            curl_cmd = self.generate_curl_command(url, body, self.headers)
+            self.log(f"\n  📋 PowerShell CURL 命令:")
+            self.log(f"  {curl_cmd}")
             
             result = {
                 'name': name,
@@ -207,6 +240,11 @@ class APITester:
             
             details += f"\n请求参数:\n"
             details += json.dumps(result['body'], indent=2, ensure_ascii=False) + "\n"
+            
+            # 添加 CURL 命令到详细结果
+            curl_cmd = self.generate_curl_command(result['url'], result['body'], self.headers)
+            details += f"\nPowerShell CURL 命令（可直接复制执行）:\n"
+            details += curl_cmd + "\n\n"
             
             if result['error']:
                 details += f"\n错误信息:\n"
