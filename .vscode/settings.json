@@ -54,5 +54,7 @@
   "java.format.settings.url": ".vscode/java-formatter.xml",
   "python-envs.defaultEnvManager": "ms-python.python:system",
   "python-envs.pythonProjects": [],
-  "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx4G -Xms100m -Xlog:disable"
+  "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx8G -Xms512m -XX:+UseStringDeduplication -Xlog:disable",
+  "redhat.java.memory.percentage": 20,
+  "java.jdt.ls.java.home": "C:\\Program Files\\Java\\jdk1.8.0_101"
 }
