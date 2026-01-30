@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02. 内容管理 - PushOrderContentManagementController</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Microsoft YaHei", Arial, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: white; border-radius: 10px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #2a9d8f 0%, #1b7a6f 100%); color: white; padding: 30px; text-align: center; }
+        .header h1 { font-size: 28px; margin-bottom: 10px; }
+        .header .controller-id { display: inline-block; background: rgba(255,255,255,0.2); padding: 5px 15px; border-radius: 20px; margin-right: 10px; font-size: 12px; }
+        .header .path { font-size: 14px; opacity: 0.9; margin-top: 10px; }
+        .content { padding: 40px; }
+        .chart-container { background: #f8f9fa; border-radius: 8px; padding: 30px; margin: 0 auto 30px; max-width: 794px; }
+        .info-section { margin-top: 30px; padding: 20px; background: #e8f8f1; border-left: 4px solid #2a9d8f; border-radius: 4px; }
+        .info-section h3 { color: #2a9d8f; margin-bottom: 15px; }
+        .api-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 15px; margin-top: 20px; }
+        .api-item { background: white; padding: 15px; border-radius: 6px; border-left: 3px solid #2a9d8f; }
+        .api-item .method { color: #2a9d8f; font-weight: bold; margin-bottom: 5px; }
+        .api-item .desc { color: #666; font-size: 12px; }
+        .back-button { display: inline-block; margin-top: 20px; padding: 12px 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-decoration: none; border-radius: 6px; transition: transform 0.3s; }
+        .back-button:hover { transform: translateY(-2px); }
+        .mermaid svg { max-width: 100%; height: auto; }
+        @page { size: A4 portrait; margin: 12mm; }
+        @media print { body { background: white; padding: 0; } .container { max-width: 794px; border-radius: 0; box-shadow: none; } .content { padding: 24px; } .chart-container { padding: 16px; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <span class="controller-id">Controller #02</span>
+            <h1>内容管理 - PushOrderContentManagementController</h1>
+            <div class="path">/api/friend/pushOrder/contentManagement</div>
+        </div>
+        <div class="content">
+            <div class="chart-container">
+                <pre class="mermaid">
+flowchart TB
+    Start([内容编辑/审核员])
+    
+    subgraph 内容管理
+        direction TB
+        A1[/openPushOrderData - 对外查询接口已废弃/]
+        A2[/pageList - 查询内容列表/]
+        A3[/pageListOne - 查询内容列表One/]
+        A4[/update - 修改推单内容/]
+        A5[/insert - 新增推单内容/]
+        A6[/updateState - 修改推单状态/]
+        A7[/findDetectingUsername - 检测用户名/]
+        A8[/findGeneralLogPageList - 查询通用日志/]
+        A9[/updatePartialFields - 修改部分字段/]
+        A10[/findMatchFootBasketBall - 查询赛事/]
+        A11[/updateGrantKf - 修改授权客服/]
+        A12[/findGrantKf - 查询授权客服/]
+    end
+    
+    subgraph 业务流程
+        direction TB
+        B1[验证token并查询推单]
+        B2[分页查询内容列表]
+        B3[分页查询返回Map]
+        B4[更新推单内容]
+        B5[新增推单内容]
+        B6[更新状态含时间限制]
+        B7[检测用户名存在性]
+        B8[分页查询日志]
+        B9[更新部分字段]
+        B10[查询3-72小时赛事]
+        B11[更新授权参数]
+        B12[查询授权状态]
+    end
+    
+    subgraph 数据服务
+        direction TB
+        C1[(推单内容表)]
+        C2[(用户表)]
+        C3[(日志表)]
+        C4[(赛事数据库)]
+        C5[(系统参数表)]
+    end
+    
+    subgraph 时间控制
+        direction TB
+        D1{前端发布?}
+        D2{等待5分钟?}
+        D3[允许审核]
+        D4[拒绝审核-100]
+    end
+    
+    Start --> A2
+    Start --> A3
+    Start --> A4
+    Start --> A5
+    Start --> A6
+    Start --> A7
+    Start --> A8
+    Start --> A9
+    Start --> A10
+    Start --> A11
+    Start --> A12
+    
+    A1 -.已废弃.-> B1 -.-> C1
+    A2 --> B2 --> C1
+    A3 --> B3 --> C1
+    A4 --> B4 --> C1
+    A5 --> B5 --> C1
+    A6 --> B6 --> D1
+    A7 --> B7 --> C2
+    A8 --> B8 --> C3
+    A9 --> B9 --> C1
+    A10 --> B10 --> C4
+    A11 --> B11 --> C5
+    A12 --> B12 --> C5
+    
+    D1 -->|是| D2
+    D1 -->|否| C1
+    D2 -->|是| D3 --> C1
+    D2 -->|否| D4
+    
+    style Start fill:#caffbf,stroke:#52b788
+    style 内容管理 fill:#e8f8f1,stroke:#2a9d8f
+    style 业务流程 fill:#fff1e6,stroke:#ff7f50
+    style 数据服务 fill:#f6f7ff,stroke:#7b6ed6
+    style 时间控制 fill:#fce4ec,stroke:#e91e63
+                </pre>
+            </div>
+            <div class="info-section">
+                <h3>📋 接口列表 (12个)</h3>
+                <div class="api-list">
+                    <div class="api-item"><div class="method">POST /openPushOrderData</div><div class="desc">对外查询接口(已废弃)</div></div>
+                    <div class="api-item"><div class="method">POST /pageList</div><div class="desc">查询内容列表 - 分页查询</div></div>
+                    <div class="api-item"><div class="method">POST /pageListOne</div><div class="desc">查询内容列表One - 返回Map格式</div></div>
+                    <div class="api-item"><div class="method">POST /update</div><div class="desc">修改推单内容</div></div>
+                    <div class="api-item"><div class="method">POST /insert</div><div class="desc">新增推单内容</div></div>
+                    <div class="api-item"><div class="method">POST /updateState</div><div class="desc">修改推单状态 - 含5分钟时间限制</div></div>
+                    <div class="api-item"><div class="method">POST /findDetectingUsername</div><div class="desc">检测用户名存在性</div></div>
+                    <div class="api-item"><div class="method">POST /findGeneralLogPageList</div><div class="desc">查询通用日志 - 分页</div></div>
+                    <div class="api-item"><div class="method">POST /updatePartialFields</div><div class="desc">修改部分字段</div></div>
+                    <div class="api-item"><div class="method">POST /findMatchFootBasketBall</div><div class="desc">查询3-72小时赛事</div></div>
+                    <div class="api-item"><div class="method">POST /updateGrantKf</div><div class="desc">修改授权客服</div></div>
+                    <div class="api-item"><div class="method">POST /findGrantKf</div><div class="desc">查询授权客服</div></div>
+                </div>
+            </div>
+            <a href="index.html" class="back-button">← 返回首页</a>
+        </div>
+    </div>
+    <script>
+        mermaid.initialize({ startOnLoad: true, theme: 'default', flowchart: { useMaxWidth: true, htmlLabels: true, curve: 'basis' } });
+    </script>
+</body>
+</html>

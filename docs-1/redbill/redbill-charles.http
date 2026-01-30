@@ -1,0 +1,98 @@
+### 1. 偏好方案实体
+curl -X POST 'https://pt777aiguo.mypengyouquan.com/api/friend/pushOrder/external/1.0/findProgrammePreferredEntity' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -H 'Cookie: __snaker__id=YOUR_SNACKER_ID; JSESSIONID=YOUR_SESSION_ID' \
+  -H 'Origin: https://pt777aiguo.mypengyouquan.com' \
+  -H 'Referer: https://pt777aiguo.mypengyouquan.com/' \
+  -d '{}'
+
+### 2. 月榜分页
+curl -X POST 'https://pt777aiguo.mypengyouquan.com/api/friend/pushOrder/external/1.0/findMonthlyRankingPageList' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -H 'Cookie: __snaker__id=YOUR_SNACKER_ID; JSESSIONID=YOUR_SESSION_ID' \
+  -H 'Origin: https://pt777aiguo.mypengyouquan.com' \
+  -H 'Referer: https://pt777aiguo.mypengyouquan.com/' \
+  -d '{"pageNum":1,"pageSize":20,"type":"monthly"}'
+
+### 3. 大师列表
+curl -X POST 'https://pt777aiguo.mypengyouquan.com/api/friend/pushOrder/external/1.0/findPersonalInfoPageList' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -H 'Cookie: __snaker__id=YOUR_SNACKER_ID; JSESSIONID=YOUR_SESSION_ID' \
+  -H 'Origin: https://pt777aiguo.mypengyouquan.com' \
+  -H 'Referer: https://pt777aiguo.mypengyouquan.com/' \
+  -d '{"pageNum":1,"pageSize":20}'
+
+### 4. 首页月榜
+curl -X POST 'https://pt777aiguo.mypengyouquan.com/api/friend/pushOrder/external/1.0/findMonthlyRankingFirstList' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -H 'Cookie: __snaker__id=YOUR_SNACKER_ID; JSESSIONID=YOUR_SESSION_ID' \
+  -H 'Origin: https://pt777aiguo.mypengyouquan.com' \
+  -H 'Referer: https://pt777aiguo.mypengyouquan.com/' \
+  -d '{}'
+
+### 5. 偏好赛事分页
+curl -X POST 'https://pt777aiguo.mypengyouquan.com/api/friend/pushOrder/external/1.0/findMatchPreferredPageList' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -H 'Cookie: __snaker__id=YOUR_SNACKER_ID; JSESSIONID=YOUR_SESSION_ID' \
+  -H 'Origin: https://pt777aiguo.mypengyouquan.com' \
+  -H 'Referer: https://pt777aiguo.mypengyouquan.com/' \
+  -d '{"pageNum":1,"pageSize":20}'
+
+### 6. 大师详情
+curl -X POST 'https://pt777aiguo.mypengyouquan.com/api/friend/pushOrder/external/1.0/findMasterDetailed' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -H 'Cookie: __snaker__id=YOUR_SNACKER_ID; JSESSIONID=YOUR_SESSION_ID' \
+  -H 'Origin: https://pt777aiguo.mypengyouquan.com' \
+  -H 'Referer: https://pt777aiguo.mypengyouquan.com/' \
+  -d '{"userId":488714,"masterId":100001}'
+
+### 7. 我关注的推手
+curl -X POST 'https://pt777aiguo.mypengyouquan.com/api/friend/pushOrder/external/1.0/findMyAttentionPageList' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -H 'Cookie: __snaker__id=YOUR_SNACKER_ID; JSESSIONID=YOUR_SESSION_ID' \
+  -H 'Origin: https://pt777aiguo.mypengyouquan.com' \
+  -H 'Referer: https://pt777aiguo.mypengyouquan.com/' \
+  -d '{"userId":488714,"pageNum":1,"pageSize":20}'
+
+### 8. 点击推单（点击/埋点）
+curl -X POST 'https://pt777aiguo.mypengyouquan.com/api/friend/pushOrder/external/1.0/pushOrderClickReceive' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -H 'Cookie: __snaker__id=YOUR_SNACKER_ID; JSESSIONID=YOUR_SESSION_ID' \
+  -H 'Origin: https://pt777aiguo.mypengyouquan.com' \
+  -H 'Referer: https://pt777aiguo.mypengyouquan.com/' \
+  -d '{"userId":488714,"pushOrderId":123456}'
+
+### 9. 方案详情
+curl -X POST 'https://pt777aiguo.mypengyouquan.com/api/friend/pushOrder/external/1.0/findPlanDetailed' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -H 'Cookie: __snaker__id=YOUR_SNACKER_ID; JSESSIONID=YOUR_SESSION_ID' \
+  -H 'Origin: https://pt777aiguo.mypengyouquan.com' \
+  -H 'Referer: https://pt777aiguo.mypengyouquan.com/' \
+  -d '{"pushOrderId":123456}'
+
+### 10. 偏好方案分页
+curl -X POST 'https://pt777aiguo.mypengyouquan.com/api/friend/pushOrder/external/1.0/findProgrammePreferredPageList' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -H 'Cookie: __snaker__id=YOUR_SNACKER_ID; JSESSIONID=YOUR_SESSION_ID' \
+  -H 'Origin: https://pt777aiguo.mypengyouquan.com' \
+  -H 'Referer: https://pt777aiguo.mypengyouquan.com/' \
+  -d '{"pageNum":1,"pageSize":20}'
+
+### 11. 我的购买记录
+curl -X POST 'https://pt777aiguo.mypengyouquan.com/api/friend/pushOrder/external/1.0/findMyPurchasePageList' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -H 'Cookie: __snaker__id=YOUR_SNACKER_ID; JSESSIONID=YOUR_SESSION_ID' \
+  -H 'Origin: https://pt777aiguo.mypengyouquan.com' \
+  -H 'Referer: https://pt777aiguo.mypengyouquan.com/' \
+  -d '{"userId":488714,"pageNum":1,"pageSize":20}'

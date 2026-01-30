@@ -1,0 +1,39 @@
+flowchart TB
+    Start([后台管理员/运营人员])
+    
+    subgraph 日志管理
+        A1[/pageList - 推单日志查询列表/]
+        A2[/purchaseStatisticsPageList - 推单购买统计/]
+    end
+    
+    subgraph 业务流程
+        B1[分页查询通用日志]
+        B2[分页查询购买统计]
+    end
+    
+    subgraph 数据服务
+        C1[(日志表)]
+        C2[(购买记录表)]
+    end
+    
+    subgraph 统计维度
+        D1[按用户统计]
+        D2[按时间统计]
+        D3[按推单统计]
+    end
+    
+    Start --> A1
+    Start --> A2
+    
+    A1 --> B1 --> C1
+    A2 --> B2 --> D1
+    
+    D1 --> C2
+    D2 --> C2
+    D3 --> C2
+    
+    style Start fill:#caffbf,stroke:#52b788
+    style 日志管理 fill:#f3f3f3,stroke:#6c757d
+    style 业务流程 fill:#e8f8f1,stroke:#2a9d8f
+    style 数据服务 fill:#f6f7ff,stroke:#7b6ed6
+    style 统计维度 fill:#fff1e6,stroke:#ff7f50

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03. AI补单任务</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .header .task-id {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin-right: 10px;
+            font-size: 12px;
+        }
+        
+        .header .task-time {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+        
+        .header p {
+            margin-top: 15px;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .mermaid {
+            display: flex;
+            justify-content: center;
+            background: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            overflow-x: auto;
+        }
+        
+        .legend {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f5f5f5;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+        }
+        
+        .legend h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        .legend-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 3px;
+            flex-shrink: 0;
+        }
+        
+        .color-green { background: #4CAF50; }
+        .color-red { background: #f44336; }
+        .color-blue { background: #2196F3; }
+        .color-orange { background: #FF9800; }
+        .color-yellow { background: #FFC107; }
+        .color-purple { background: #9C27B0; }
+
+        .mermaid { max-width: 794px; margin: 0 auto; }
+        .mermaid svg { max-width: 100%; height: auto; }
+
+        @page { size: A4 portrait; margin: 12mm; }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .container { max-width: 794px; border-radius: 0; box-shadow: none; }
+            .content { padding: 24px; }
+            .mermaid { padding: 12px; }
+        }
+        
+        .footer {
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #eee;
+            background: #f9f9f9;
+            font-size: 12px;
+            color: #666;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 20px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .legend-items {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔧 AI补单任务</h1>
+            <div>
+                <span class="task-id">任务 03</span>
+                <span class="task-time">⏰ 00:00:01</span>
+            </div>
+            <p>为针对特定联赛的推单用户补充推单</p>
+        </div>
+        
+        <div class="content">
+            <div class="mermaid">
+graph TD
+    START([定时任务触发<br/>00:00:01]) --> LOG1["📝 记录日志<br/>AI补单 定时任务【启动】"]
+    
+    LOG1 --> GET_PRODUCTS["🔍 获取系统参数<br/>PUSHORDER_PRODUCT<br/>获取推单产品列表"]
+    
+    GET_PRODUCTS --> CHECK_PRODUCTS{产品列表<br/>是否存在?}
+    
+    CHECK_PRODUCTS -->|否| ERROR1["❌ 记录错误<br/>没有配置PUSHORDER_PRODUCT<br/>系统参数<br/>【被迫结束】"]
+    
+    CHECK_PRODUCTS -->|是| LOOP_PRODUCTS["🔄 循环产品列表"]
+    
+    LOOP_PRODUCTS --> QUERY_LEAGUE_USERS["🔍 查询针对联赛的AI用户<br/>product = ?<br/>status = 0<br/>userType = '0'<br/>onlyLeague = true"]
+    
+    QUERY_LEAGUE_USERS --> CHECK_LEAGUE_USERS{查询到<br/>联赛限制用户?}
+    
+    CHECK_LEAGUE_USERS -->|否| SKIP_PRODUCT["⏭️ 跳过此产品<br/>📝 记录日志"]
+    
+    CHECK_LEAGUE_USERS -->|是| EXTRACT_LEAGUES["📊 提取联赛ID列表<br/>DISTINCT leagueId"]
+    
+    EXTRACT_LEAGUES --> QUERY_2DAYS_AGO["🔍 查询2天前推过的赛事<br/>WHERE product = ?<br/>AND leagueId IN (...)<br/>AND DATE(create_time) = CURDATE-2"]
+    
+    QUERY_2DAYS_AGO --> BUILD_MAP["🗺️ 构建推单数量统计表<br/>Key: userName<br/>Value: pushOrderCount<br/>统计2天前每个用户的推单数"]
+    
+    BUILD_MAP --> QUERY_TODAY_RESTOCK["🔍 查询当日特定联赛<br/>未推过的赛事<br/>WHERE match NOT IN 2DaysAgoMatches<br/>AND matchType IN leagues"]
+    
+    QUERY_TODAY_RESTOCK --> CHECK_RESTOCK{查询到<br/>未推赛事?}
+    
+    CHECK_RESTOCK -->|否| SKIP_PRODUCT
+    
+    CHECK_RESTOCK -->|是| FILTER_ODDS["🔍 第1步过滤<br/>排除 odds = null<br/>排除 odds = []"]
+    
+    FILTER_ODDS --> CHECK_ODDS1{有效<br/>赛事数?}
+    
+    CHECK_ODDS1 -->|否| SKIP_PRODUCT
+    CHECK_ODDS1 -->|是| FILTER_ODDS_COUNT["🔍 第2步过滤<br/>排除 odds 中盘口<br/>不足3个的赛事<br/>必须 odds.length = 3"]
+    
+    FILTER_ODDS_COUNT --> CHECK_ODDS2{有效<br/>赛事数?}
+    
+    CHECK_ODDS2 -->|否| SKIP_PRODUCT
+    CHECK_ODDS2 -->|是| DEDUCT_COUNT["🔢 扣减推单数量<br/>对于2天前推过的用户<br/>按leagueId匹配<br/>减去统计表中的数量"]
+    
+    DEDUCT_COUNT --> LOOP_USERS["🔄 循环处理用户<br/>按剩余推单数生成"]
+    
+    LOOP_USERS --> LOOP_MATCHES["🔄 循环赛事列表"]
+    
+    LOOP_MATCHES --> CHECK_USER_LIMIT{检查用户<br/>剩余推单数<br/>是否>0?}
+    
+    CHECK_USER_LIMIT -->|否| SKIP_USER["⏭️ 跳过该用户<br/>已用完推单数"]
+    CHECK_USER_LIMIT -->|是| CALL_AI["🤖 调用AI接口<br/>AI类型: 豆包/KIMI<br/>输入: 赛事+赔率+历史数据"]
+    
+    CALL_AI --> CHECK_AI{AI调用<br/>成功?}
+    
+    CHECK_AI -->|否| LOG_AI_ERROR["📝 记录AI调用失败<br/>继续下一条赛事"]
+    CHECK_AI -->|是| PARSE_AI_RESULT["📊 解析AI结果<br/>{标题, 分析结果[]}"]
+    
+    LOG_AI_ERROR --> LOOP_MATCHES
+    
+    PARSE_AI_RESULT --> SAVE_DB["💾 保存补单内容<br/>INSERT push_order_content<br/>pushOrderType = 'restock'"]
+    
+    SAVE_DB --> DEDUCT_USER_COUNT["🔢 减少用户剩余推单数<br/>userRestockCount--"]
+    
+    DEDUCT_USER_COUNT --> UPDATE_SUCCESS_COUNT["🔢 更新补单计数<br/>successTotal++"]
+    
+    UPDATE_SUCCESS_COUNT --> LOOP_MATCHES
+    
+    SKIP_USER --> LOOP_MATCHES
+    
+    LOOP_MATCHES -->|继续| LOOP_MATCHES
+    LOOP_MATCHES -->|结束| LOOP_USERS
+    
+    LOOP_USERS -->|继续| LOOP_USERS
+    LOOP_USERS -->|结束| SKIP_PRODUCT
+    
+    SKIP_PRODUCT -->|继续| LOOP_PRODUCTS
+    SKIP_PRODUCT -->|结束| STATS["📊 统计汇总<br/>全部产品补单总数: successTotal"]
+    
+    STATS --> LOG_END["📝 记录日志<br/>AI补单 定时任务【结束】<br/>本次补单生成 N 单推单"]
+    
+    LOG_END --> END([✅ 任务完成])
+    
+    ERROR1 --> END_ERROR([❌ 任务失败])
+    
+    style START fill:#4CAF50,color:#fff
+    style END fill:#4CAF50,color:#fff
+    style END_ERROR fill:#f44336,color:#fff
+    style ERROR1 fill:#f44336,color:#fff
+    style CALL_AI fill:#2196F3,color:#fff
+    style SAVE_DB fill:#FF9800,color:#fff
+    style CHECK_PRODUCTS fill:#FFC107,color:#000
+    style CHECK_LEAGUE_USERS fill:#FFC107,color:#000
+    style CHECK_RESTOCK fill:#FFC107,color:#000
+    style CHECK_ODDS1 fill:#FFC107,color:#000
+    style CHECK_ODDS2 fill:#FFC107,color:#000
+    style CHECK_USER_LIMIT fill:#FFC107,color:#000
+    style CHECK_AI fill:#FFC107,color:#000
+    style EXTRACT_LEAGUES fill:#9C27B0,color:#fff
+    style BUILD_MAP fill:#9C27B0,color:#fff
+    style DEDUCT_COUNT fill:#9C27B0,color:#fff
+
+            </div>
+            
+            <div class="legend">
+                <h3>图例说明</h3>
+                <div class="legend-items">
+                    <div class="legend-item">
+                        <div class="legend-color color-green"></div>
+                        <span>开始/结束节点</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color color-blue"></div>
+                        <span>外部服务调用（AI）</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color color-orange"></div>
+                        <span>数据库操作</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color color-yellow"></div>
+                        <span>条件判断</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color color-purple"></div>
+                        <span>复杂业务逻辑</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color color-red"></div>
+                        <span>错误/异常处理</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>💻 红单定时任务流程图 | 生成时间: 2026-01-30 | 图表自动生成版本</p>
+        </div>
+    </div>
+    
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: { useMaxWidth: true }
+        });
+        mermaid.contentLoaded();
+    </script>
+</body>
+</html>

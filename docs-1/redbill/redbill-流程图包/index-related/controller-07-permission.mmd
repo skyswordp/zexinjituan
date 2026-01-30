@@ -1,0 +1,37 @@
+flowchart TB
+    Start([后台管理员])
+    
+    subgraph 权限记录管理
+        A1[/pageList - 推单权限记录查询列表/]
+    end
+    
+    subgraph 业务流程
+        B1[分页查询权限记录]
+    end
+    
+    subgraph 数据服务
+        C1[(权限记录表)]
+    end
+    
+    subgraph 权限类型
+        D1[查看权限]
+        D2[编辑权限]
+        D3[发布权限]
+        D4[审核权限]
+        D5[删除权限]
+    end
+    
+    Start --> A1
+    A1 --> B1 --> C1
+    
+    C1 -.记录.-> D1
+    C1 -.记录.-> D2
+    C1 -.记录.-> D3
+    C1 -.记录.-> D4
+    C1 -.记录.-> D5
+    
+    style Start fill:#caffbf,stroke:#52b788
+    style 权限记录管理 fill:#ffeef3,stroke:#e76f51
+    style 业务流程 fill:#e8f8f1,stroke:#2a9d8f
+    style 数据服务 fill:#f6f7ff,stroke:#7b6ed6
+    style 权限类型 fill:#fff1e6,stroke:#ff7f50

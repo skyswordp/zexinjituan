@@ -1,0 +1,39 @@
+graph TD
+    START([定时任务触发<br/>每月5日 00:00:00]) --> LOG1["📝 记录日志<br/>每月初设置用户火标 定时任务【启动】"]
+    
+    LOG1 --> CALL_SERVICE["🔧 调用IMasterUserService<br/>setUserFire(null)"]
+    
+    CALL_SERVICE --> CHECK_PARAM{传入参数<br/>为null?}
+    
+    CHECK_PARAM -->|是| PROCESS_ALL["🔄 处理所有推单用户<br/>不过滤特定条件"]
+    
+    CHECK_PARAM -->|否| PROCESS_SPECIFIC["🔄 处理特定用户<br/>按传入参数过滤"]
+    
+    PROCESS_ALL --> QUERY_ALL_USERS["🔍 查询所有推单用户<br/>SELECT * FROM push_order_ai_user"]
+    
+    PROCESS_SPECIFIC --> QUERY_FILTERED_USERS["🔍 查询过滤后的推单用户<br/>按参数条件过滤"]
+    
+    QUERY_ALL_USERS --> LOOP_USERS["🔄 循环遍历用户列表"]
+    QUERY_FILTERED_USERS --> LOOP_USERS
+    
+    LOOP_USERS --> UPDATE_FIRE["🔥 更新用户火标志<br/>UPDATE push_order_ai_user<br/>SET fire = 1<br/>WHERE id = ?"]
+    
+    UPDATE_FIRE --> RESET_STATS["📊 重置用户统计数据<br/>monthlyWinCount = 0<br/>monthlyHotCount = 0<br/>monthlyRankRing = 0"]
+    
+    RESET_STATS --> LOG_USER["📝 记录日志<br/>userId: ?<br/>userName: ?, 火标志已设置"]
+    
+    LOG_USER --> LOOP_USERS
+    
+    LOOP_USERS -->|继续| LOOP_USERS
+    LOOP_USERS -->|结束| STATS["📊 统计汇总<br/>本月处理用户总数: N"]
+    
+    STATS --> LOG_END["📝 记录日志<br/>每月初设置用户火标 定时任务【结束】<br/>本月 N 个用户火标已更新"]
+    
+    LOG_END --> END([✅ 任务完成])
+    
+    style START fill:#4CAF50,color:#fff
+    style END fill:#4CAF50,color:#fff
+    style UPDATE_FIRE fill:#FF5722,color:#fff
+    style CHECK_PARAM fill:#FFC107,color:#000
+    style RESET_STATS fill:#FF9800,color:#fff
+    style CALL_SERVICE fill:#2196F3,color:#fff

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01. AI用户管理 - PushOrderAiUserController</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #ff7f50 0%, #ff6347 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .header .controller-id {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin-right: 10px;
+            font-size: 12px;
+        }
+        
+        .header .path {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-top: 10px;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .chart-container {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            overflow: auto;
+            position: relative;
+            max-width: 794px;
+            margin: 0 auto 30px;
+        }
+        
+        .mermaid { width: 100%; }
+        .mermaid svg { width: 100% !important; height: auto !important; max-width: 100% !important; }
+
+        @page { size: A4 portrait; margin: 12mm; }
+        @media print {
+            body { background: white; padding: 0; }
+            .container { max-width: 794px; border-radius: 0; box-shadow: none; }
+            .content { padding: 24px; }
+            .chart-container { padding: 16px; }
+        }
+        
+        .info-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #fff3e0;
+            border-left: 4px solid #ff7f50;
+            border-radius: 4px;
+        }
+        
+        .info-section h3 {
+            color: #ff7f50;
+            margin-bottom: 15px;
+        }
+        
+        .api-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .api-item {
+            <div class="content">
+                <div class="chart-container">
+            margin-bottom: 5px;
+        }
+        
+        .api-item .path {
+            color: #333;
+            direction TB
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .api-item .desc {
+            color: #666;
+            font-size: 12px;
+        }
+        
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: transform 0.3s;
+            direction TB
+        }
+        
+        .back-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .mermaid svg { max-width: 100%; height: auto; }
+
+        @page { size: A4 landscape; margin: 12mm; }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .container { max-width: 1120px; border-radius: 0; box-shadow: none; }
+            .content { padding: 24px; }
+            .chart-container { padding: 16px; }
+        }
+    </style>
+</head>
+            direction TB
+<body>
+    <div class="container">
+        <div class="header">
+            <span class="controller-id">Controller #01</span>
+            <h1>AI用户管理 - PushOrderAiUserController</h1>
+            <div class="path">/api/friend/pushOrder/aiUser</div>
+        </div>
+        
+        <div class="content">
+            <div class="controls">
+                <button class="btn" onclick="zoomIn()">🔍 放大</button>
+                <button class="btn" onclick="zoomOut()">🔍 缩小</button>
+                <button class="btn" onclick="resetZoom()">↺ 重置</button>
+                <button class="btn" onclick="toggleFullscreen()">⛶ 全屏</button>
+            </div>
+            
+            <div class="chart-container" id="chartContainer">
+                <pre class="mermaid">
+flowchart TB
+    Start([后台管理员])
+    
+    subgraph AI用户管理
+        A1[/leagueList - 获取联赛列表/]
+        A2[/testAi - 测试AI文案/]
+        A3[/backPushOrder - 后台创建推单/]
+        A4[/backRestockPushOrder - 后台补货推单/]
+        A5[/list - AI用户查询列表/]
+        A6[/checkPlayers - 检测玩家账号/]
+        A7[/checkAIUser - 检测AI用户名/]
+        A8[/queryHalfAIApplyProduct - 查询半AI应用产品/]
+        A9[/save - 新增全AI用户/]
+        A10[/saveHalfAI - 新增半AI用户/]
+        A11[/update - 修改全AI用户/]
+        A12[/updateHalfAI - 修改半AI用户/]
+        A13[/del - 删除AI用户/]
+        A14[/updateGrantKf - 修改授权客服/]
+        A15[/findGrantKf - 查询授权客服/]
+    end
+    
+    subgraph 业务流程
+        B1[根据比赛类型查询联赛]
+        B2[调用AI服务测试文案]
+        B3[异步线程创建推单]
+        B4[异步线程补货推单]
+        B5[分页查询AI用户列表]
+        B6[验证玩家账号存在性]
+        B7[批量检测用户名有效性]
+        B8[查询可应用产品列表]
+        B9[校验并保存全AI用户]
+        B10[校验并保存到多产品]
+        B11[校验并更新全AI用户]
+        B12[更新到多产品]
+        B13[根据ID删除用户]
+        B14[更新授权参数]
+        B15[查询授权状态]
+    end
+    
+    subgraph 数据服务
+        C1[(联赛数据库)]
+        C2[(AI服务)]
+        C3[(推单任务队列)]
+        C4[(用户钱包服务)]
+        C5[(AI用户表)]
+        C6[(系统参数表)]
+    end
+    
+    Start --> A1
+    Start --> A2
+    Start --> A3
+    Start --> A4
+    Start --> A5
+    Start --> A6
+    Start --> A7
+    Start --> A8
+    Start --> A9
+    Start --> A10
+    Start --> A11
+    Start --> A12
+    Start --> A13
+    Start --> A14
+    Start --> A15
+    
+    A1 --> B1 --> C1
+    A2 --> B2 --> C2
+    A3 --> B3 --> C3
+    A4 --> B4 --> C3
+    A5 --> B5 --> C5
+    A6 --> B6 --> C4
+    A7 --> B7 --> C5
+    A8 --> B8 --> C5
+    A9 --> B9 --> C5
+    A10 --> B10 --> C5
+    A11 --> B11 --> C5
+    A12 --> B12 --> C5
+    A13 --> B13 --> C5
+    A14 --> B14 --> C6
+    A15 --> B15 --> C6
+    
+    style Start fill:#caffbf,stroke:#52b788
+    style AI用户管理 fill:#fff1e6,stroke:#ff7f50
+    style 业务流程 fill:#e8f8f1,stroke:#2a9d8f
+    style 数据服务 fill:#f6f7ff,stroke:#7b6ed6
+                </pre>
+            </div>
+            
+            <div class="info-section">
+                <h3>📋 接口列表 (15个)</h3>
+                <div class="api-list">
+                    <div class="api-item">
+                        <div class="method">POST /leagueList</div>
+                        <div class="desc">获取联赛列表 - 根据比赛类型查询</div>
+                    </div>
+                    <div class="api-item">
+                        <div class="method">POST /testAi</div>
+                        <div class="desc">测试AI文案 - 调用AI服务测试</div>
+                    </div>
+                    <div class="api-item">
+                        <div class="method">POST /backPushOrder</div>
+                        <div class="desc">后台创建推单 - 异步线程执行</div>
+                    </div>
+                    <div class="api-item">
+                        <div class="method">POST /backRestockPushOrder</div>
+                        <div class="desc">后台补货推单 - 异步线程执行</div>
+                    </div>
+                    <div class="api-item">
+                        <div class="method">POST /list</div>
+                        <div class="desc">AI用户查询列表 - 分页查询</div>
+                    </div>
+                    <div class="api-item">
+                        <div class="method">POST /checkPlayers</div>
+                        <div class="desc">检测玩家账号 - 验证存在性</div>
+                    </div>
+                    <div class="api-item">
+                        <div class="method">POST /checkAIUser</div>
+                        <div class="desc">检测AI用户名 - 批量验证</div>
+                    </div>
+                    <div class="api-item">
+                        <div class="method">POST /queryHalfAIApplyProduct</div>
+                        <div class="desc">查询半AI应用产品 - 可应用产品列表</div>
+                    </div>
+                    <div class="api-item">
+                        <div class="method">POST /save</div>
+                        <div class="desc">新增全AI用户 - 校验并保存</div>
+                    </div>
+                    <div class="api-item">
+                        <div class="method">POST /saveHalfAI</div>
+                        <div class="desc">新增半AI用户 - 保存到多产品</div>
+                    </div>
+                    <div class="api-item">
+                        <div class="method">POST /update</div>
+                        <div class="desc">修改全AI用户 - 校验并更新</div>
+                    </div>
+                    <div class="api-item">
+                        <div class="method">POST /updateHalfAI</div>
+                        <div class="desc">修改半AI用户 - 更新到多产品</div>
+                    </div>
+                    <div class="api-item">
+                        <div class="method">POST /del</div>
+                        <div class="desc">删除AI用户 - 根据ID删除</div>
+                    </div>
+                    <div class="api-item">
+                        <div class="method">POST /updateGrantKf</div>
+                        <div class="desc">修改授权客服 - 更新授权参数</div>
+                    </div>
+                    <div class="api-item">
+                        <div class="method">POST /findGrantKf</div>
+                        <div class="desc">查询授权客服 - 获取授权状态</div>
+                    </div>
+                </div>
+            </div>
+            
+            <a href="index.html" class="back-button">← 返回首页</a>
+        </div>
+    </div>
+    
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis',
+                padding: 20
+            },
+            themeVariables: {
+                fontSize: '13px',
+                fontFamily: 'Microsoft YaHei, Arial, sans-serif'
+            }
+        });
+    </script>
+</body>
+</html>

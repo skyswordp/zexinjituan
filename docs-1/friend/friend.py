@@ -64,17 +64,20 @@ class APITester:
         # 路径: /api/friend/upload/1.0/upload?product=lh -> dc-api-friend:/api/friend/upload/1.0/upload
         # 说明: product通过URL参数传递，因为multipart请求没有JSON body，SessionTimeoutInterceptor无法设置paramJson
         # 参考: FriendController.forwardToFriendApiUpload() 会将前端参数放入data字段后AES加密
+        self.upload_file_path = r'C:\Users\DEVTrump\projects\docs-1\friend\朋友圈产品交互架构图.png'
+        # 注意：不要在这里预先打开文件！文件会在 run_upload_test 中动态打开
+        # 尝试不同的字段名：files, file, files[]
         self.upload_tests = [
             {
-                'name': '22. 文件上传 - 图片',
+                'name': '22. 文件上传-files字段',
                 'url': 'https://e68web01.itomtest.com/api/friend/upload/1.0/upload?product=lh',
-                'files': {'file': ('architecture.png', open(r'C:\Users\DEVTrump\projects\docs-1\FriendController\朋友圈产品交互架构图.png', 'rb'), 'image/png')},
+                'file_config': {'field_name': 'files', 'filename': 'test.png', 'mime_type': 'image/png'},
                 'data': {}
             },
             {
-                'name': '23. 文件上传 - 视频',
+                'name': '23. 文件上传-file字段',
                 'url': 'https://e68web01.itomtest.com/api/friend/upload/1.0/upload?product=lh',
-                'files': {'file': ('test_video.mp4', open(r'C:\Users\DEVTrump\projects\docs-1\FriendController\朋友圈产品交互架构图.png', 'rb'), 'image/png')},
+                'file_config': {'field_name': 'file', 'filename': 'test.png', 'mime_type': 'image/png'},
                 'data': {}
             },
         ]
@@ -220,38 +223,62 @@ class APITester:
         """执行文件上传测试"""
         name = test['name']
         url = test['url']
-        files = test['files']
+        file_config = test['file_config']
         data = test['data']
-        
+
         # 控制台显示进度
         progress = f"[{test_idx:2d}/{len(self.tests) + len(self.upload_tests)}] {name} ... "
         print(progress, end='', flush=True)
-        
+
         try:
             start_time = time.time()
-            
+
             # 文件上传使用 multipart/form-data，不需要 Content-Type: application/json
             headers = {k: v for k, v in self.headers.items() if k != 'Content-Type'}
-            
-            response = requests.post(
-                url,
-                files=files,
-                data=data,
-                headers=headers,
-                timeout=10,
-                verify=False
-            )
+
+            # 关键修复：在发送请求时动态打开文件，确保文件流有效
+            with open(self.upload_file_path, 'rb') as f:
+                # 调试：检查文件内容
+                file_content = f.read()
+                file_size = len(file_content)
+                print(f"\n  [DEBUG] 文件大小: {file_size} bytes")
+                self.log(f"  [DEBUG] 文件路径: {self.upload_file_path}, 大小: {file_size} bytes")
+
+                # 使用 BytesIO 包装，确保文件内容正确传递
+                from io import BytesIO
+                file_stream = BytesIO(file_content)
+
+                files = {
+                    file_config['field_name']: (
+                        file_config['filename'],
+                        file_stream,
+                        file_config['mime_type']
+                    )
+                }
+
+                # 打印实际发送的请求信息
+                print(f"  [DEBUG] 字段名: {file_config['field_name']}, 文件名: {file_config['filename']}")
+
+                response = requests.post(
+                    url,
+                    files=files,
+                    data=data,
+                    headers=headers,
+                    timeout=30,
+                    verify=False
+                )
+
             elapsed_ms = (time.time() - start_time) * 1000
-            
+
             status_code = response.status_code
             response_text = response.text
-            
+
             # 尝试解析JSON
             try:
                 response_json = response.json()
             except:
                 response_json = None
-            
+
             # 判断成功/失败
             if status_code == 200 and response_json and response_json.get('code') == '10000':
                 status = "✅ PASS"
@@ -259,18 +286,20 @@ class APITester:
             else:
                 status = "❌ FAIL"
                 self.fail_count += 1
-            
+
             # 简要输出到控制台
             print(status)
-            
+
             # 详细信息写入日志
             self.log(f"\n[{test_idx}/{len(self.tests) + len(self.upload_tests)}] {name}")
             self.log(f"  URL: {url}")
             self.log(f"  状态: {status} | HTTP: {status_code} | 耗时: {elapsed_ms:.1f}ms")
-            self.log(f"  上传文件: {list(files.keys())[0]}")
+            self.log(f"  上传文件: {file_config['filename']} (字段名: {file_config['field_name']})")
             if response_json:
                 self.log(f"  响应码: {response_json.get('code', 'N/A')} | 消息: {response_json.get('message', 'N/A')}")
-            
+                # 打印完整响应便于调试
+                self.log(f"  完整响应: {json.dumps(response_json, ensure_ascii=False)}")
+
             result = {
                 'name': name,
                 'url': url,
@@ -280,18 +309,18 @@ class APITester:
                 'elapsed_ms': elapsed_ms,
                 'response': response_json if response_json else response_text,
                 'error': None,
-                'file': files
+                'file_config': file_config
             }
-            
+
         except Exception as e:
             print(f"❌ FAIL")
             self.fail_count += 1
-            
+
             self.log(f"\n[{test_idx}/{len(self.tests) + len(self.upload_tests)}] {name}")
             self.log(f"  URL: {url}")
             self.log(f"  状态: ❌ FAIL")
             self.log(f"  错误: {str(e)}")
-            
+
             result = {
                 'name': name,
                 'url': url,
@@ -301,9 +330,9 @@ class APITester:
                 'elapsed_ms': None,
                 'response': None,
                 'error': str(e),
-                'file': files
+                'file_config': file_config
             }
-        
+
         self.results.append(result)
         return result
     

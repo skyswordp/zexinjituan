@@ -1,0 +1,91 @@
+graph TD
+    START([定时任务触发<br/>20:00:00]) --> LOG1["📝 记录日志<br/>AI真实推单 定时任务【启动】"]
+    
+    LOG1 --> GET_PRODUCTS["🔍 获取系统参数<br/>PUSHORDER_PRODUCT<br/>获取推单产品列表"]
+    
+    GET_PRODUCTS --> CHECK_PRODUCTS{产品列表<br/>是否存在?}
+    
+    CHECK_PRODUCTS -->|否| ERROR1["❌ 记录错误<br/>没有配置PUSHORDER_PRODUCT<br/>系统参数<br/>【被迫结束】"]
+    
+    CHECK_PRODUCTS -->|是| LOOP_PRODUCTS["🔄 循环产品列表"]
+    
+    LOOP_PRODUCTS --> GET_HALF_AI_USERS["🔍 查询半AI推单用户<br/>product = ?<br/>status = 0<br/>userType = '1'<br/>AI类型: 半AI推单用户"]
+    
+    GET_HALF_AI_USERS --> CHECK_HALF_AI_USERS{查询到<br/>半AI用户?}
+    
+    CHECK_HALF_AI_USERS -->|否| SKIP_PRODUCT["⏭️ 跳过此产品<br/>📝 记录日志"]
+    
+    CHECK_HALF_AI_USERS -->|是| LOOP_HALF_AI_USERS["🔄 循环半AI用户列表"]
+    
+    LOOP_HALF_AI_USERS --> QUERY_USER_BETS["🔍 查询用户历史注单数据<br/>SELECT * FROM user_bet<br/>WHERE userName = ?<br/>AND product = ?<br/>AND betTime >= CURDATE-30"]
+    
+    QUERY_USER_BETS --> CHECK_BETS{查询到<br/>历史注单?}
+    
+    CHECK_BETS -->|否| SKIP_HALF_AI_USER["⏭️ 跳过该用户<br/>无历史数据可参考"]
+    
+    CHECK_BETS -->|是| ANALYZE_BETS["📊 分析用户历史注单<br/>计算胜率/中奖率<br/>提取用户偏好赛事类型<br/>分析常用投注方式"]
+    
+    ANALYZE_BETS --> GET_MATCHES["🔍 查询即将开赛的赛事<br/>未来2天内的比赛<br/>优先选择用户偏好类型"]
+    
+    GET_MATCHES --> CHECK_MATCHES{查询到<br/>赛事?}
+    
+    CHECK_MATCHES -->|否| SKIP_HALF_AI_USER
+    
+    CHECK_MATCHES -->|是| FILTER_ODDS["🔍 过滤赛事odds数据<br/>排除 odds = null<br/>排除 odds = []"]
+    
+    FILTER_ODDS --> CHECK_ODDS{有效<br/>赛事数?}
+    
+    CHECK_ODDS -->|否| SKIP_HALF_AI_USER
+    
+    CHECK_ODDS -->|是| LOOP_MATCHES["🔄 循环赛事列表"]
+    
+    LOOP_MATCHES --> PREPARE_CONTEXT["📋 准备AI分析上下文<br/>赛事信息 + 赔率数据<br/>+ 用户历史注单分析<br/>+ 用户偏好模式"]
+    
+    PREPARE_CONTEXT --> CALL_AI["🤖 调用AI接口<br/>AI类型: 豆包/KIMI<br/>输入: 赛事+赔率+用户历史数据<br/>模式: 真实玩家风格分析"]
+    
+    CALL_AI --> CHECK_AI{AI调用<br/>成功?}
+    
+    CHECK_AI -->|否| LOG_AI_ERROR["📝 记录AI调用失败<br/>继续下一条赛事"]
+    
+    CHECK_AI -->|是| PARSE_AI_RESULT["📊 解析AI结果<br/>{标题, 分析结果[]}<br/>融入用户历史风格"]
+    
+    LOG_AI_ERROR --> LOOP_MATCHES
+    
+    PARSE_AI_RESULT --> SAVE_DB["💾 保存推单内容<br/>INSERT push_order_content<br/>pushOrderType = 'createReal'<br/>userType = 'half'<br/>status = 0"]
+    
+    SAVE_DB --> UPDATE_COUNT["🔢 更新推单计数<br/>successTotal++"]
+    
+    UPDATE_COUNT --> LOOP_MATCHES
+    
+    LOOP_MATCHES -->|继续| LOOP_MATCHES
+    LOOP_MATCHES -->|结束| SKIP_HALF_AI_USER
+    
+    SKIP_HALF_AI_USER -->|继续| LOOP_HALF_AI_USERS
+    SKIP_HALF_AI_USER -->|结束| LOOP_HALF_AI_USERS
+    
+    LOOP_HALF_AI_USERS -->|继续| LOOP_HALF_AI_USERS
+    LOOP_HALF_AI_USERS -->|结束| SKIP_PRODUCT
+    
+    SKIP_PRODUCT -->|继续| LOOP_PRODUCTS
+    SKIP_PRODUCT -->|结束| STATS["📊 统计汇总<br/>真实推单总数: successTotal"]
+    
+    STATS --> LOG_END["📝 记录日志<br/>AI真实推单 定时任务【结束】<br/>本次生成 N 单真实推单"]
+    
+    LOG_END --> END([✅ 任务完成])
+    
+    ERROR1 --> END_ERROR([❌ 任务失败])
+    
+    style START fill:#4CAF50,color:#fff
+    style END fill:#4CAF50,color:#fff
+    style END_ERROR fill:#f44336,color:#fff
+    style ERROR1 fill:#f44336,color:#fff
+    style CALL_AI fill:#2196F3,color:#fff
+    style SAVE_DB fill:#FF9800,color:#fff
+    style CHECK_PRODUCTS fill:#FFC107,color:#000
+    style CHECK_HALF_AI_USERS fill:#FFC107,color:#000
+    style CHECK_BETS fill:#FFC107,color:#000
+    style CHECK_MATCHES fill:#FFC107,color:#000
+    style CHECK_ODDS fill:#FFC107,color:#000
+    style CHECK_AI fill:#FFC107,color:#000
+    style ANALYZE_BETS fill:#9C27B0,color:#fff
+    style PREPARE_CONTEXT fill:#9C27B0,color:#fff

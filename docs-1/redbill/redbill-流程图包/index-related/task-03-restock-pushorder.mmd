@@ -1,0 +1,98 @@
+graph TD
+    START([定时任务触发<br/>00:00:01]) --> LOG1["📝 记录日志<br/>AI补单 定时任务【启动】"]
+    
+    LOG1 --> GET_PRODUCTS["🔍 获取系统参数<br/>PUSHORDER_PRODUCT<br/>获取推单产品列表"]
+    
+    GET_PRODUCTS --> CHECK_PRODUCTS{产品列表<br/>是否存在?}
+    
+    CHECK_PRODUCTS -->|否| ERROR1["❌ 记录错误<br/>没有配置PUSHORDER_PRODUCT<br/>系统参数<br/>【被迫结束】"]
+    
+    CHECK_PRODUCTS -->|是| LOOP_PRODUCTS["🔄 循环产品列表"]
+    
+    LOOP_PRODUCTS --> QUERY_LEAGUE_USERS["🔍 查询针对联赛的AI用户<br/>product = ?<br/>status = 0<br/>userType = '0'<br/>onlyLeague = true"]
+    
+    QUERY_LEAGUE_USERS --> CHECK_LEAGUE_USERS{查询到<br/>联赛限制用户?}
+    
+    CHECK_LEAGUE_USERS -->|否| SKIP_PRODUCT["⏭️ 跳过此产品<br/>📝 记录日志"]
+    
+    CHECK_LEAGUE_USERS -->|是| EXTRACT_LEAGUES["📊 提取联赛ID列表<br/>DISTINCT leagueId"]
+    
+    EXTRACT_LEAGUES --> QUERY_2DAYS_AGO["🔍 查询2天前推过的赛事<br/>WHERE product = ?<br/>AND leagueId IN (...)<br/>AND DATE(create_time) = CURDATE-2"]
+    
+    QUERY_2DAYS_AGO --> BUILD_MAP["🗺️ 构建推单数量统计表<br/>Key: userName<br/>Value: pushOrderCount<br/>统计2天前每个用户的推单数"]
+    
+    BUILD_MAP --> QUERY_TODAY_RESTOCK["🔍 查询当日特定联赛<br/>未推过的赛事<br/>WHERE match NOT IN 2DaysAgoMatches<br/>AND matchType IN leagues"]
+    
+    QUERY_TODAY_RESTOCK --> CHECK_RESTOCK{查询到<br/>未推赛事?}
+    
+    CHECK_RESTOCK -->|否| SKIP_PRODUCT
+    
+    CHECK_RESTOCK -->|是| FILTER_ODDS["🔍 第1步过滤<br/>排除 odds = null<br/>排除 odds = []"]
+    
+    FILTER_ODDS --> CHECK_ODDS1{有效<br/>赛事数?}
+    
+    CHECK_ODDS1 -->|否| SKIP_PRODUCT
+    CHECK_ODDS1 -->|是| FILTER_ODDS_COUNT["🔍 第2步过滤<br/>排除 odds 中盘口<br/>不足3个的赛事<br/>必须 odds.length = 3"]
+    
+    FILTER_ODDS_COUNT --> CHECK_ODDS2{有效<br/>赛事数?}
+    
+    CHECK_ODDS2 -->|否| SKIP_PRODUCT
+    CHECK_ODDS2 -->|是| DEDUCT_COUNT["🔢 扣减推单数量<br/>对于2天前推过的用户<br/>按leagueId匹配<br/>减去统计表中的数量"]
+    
+    DEDUCT_COUNT --> LOOP_USERS["🔄 循环处理用户<br/>按剩余推单数生成"]
+    
+    LOOP_USERS --> LOOP_MATCHES["🔄 循环赛事列表"]
+    
+    LOOP_MATCHES --> CHECK_USER_LIMIT{检查用户<br/>剩余推单数<br/>是否>0?}
+    
+    CHECK_USER_LIMIT -->|否| SKIP_USER["⏭️ 跳过该用户<br/>已用完推单数"]
+    CHECK_USER_LIMIT -->|是| CALL_AI["🤖 调用AI接口<br/>AI类型: 豆包/KIMI<br/>输入: 赛事+赔率+历史数据"]
+    
+    CALL_AI --> CHECK_AI{AI调用<br/>成功?}
+    
+    CHECK_AI -->|否| LOG_AI_ERROR["📝 记录AI调用失败<br/>继续下一条赛事"]
+    CHECK_AI -->|是| PARSE_AI_RESULT["📊 解析AI结果<br/>{标题, 分析结果[]}"]
+    
+    LOG_AI_ERROR --> LOOP_MATCHES
+    
+    PARSE_AI_RESULT --> SAVE_DB["💾 保存补单内容<br/>INSERT push_order_content<br/>pushOrderType = 'restock'"]
+    
+    SAVE_DB --> DEDUCT_USER_COUNT["🔢 减少用户剩余推单数<br/>userRestockCount--"]
+    
+    DEDUCT_USER_COUNT --> UPDATE_SUCCESS_COUNT["🔢 更新补单计数<br/>successTotal++"]
+    
+    UPDATE_SUCCESS_COUNT --> LOOP_MATCHES
+    
+    SKIP_USER --> LOOP_MATCHES
+    
+    LOOP_MATCHES -->|继续| LOOP_MATCHES
+    LOOP_MATCHES -->|结束| LOOP_USERS
+    
+    LOOP_USERS -->|继续| LOOP_USERS
+    LOOP_USERS -->|结束| SKIP_PRODUCT
+    
+    SKIP_PRODUCT -->|继续| LOOP_PRODUCTS
+    SKIP_PRODUCT -->|结束| STATS["📊 统计汇总<br/>全部产品补单总数: successTotal"]
+    
+    STATS --> LOG_END["📝 记录日志<br/>AI补单 定时任务【结束】<br/>本次补单生成 N 单推单"]
+    
+    LOG_END --> END([✅ 任务完成])
+    
+    ERROR1 --> END_ERROR([❌ 任务失败])
+    
+    style START fill:#4CAF50,color:#fff
+    style END fill:#4CAF50,color:#fff
+    style END_ERROR fill:#f44336,color:#fff
+    style ERROR1 fill:#f44336,color:#fff
+    style CALL_AI fill:#2196F3,color:#fff
+    style SAVE_DB fill:#FF9800,color:#fff
+    style CHECK_PRODUCTS fill:#FFC107,color:#000
+    style CHECK_LEAGUE_USERS fill:#FFC107,color:#000
+    style CHECK_RESTOCK fill:#FFC107,color:#000
+    style CHECK_ODDS1 fill:#FFC107,color:#000
+    style CHECK_ODDS2 fill:#FFC107,color:#000
+    style CHECK_USER_LIMIT fill:#FFC107,color:#000
+    style CHECK_AI fill:#FFC107,color:#000
+    style EXTRACT_LEAGUES fill:#9C27B0,color:#fff
+    style BUILD_MAP fill:#9C27B0,color:#fff
+    style DEDUCT_COUNT fill:#9C27B0,color:#fff

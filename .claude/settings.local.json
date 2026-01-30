@@ -17,7 +17,14 @@
       "Bash(python generate_architecture_diagram.py:*)",
       "Bash(cmd.exe /c \"cd C:\\\\Users\\\\DEVTrump\\\\projects\\\\docs-1\\\\FriendController && python generate_architecture_diagram.py\")",
       "Bash(cmd.exe /c \"cd C:\\\\Users\\\\DEVTrump\\\\projects\\\\docs-1\\\\FriendController && copy /Y product-interaction-doc.md 产品交互文档.md\")",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(py:*)",
+      "Bash(where:*)",
+      "Bash(\"C:\\\\Users\\\\DEVTrump\\\\AppData\\\\Local\\\\Microsoft\\\\WindowsApps\\\\python.exe\" \"c:\\\\Users\\\\DEVTrump\\\\projects\\\\docs-1\\\\friend\\\\friend.py\")",
+      "Bash(cmd.exe /c \"cd /d c:\\\\Users\\\\DEVTrump\\\\projects\\\\docs-1\\\\friend && python friend.py\")",
+      "Bash(cmd.exe /c \"curl.exe -X POST \"\"https://e68web01.itomtest.com/api/friend/upload/1.0/upload?product=lh\"\" -F \"\"files=@C:\\\\Users\\\\DEVTrump\\\\projects\\\\docs-1\\\\friend\\\\朋友圈产品交互架构图.png\"\" -H \"\"Cookie: __snaker__id=jvOJbjKJWgJZ7mEl; JSESSIONID=E85595B704A736F259DBA0CAC72DCF0C\"\" -H \"\"X-Debug-Enabled: true\"\" --insecure\")",
+      "Bash(cmd.exe /c \"cd /d c:\\\\Users\\\\DEVTrump\\\\projects\\\\docs-1\\\\friend && python friend.py 2>&1 | findstr /i \"\"文件上传 DEBUG PASS FAIL\"\"\")",
+      "Bash(cmd.exe /c python friend.py)"
     ],
     "deny": [],
     "ask": []

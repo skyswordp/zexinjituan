@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户推单完整流程</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { max-width: 900px; margin: 0 auto; }
+        .header { text-align: center; color: white; margin-bottom: 30px; }
+        .header h1 { font-size: 34px; margin-bottom: 8px; }
+        .header p { font-size: 14px; opacity: 0.9; }
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 22px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            margin-bottom: 20px;
+        }
+        .card h3 { color: #333; font-size: 18px; margin-bottom: 10px; }
+        .desc { color: #666; font-size: 14px; margin-bottom: 12px; }
+        pre {
+            background: #f7f7fb;
+            padding: 16px;
+            border-radius: 8px;
+            overflow: auto;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+        .mermaid { max-width: 794px; margin: 0 auto; }
+        .mermaid svg { max-width: 100%; height: auto; }
+        @page { size: A4 portrait; margin: 12mm; }
+        @media print {
+            body { background: white; padding: 0; }
+            .container { max-width: 794px; }
+            .card { padding: 16px; box-shadow: none; }
+        }
+        ol { padding-left: 18px; color: #444; line-height: 1.8; font-size: 14px; }
+        a { color: #667eea; text-decoration: none; font-weight: bold; }
+        .footer { text-align: center; margin-top: 30px; color: white; opacity: 0.8; font-size: 12px; }
+
+        .mermaid { max-width: 100%; }
+        .mermaid svg { max-width: 100%; height: auto; }
+
+        @page { size: A4 landscape; margin: 12mm; }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .container { max-width: 1120px; }
+            .card { padding: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🧭 用户推单完整流程</h1>
+            <p>代码 → Mermaid → HTML 说明</p>
+        </div>
+
+        <div class="card">
+            <h3>1) 代码视图（服务调用链）</h3>
+            <p class="desc">对应 dc-api-friend 用户侧接口与服务链路</p>
+            <pre>// 用户端：查询推单列表
+POST /api/friend/pushOrder/external/1.0/selectPushOrderList
+  -> PushOrderExternalContoller.selectPushOrderList()
+  -> IMasterPushOrderContentManagementService.queryPublishedList()
+  -> DB: master_push_order_content_management
+
+// 用户端：查看推单详情
+POST /api/friend/pushOrder/external/1.0/selectPushOrderDetail
+  -> PushOrderExternalContoller.selectPushOrderDetail()
+  -> IMasterPushOrderContentManagementService.queryDetail()
+  -> DB: master_push_order_content_management
+
+// 用户端：购买推单
+POST /api/friend/pushOrder/external/1.0/purchasePushOrder
+  -> PushOrderExternalContoller.purchasePushOrder()
+  -> IMasterUserService.createPurchaseOrder()
+  -> DB: master_push_order_purchase_record
+  -> 内部对账：/api/friend/pushOrder/inside/1.0/purchasePlanReceive
+     -> PushOrderInsideContoller.purchasePlanReceive()
+     -> insideVerification()  // 内部签名校验
+     -> IMasterUserService.confirmPayment()
+     -> DB: master_push_order_purchase_record (status=PAID)
+</pre>
+        </div>
+
+        <div class="card">
+            <h3>2) Mermaid 流程图</h3>
+            <p class="desc">用户浏览 → 购买 → 内部支付确认 → 解锁内容</p>
+            <div class="mermaid">
+flowchart TD
+    A[用户打开APP/小程序] --> B[查询推单列表\nexternal/selectPushOrderList]
+    B --> C[查看推单详情\nexternal/selectPushOrderDetail]
+    C --> D{是否购买}
+    D -- 否 --> E[仅展示公开信息]
+    D -- 是 --> F[创建购买单\nexternal/purchasePushOrder]
+    F --> G[写入购买记录\nmaster_push_order_purchase_record]
+    G --> H[内部支付确认\ninside/purchasePlanReceive]
+    H --> I{签名校验}
+    I -- 失败 --> J[返回错误\n内部验证失败]
+    I -- 成功 --> K[更新订单状态=PAID]
+    K --> L[解锁推单内容]
+    L --> M[用户查看完整推单]
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>3) HTML 视图（步骤说明）</h3>
+            <p class="desc">按用户行为顺序描述核心节点</p>
+            <ol>
+                <li>用户进入应用，调用 <strong>external/selectPushOrderList</strong> 获取推单列表。</li>
+                <li>用户查看某条推单详情，调用 <strong>external/selectPushOrderDetail</strong>。</li>
+                <li>若需要解锁内容，调用 <strong>external/purchasePushOrder</strong> 创建购买记录。</li>
+                <li>内部系统通过 <strong>inside/purchasePlanReceive</strong> 进行支付确认与签名校验。</li>
+                <li>确认成功后更新订单状态为 <strong>PAID</strong>，用户可查看完整推单内容。</li>
+            </ol>
+        </div>
+
+        <div class="footer">
+            <p>返回索引：<a href="index.html">红单完整功能流程图索引</a></p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: "default",
+            flowchart: { useMaxWidth: true }
+        });
+    </script>
+</body>
+</html>

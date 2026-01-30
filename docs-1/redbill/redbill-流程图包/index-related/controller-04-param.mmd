@@ -1,0 +1,40 @@
+flowchart TB
+    Start([后台管理员])
+    
+    subgraph 参数配置管理
+        A1[/list - 获取推单参数配置/]
+        A2[/update - 修改推单参数配置/]
+        A3[/findPushOrdersPrice - 获取推单售价/]
+    end
+    
+    subgraph 业务流程
+        B1[查询所有参数配置]
+        B2[更新参数配置]
+        B3[查询售价列表]
+    end
+    
+    subgraph 数据操作
+        C1[设置操作人]
+        C2[设置操作时间]
+        C3[设置产品信息]
+    end
+    
+    subgraph 数据服务
+        D1[(参数配置表)]
+    end
+    
+    Start --> A1
+    Start --> A2
+    Start --> A3
+    
+    A1 --> B1 --> D1
+    A2 --> B2 --> C1
+    A3 --> B3 --> D1
+    
+    C1 --> C2 --> C3 --> D1
+    
+    style Start fill:#caffbf,stroke:#52b788
+    style 参数配置管理 fill:#f6f7ff,stroke:#7b6ed6
+    style 业务流程 fill:#e8f8f1,stroke:#2a9d8f
+    style 数据操作 fill:#fff1e6,stroke:#ff7f50
+    style 数据服务 fill:#f6f7ff,stroke:#7b6ed6

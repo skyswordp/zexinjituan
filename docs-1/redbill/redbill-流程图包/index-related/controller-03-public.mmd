@@ -1,0 +1,79 @@
+flowchart TB
+    Start([外部用户/第三方])
+    
+    subgraph 对外公开接口
+        A1[/findPersonalInfoPageList - 查询大师列表/]
+        A2[/findMasterDetailed - 大师详细信息/]
+        A3[/findPushUserInfo - 推单用户基本信息/]
+        A4[/findMonthlyRankingPageList - 排行榜/]
+        A5[/findPlanDetailed - 方案详情/]
+        A6[/findProgrammePreferredPageList - 方案优选列表/]
+        A7[/findMatchPreferredPageList - 赛事优选列表/]
+    end
+    
+    subgraph 业务流程
+        B1[根据称号分页查询大师]
+        B2[查询大师详细信息]
+        B3[查询所有用户信息]
+        B4[查询排行榜类型]
+        B5[查询方案详细信息]
+        B6[查询优选方案列表]
+        B7[查询优选赛事列表]
+    end
+    
+    subgraph 排行榜类型
+        C1{operationType}
+        C2[0-红单榜]
+        C3[1-连红榜]
+        C4[2-人气榜]
+    end
+    
+    subgraph 数据服务
+        D1[(用户表)]
+        D2[(推单内容表)]
+        D3[(排行榜缓存)]
+        D4[(方案表)]
+        D5[(赛事表)]
+    end
+    
+    subgraph 特性
+        E1[无需登录]
+        E2[使用虚拟登录名]
+        E3[固定查询AT产品]
+        E4[operationMode=0]
+    end
+    
+    Start --> A1
+    Start --> A2
+    Start --> A3
+    Start --> A4
+    Start --> A5
+    Start --> A6
+    Start --> A7
+    
+    A1 --> B1 --> D1
+    A2 --> B2 --> D1
+    A3 --> B3 --> D1
+    A4 --> B4 --> C1
+    A5 --> B5 --> D4
+    A6 --> B6 --> D4
+    A7 --> B7 --> D5
+    
+    C1 -->|0| C2 --> D3
+    C1 -->|1| C3 --> D3
+    C1 -->|2| C4 --> D3
+    
+    E1 -.-> Start
+    E2 -.-> B1
+    E2 -.-> B2
+    E2 -.-> B3
+    E3 -.-> D1
+    E3 -.-> D2
+    E4 -.-> B2
+    
+    style Start fill:#ffd166,stroke:#f4a261
+    style 对外公开接口 fill:#e7f0ff,stroke:#3a86ff
+    style 业务流程 fill:#e8f8f1,stroke:#2a9d8f
+    style 排行榜类型 fill:#fff6db,stroke:#f4a261
+    style 数据服务 fill:#f6f7ff,stroke:#7b6ed6
+    style 特性 fill:#fffde7,stroke:#ffc107

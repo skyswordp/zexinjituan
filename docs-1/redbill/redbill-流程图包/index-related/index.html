@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>红单完整功能流程图索引</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .tasks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .task-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .task-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+        }
+        
+        .task-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .task-header h3 {
+            color: #333;
+            font-size: 18px;
+            flex: 1;
+        }
+        
+        .task-time {
+            background: #667eea;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            white-space: nowrap;
+            margin-left: 10px;
+        }
+        
+        .task-desc {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+        
+        .task-link {
+            display: inline-block;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        
+        .task-link:hover {
+            color: #764ba2;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: white;
+            opacity: 0.8;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔧 红单完整功能流程图</h1>
+            <p>定时任务流程 + 7个Controller接口流程（一比一还原代码）</p>
+        </div>
+        
+        <!-- Controller 流程图区域 -->
+        <div style="margin-top: 60px;">
+            <div class="header">
+                <h1>📦 Controller接口流程图</h1>
+                <p>7个PushOrder Controller详细接口流程（与代码一比一）</p>
+            </div>
+
+            <div class="tasks-grid">
+                <div class="task-card">
+                    <div class="task-header">
+                        <h3>01. AI用户管理</h3>
+                        <span class="task-time">15 接口</span>
+                    </div>
+                    <p class="task-desc">PushOrderAiUserController - AI推单用户配置、联赛列表、半AI管理</p>
+                    <a href="controller-01-aiuser-flow.html" class="task-link">查看流程图 →</a>
+                </div>
+
+                <div class="task-card">
+                    <div class="task-header">
+                        <h3>02. 内容管理</h3>
+                        <span class="task-time">12 接口</span>
+                    </div>
+                    <p class="task-desc">PushOrderContentManagementController - 推单内容新增/编辑/审核/发布</p>
+                    <a href="controller-02-content-flow.html" class="task-link">查看流程图 →</a>
+                </div>
+
+                <div class="task-card">
+                    <div class="task-header">
+                        <h3>03. 对外公开接口</h3>
+                        <span class="task-time">7 接口</span>
+                    </div>
+                    <p class="task-desc">PushOrderPublicController - 无需登录、大师列表/排行榜/方案详情</p>
+                    <a href="controller-03-public-flow.html" class="task-link">查看流程图 →</a>
+                </div>
+
+                <div class="task-card">
+                    <div class="task-header">
+                        <h3>04. 参数配置</h3>
+                        <span class="task-time">3 接口</span>
+                    </div>
+                    <p class="task-desc">PushOrderParamConfigController - 推单参数配置、售价管理</p>
+                    <a href="controller-04-param-flow.html" class="task-link">查看流程图 →</a>
+                </div>
+
+                <div class="task-card">
+                    <div class="task-header">
+                        <h3>05. 等级称号</h3>
+                        <span class="task-time">4 接口</span>
+                    </div>
+                    <p class="task-desc">PushOrderLevelTitleConfigController - 推单称号管理配置</p>
+                    <a href="controller-05-level-flow.html" class="task-link">查看流程图 →</a>
+                </div>
+
+                <div class="task-card">
+                    <div class="task-header">
+                        <h3>06. 日志管理</h3>
+                        <span class="task-time">2 接口</span>
+                    </div>
+                    <p class="task-desc">PushOrderContentGeneralLogController - 通用日志、购买统计</p>
+                    <a href="controller-06-log-flow.html" class="task-link">查看流程图 →</a>
+                </div>
+
+                <div class="task-card">
+                    <div class="task-header">
+                        <h3>07. 权限记录</h3>
+                        <span class="task-time">1 接口</span>
+                    </div>
+                    <p class="task-desc">PushOrderPermissionRecordController - 推单权限记录查询</p>
+                    <a href="controller-07-permission-flow.html" class="task-link">查看流程图 →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 定时任务区域标题分隔 -->
+        <div style="margin-top: 60px;">
+            <div class="header">
+                <h1>⏰ 定时任务流程图</h1>
+                <p>5个Quartz定时任务的详细执行逻辑</p>
+            </div>
+
+            <div class="tasks-grid">
+                <div class="task-card">
+                    <div class="task-header">
+                        <h3>任务 01: AI推单任务</h3>
+                        <span class="task-time">⏰ 21:00:00</span>
+                    </div>
+                    <p class="task-desc">根据未来2天内即将开赛的体育赛事生成单关推单</p>
+                    <a href="task-01-flow.html" class="task-link">查看流程图 →</a>
+                </div>
+
+                <div class="task-card">
+                    <div class="task-header">
+                        <h3>任务 02: AI补救推单任务</h3>
+                        <span class="task-time">⏰ 23:00:00</span>
+                    </div>
+                    <p class="task-desc">如果21点推单任务失败，则进行补救</p>
+                    <a href="task-02-flow.html" class="task-link">查看流程图 →</a>
+                </div>
+
+                <div class="task-card">
+                    <div class="task-header">
+                        <h3>任务 03: AI补单任务</h3>
+                        <span class="task-time">⏰ 00:00:01</span>
+                    </div>
+                    <p class="task-desc">为针对特定联赛的推单用户补充推单</p>
+                    <a href="task-03-flow.html" class="task-link">查看流程图 →</a>
+                </div>
+
+                <div class="task-card">
+                    <div class="task-header">
+                        <h3>任务 04: 月度用户火标志设置</h3>
+                        <span class="task-time">⏰ 每月5日 00:00:00</span>
+                    </div>
+                    <p class="task-desc">每月初重置推单用户的火标志和统计数据</p>
+                    <a href="task-04-flow.html" class="task-link">查看流程图 →</a>
+                </div>
+
+                <div class="task-card">
+                    <div class="task-header">
+                        <h3>任务 05: 真实玩家推单任务</h3>
+                        <span class="task-time">⏰ 20:00:00</span>
+                    </div>
+                    <p class="task-desc">基于真实玩家历史注单数据生成推单（半AI模式）</p>
+                    <a href="task-05-flow.html" class="task-link">查看流程图 →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 用户推单完整流程入口 -->
+        <div style="margin-top: 60px;">
+            <div class="header">
+                <h1>🧭 完整业务流程</h1>
+                <p>代码 → Mermaid → HTML 的三视图完整流程</p>
+            </div>
+            <div class="tasks-grid">
+                <div class="task-card">
+                    <div class="task-header">
+                        <h3>用户推单完整流程</h3>
+                        <span class="task-time">🧭 用户侧</span>
+                    </div>
+                    <p class="task-desc">用户浏览 → 购买 → 内部确认 → 解锁内容（详情页含三视图）</p>
+                    <a href="user-pushorder-flow.html" class="task-link">查看流程图 →</a>
+                </div>
+
+                <div class="task-card">
+                    <div class="task-header">
+                        <h3>后台推单生成流程</h3>
+                        <span class="task-time">⚙️ 运营侧</span>
+                    </div>
+                    <p class="task-desc">配置 → AI启动 → 生成 → 审核 → 发布（详情页含三视图）</p>
+                    <a href="admin-pushorder-flow.html" class="task-link">查看流程图 →</a>
+                </div>
+            </div>
+        </div>
+                    <a href="user-pushorder-flow.html" class="task-link">查看流程图 →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 赛事抓取流程入口 -->
+        <div style="margin-top: 60px;">
+            <div class="header">
+                <h1>📡 赛事抓取流程</h1>
+                <p>抓取 → 清洗 → 入库 → 关联推单的数据链路</p>
+            </div>
+            <div class="tasks-grid">
+                <div class="task-card">
+                    <div class="task-header">
+                        <h3>赛事抓取流程</h3>
+                        <span class="task-time">📡 数据链路</span>
+                    </div>
+                    <p class="task-desc">赛事数据抓取与入库全流程（待与代码一比一补齐）</p>
+                    <a href="match-crawl-flow.html" class="task-link">查看流程图 →</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>💻 自动生成于 2026-01-30 | 红单功能流程索引页</p>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true, theme: "default" });
+    </script>
+</body>
+</html>

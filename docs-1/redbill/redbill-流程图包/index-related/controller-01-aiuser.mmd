@@ -1,0 +1,84 @@
+flowchart TB
+    Start([后台管理员])
+    
+    subgraph AI用户管理
+        A1[/leagueList - 获取联赛列表/]
+        A2[/testAi - 测试AI文案/]
+        A3[/backPushOrder - 后台创建推单/]
+        A4[/backRestockPushOrder - 后台补货推单/]
+        A5[/list - AI用户查询列表/]
+        A6[/checkPlayers - 检测玩家账号/]
+        A7[/checkAIUser - 检测AI用户名/]
+        A8[/queryHalfAIApplyProduct - 查询半AI应用产品/]
+        A9[/save - 新增全AI用户/]
+        A10[/saveHalfAI - 新增半AI用户/]
+        A11[/update - 修改全AI用户/]
+        A12[/updateHalfAI - 修改半AI用户/]
+        A13[/del - 删除AI用户/]
+        A14[/updateGrantKf - 修改授权客服/]
+        A15[/findGrantKf - 查询授权客服/]
+    end
+    
+    subgraph 业务流程
+        B1[根据比赛类型查询联赛]
+        B2[调用AI服务测试文案]
+        B3[异步线程创建推单]
+        B4[异步线程补货推单]
+        B5[分页查询AI用户列表]
+        B6[验证玩家账号存在性]
+        B7[批量检测用户名有效性]
+        B8[查询可应用产品列表]
+        B9[校验并保存全AI用户]
+        B10[校验并保存到多产品]
+        B11[校验并更新全AI用户]
+        B12[更新到多产品]
+        B13[根据ID删除用户]
+        B14[更新授权参数]
+        B15[查询授权状态]
+    end
+    
+    subgraph 数据服务
+        C1[(联赛数据库)]
+        C2[(AI服务)]
+        C3[(推单任务队列)]
+        C4[(用户钱包服务)]
+        C5[(AI用户表)]
+        C6[(系统参数表)]
+    end
+    
+    Start --> A1
+    Start --> A2
+    Start --> A3
+    Start --> A4
+    Start --> A5
+    Start --> A6
+    Start --> A7
+    Start --> A8
+    Start --> A9
+    Start --> A10
+    Start --> A11
+    Start --> A12
+    Start --> A13
+    Start --> A14
+    Start --> A15
+    
+    A1 --> B1 --> C1
+    A2 --> B2 --> C2
+    A3 --> B3 --> C3
+    A4 --> B4 --> C3
+    A5 --> B5 --> C5
+    A6 --> B6 --> C4
+    A7 --> B7 --> C5
+    A8 --> B8 --> C5
+    A9 --> B9 --> C5
+    A10 --> B10 --> C5
+    A11 --> B11 --> C5
+    A12 --> B12 --> C5
+    A13 --> B13 --> C5
+    A14 --> B14 --> C6
+    A15 --> B15 --> C6
+    
+    style Start fill:#caffbf,stroke:#52b788
+    style AI用户管理 fill:#fff1e6,stroke:#ff7f50
+    style 业务流程 fill:#e8f8f1,stroke:#2a9d8f
+    style 数据服务 fill:#f6f7ff,stroke:#7b6ed6

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>赛事抓取流程</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #2d9cdb 0%, #1b73c6 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 { font-size: 28px; margin-bottom: 8px; }
+        .header p { font-size: 14px; opacity: 0.9; }
+        .content { padding: 32px; }
+        .chart-container {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 24px;
+            max-width: 794px;
+            margin: 0 auto;
+        }
+        .note {
+            margin-top: 16px;
+            color: #666;
+            font-size: 13px;
+        }
+        .mermaid svg { max-width: 100%; height: auto; }
+        @page { size: A4 portrait; margin: 12mm; }
+        @media print {
+            body { background: white; padding: 0; }
+            .container { max-width: 794px; border-radius: 0; box-shadow: none; }
+            .content { padding: 24px; }
+            .chart-container { padding: 16px; }
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 22px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📡 赛事抓取流程</h1>
+            <p>抓取 → 清洗 → 入库 → 关联推单</p>
+        </div>
+        <div class="content">
+            <div class="chart-container">
+                <div class="mermaid">
+flowchart TB
+    Start["ContextProvider.initQuartzTask()"] --> FB["FbDataTask<br/>scheduleWithFixedDelay(FbEventTask, 1h)"]
+    Start --> NamiF["NamiFootballTask<br/>MatchLive(5s) / BaseData(5m)<br/>SeasonTable(2m) / Analysis(2m)<br/>Lineup(2m) / OddsLive(2m)"]
+    Start --> NamiB["NamiBasketballTask<br/>BaseData(5m) / MatchLive(5s)<br/>SeasonTable(2m) / Analysis(2m)<br/>OddsLive(2m)"]
+    Start --> OB["ObDataTask<br/>ObEvent(3m) / HotLeague(120s)<br/>MatchDataList(3m) / ObPlayTask(queue)"]
+    Start --> NamiLink["NamiMatchLinkTask<br/>matchLink(1m)"]
+    Start --> WC["WorldCup Tasks<br/>ScheduleByList(1h)<br/>StatsDetailPlayer(2h)<br/>StatsDetailTeams(1h)<br/>TableDetail(1h)"]
+
+    subgraph FB_Flow["FB赛事抓取链路"]
+        direction TB
+        FB --> FB1["FbSportService.getEventList()"]
+        FB1 --> FB2["HttpUtils.doJsonPost<br/>/v1/match/getList"]
+        FB2 --> FB3["handleFbEventList()<br/>解析联赛/赛事/球队"]
+        FB3 --> FB4["SportLeaguesMapper.saveSportLeagues"]
+        FB3 --> FB5["SportLeaguesMapper.saveSportMatchs"]
+        FB3 --> FB6["SportLeaguesMapper.saveSportTeams"]
+    end
+
+    subgraph OB_Flow["OB赛事抓取链路"]
+        direction TB
+        OB --> OB1["OBEventService.getEventList()"]
+        OB1 --> OB2["HttpUtils.httpGet<br/>/menu/initPB"]
+        OB1 --> OB3["HttpUtils.HttpPost<br/>/matchesPB"]
+        OB3 --> OB4["解析联赛/赛事/球队"]
+        OB4 --> OB5["SportLeaguesMapper.saveSportLeagues"]
+        OB4 --> OB6["SportLeaguesMapper.saveSportMatchs"]
+        OB4 --> OB7["SportLeaguesMapper.saveSportTeams"]
+        OB6 --> OBQ["OneManager.matchIds queue"]
+        OBQ --> OB8["ObPlayTask<br/>batchUpdateMatchOdds()"]
+        OB8 --> OB9["HttpUtils.httpGet<br/>/getMatchOddsInfoPB"]
+    end
+
+    subgraph Nami_Football["纳米足球数据链路"]
+        direction TB
+        NamiF --> NF1["handlerFootBallData(api)<br/>MATCH/COMPETITION/TEAM/PLAYER/<br/>COACH/SEASON/HONOR/STAGE"]
+        NF1 --> NF2["HttpUtils.httpClientGet<br/>Nami API"]
+        NF2 --> NF3["NamiFootballMapper.opDatabase()<br/>批量入库"]
+        NamiF --> NF4["handlerFootballMatchDetailLive()"]
+        NamiF --> NF5["handleSeasonTableDetail()"]
+        NamiF --> NF6["handleFootballMatchsAnalysis()"]
+        NamiF --> NF7["handleFootballMatchsLineups()"]
+        NamiF --> NF8["handleFootballOddsLive()"]
+    end
+
+    subgraph Nami_Basketball["纳米篮球数据链路"]
+        direction TB
+        NamiB --> NB1["handlerBasketBallData(api)<br/>MATCH/COMPETITION/TEAM/<br/>SEASON/STAGE/PLAYER/COACH"]
+        NB1 --> NB2["HttpUtils.httpClientGet<br/>Nami API"]
+        NB2 --> NB3["NamiBasketballMapper.opDatabase()<br/>批量入库"]
+        NamiB --> NB4["handlerBasketBallMatchLive()"]
+        NamiB --> NB5["handleSeasonTableDetail()"]
+        NamiB --> NB6["handleBasketballMatchsAnalysis()"]
+        NamiB --> NB7["handleBasketballOddsLive()"]
+    end
+
+    subgraph Link_Flow["纳米赛事关联"]
+        direction TB
+        NamiLink --> L1["NamiMatchLinkService.matchLink()<br/>纳米赛事 ↔ 熊猫赛事"]
+    end
+
+    subgraph WC_Flow["世界杯赛程/统计"]
+        direction TB
+        WC --> WC1["WorldCupNamiDataService.scheduleByList()"]
+        WC --> WC2["WorldCupNamiDataService.statsDetail('player')"]
+        WC --> WC3["WorldCupNamiDataService.statsDetail('teams')"]
+        WC --> WC4["WorldCupNamiDataService.tableDetailList()"]
+    end
+                </div>
+                <div class="note">来源：dc-api-sportcron 的 ContextProvider + 各任务类/Service 实现，一比一映射代码链路。</div>
+            </div>
+            <a href="index.html" class="back-button">← 返回首页</a>
+        </div>
+    </div>
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: { useMaxWidth: true }
+        });
+    </script>
+</body>
+</html>

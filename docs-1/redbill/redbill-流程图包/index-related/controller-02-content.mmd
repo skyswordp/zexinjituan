@@ -1,0 +1,83 @@
+flowchart TB
+    Start([内容编辑/审核员])
+    
+    subgraph 内容管理
+        A1[/openPushOrderData - 对外查询接口已废弃/]
+        A2[/pageList - 查询内容列表/]
+        A3[/pageListOne - 查询内容列表One/]
+        A4[/update - 修改推单内容/]
+        A5[/insert - 新增推单内容/]
+        A6[/updateState - 修改推单状态/]
+        A7[/findDetectingUsername - 检测用户名/]
+        A8[/findGeneralLogPageList - 查询通用日志/]
+        A9[/updatePartialFields - 修改部分字段/]
+        A10[/findMatchFootBasketBall - 查询赛事/]
+        A11[/updateGrantKf - 修改授权客服/]
+        A12[/findGrantKf - 查询授权客服/]
+    end
+    
+    subgraph 业务流程
+        B1[验证token并查询推单]
+        B2[分页查询内容列表]
+        B3[分页查询返回Map]
+        B4[更新推单内容]
+        B5[新增推单内容]
+        B6[更新状态含时间限制]
+        B7[检测用户名存在性]
+        B8[分页查询日志]
+        B9[更新部分字段]
+        B10[查询3-72小时赛事]
+        B11[更新授权参数]
+        B12[查询授权状态]
+    end
+    
+    subgraph 数据服务
+        C1[(推单内容表)]
+        C2[(用户表)]
+        C3[(日志表)]
+        C4[(赛事数据库)]
+        C5[(系统参数表)]
+    end
+    
+    subgraph 时间控制
+        D1{前端发布?}
+        D2{等待5分钟?}
+        D3[允许审核]
+        D4[拒绝审核-100]
+    end
+    
+    Start --> A2
+    Start --> A3
+    Start --> A4
+    Start --> A5
+    Start --> A6
+    Start --> A7
+    Start --> A8
+    Start --> A9
+    Start --> A10
+    Start --> A11
+    Start --> A12
+    
+    A1 -.已废弃.-> B1 -.-> C1
+    A2 --> B2 --> C1
+    A3 --> B3 --> C1
+    A4 --> B4 --> C1
+    A5 --> B5 --> C1
+    A6 --> B6 --> D1
+    A7 --> B7 --> C2
+    A8 --> B8 --> C3
+    A9 --> B9 --> C1
+    A10 --> B10 --> C4
+    A11 --> B11 --> C5
+    A12 --> B12 --> C5
+    
+    D1 -->|是| D2
+    D1 -->|否| C1
+    D2 -->|是| D3 --> C1
+    D2 -->|否| D4
+    
+    style Start fill:#caffbf,stroke:#52b788
+    style 内容管理 fill:#e8f8f1,stroke:#2a9d8f
+    style 业务流程 fill:#fff1e6,stroke:#ff7f50
+    style 数据服务 fill:#f6f7ff,stroke:#7b6ed6
+    style 时间控制 fill:#fce4ec,stroke:#e91e63

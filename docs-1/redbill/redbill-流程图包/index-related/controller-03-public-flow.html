@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03. 对外接口 - PushOrderPublicController</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Microsoft YaHei", Arial, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: white; border-radius: 10px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #3a86ff 0%, #2563eb 100%); color: white; padding: 30px; text-align: center; }
+        .header h1 { font-size: 28px; margin-bottom: 10px; }
+        .header .controller-id { display: inline-block; background: rgba(255,255,255,0.2); padding: 5px 15px; border-radius: 20px; margin-right: 10px; font-size: 12px; }
+        .header .path { font-size: 14px; opacity: 0.9; margin-top: 10px; }
+        .content { padding: 40px; }
+        .chart-container { background: #f8f9fa; border-radius: 8px; padding: 30px; margin: 0 auto 30px; max-width: 794px; }
+        .info-section { margin-top: 30px; padding: 20px; background: #e7f0ff; border-left: 4px solid #3a86ff; border-radius: 4px; }
+        .info-section h3 { color: #3a86ff; margin-bottom: 15px; }
+        .api-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 15px; margin-top: 20px; }
+        .api-item { background: white; padding: 15px; border-radius: 6px; border-left: 3px solid #3a86ff; }
+        .api-item .method { color: #3a86ff; font-weight: bold; margin-bottom: 5px; }
+        .api-item .desc { color: #666; font-size: 12px; }
+        .back-button { display: inline-block; margin-top: 20px; padding: 12px 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-decoration: none; border-radius: 6px; transition: transform 0.3s; }
+        .back-button:hover { transform: translateY(-2px); }
+        .feature-tag { display: inline-block; background: #fffde7; color: #f57c00; padding: 3px 10px; border-radius: 12px; font-size: 11px; margin: 2px; }
+        .mermaid svg { max-width: 100%; height: auto; }
+        @page { size: A4 portrait; margin: 12mm; }
+        @media print { body { background: white; padding: 0; } .container { max-width: 794px; border-radius: 0; box-shadow: none; } .content { padding: 24px; } .chart-container { padding: 16px; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <span class="controller-id">Controller #03</span>
+            <h1>对外公开接口 - PushOrderPublicController</h1>
+            <div class="path">/api/public/pushOrder</div>
+            <div style="margin-top:15px">
+                <span class="feature-tag">🔓 无需登录</span>
+                <span class="feature-tag">🤖 虚拟登录名</span>
+                <span class="feature-tag">📱 固定AT产品</span>
+            </div>
+        </div>
+        <div class="content">
+            <div class="chart-container">
+                <pre class="mermaid">
+flowchart TB
+    Start([外部用户/第三方])
+    
+    subgraph 对外公开接口
+        direction TB
+        A1[/findPersonalInfoPageList - 查询大师列表/]
+        A2[/findMasterDetailed - 大师详细信息/]
+        A3[/findPushUserInfo - 推单用户基本信息/]
+        A4[/findMonthlyRankingPageList - 排行榜/]
+        A5[/findPlanDetailed - 方案详情/]
+        A6[/findProgrammePreferredPageList - 方案优选列表/]
+        A7[/findMatchPreferredPageList - 赛事优选列表/]
+    end
+    
+    subgraph 业务流程
+        direction TB
+        B1[根据称号分页查询大师]
+        B2[查询大师详细信息]
+        B3[查询所有用户信息]
+        B4[查询排行榜类型]
+        B5[查询方案详细信息]
+        B6[查询优选方案列表]
+        B7[查询优选赛事列表]
+    end
+    
+    subgraph 排行榜类型
+        direction TB
+        C1{operationType}
+        C2[0-红单榜]
+        C3[1-连红榜]
+        C4[2-人气榜]
+    end
+    
+    subgraph 数据服务
+        direction TB
+        D1[(用户表)]
+        D2[(推单内容表)]
+        D3[(排行榜缓存)]
+        D4[(方案表)]
+        D5[(赛事表)]
+    end
+    
+    subgraph 特性
+        direction TB
+        E1[无需登录]
+        E2[使用虚拟登录名]
+        E3[固定查询AT产品]
+        E4[operationMode=0]
+    end
+    
+    Start --> A1
+    Start --> A2
+    Start --> A3
+    Start --> A4
+    Start --> A5
+    Start --> A6
+    Start --> A7
+    
+    A1 --> B1 --> D1
+    A2 --> B2 --> D1
+    A3 --> B3 --> D1
+    A4 --> B4 --> C1
+    A5 --> B5 --> D4
+    A6 --> B6 --> D4
+    A7 --> B7 --> D5
+    
+    C1 -->|0| C2 --> D3
+    C1 -->|1| C3 --> D3
+    C1 -->|2| C4 --> D3
+    
+    E1 -.-> Start
+    E2 -.-> B1
+    E2 -.-> B2
+    E2 -.-> B3
+    E3 -.-> D1
+    E3 -.-> D2
+    E4 -.-> B2
+    
+    style Start fill:#ffd166,stroke:#f4a261
+    style 对外公开接口 fill:#e7f0ff,stroke:#3a86ff
+    style 业务流程 fill:#e8f8f1,stroke:#2a9d8f
+    style 排行榜类型 fill:#fff6db,stroke:#f4a261
+    style 数据服务 fill:#f6f7ff,stroke:#7b6ed6
+    style 特性 fill:#fffde7,stroke:#ffc107
+                </pre>
+            </div>
+            <div class="info-section">
+                <h3>📋 接口列表 (7个)</h3>
+                <div class="api-list">
+                    <div class="api-item"><div class="method">POST /findPersonalInfoPageList</div><div class="desc">查询大师列表(足球大师/篮球大师)</div></div>
+                    <div class="api-item"><div class="method">POST /findMasterDetailed</div><div class="desc">大师详细信息</div></div>
+                    <div class="api-item"><div class="method">GET /findPushUserInfo</div><div class="desc">推单用户基本信息列表</div></div>
+                    <div class="api-item"><div class="method">POST /findMonthlyRankingPageList</div><div class="desc">排行榜(红单榜/连红榜/人气榜)</div></div>
+                    <div class="api-item"><div class="method">POST /findPlanDetailed</div><div class="desc">方案详情</div></div>
+                    <div class="api-item"><div class="method">POST /findProgrammePreferredPageList</div><div class="desc">方案优选列表</div></div>
+                    <div class="api-item"><div class="method">POST /findMatchPreferredPageList</div><div class="desc">赛事优选列表</div></div>
+                </div>
+            </div>
+            <a href="index.html" class="back-button">← 返回首页</a>
+        </div>
+    </div>
+    <script>
+        mermaid.initialize({ startOnLoad: true, theme: 'default', flowchart: { useMaxWidth: true, htmlLabels: true, curve: 'basis' } });
+    </script>
+</body>
+</html>

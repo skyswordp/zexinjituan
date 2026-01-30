@@ -1,0 +1,83 @@
+graph TD
+    START([定时任务触发<br/>23:00:00]) --> LOG1["📝 记录日志<br/>AI补救推单 定时任务【启动】"]
+    
+    LOG1 --> QUERY_COUNT["🔍 查询当日推单总数<br/>SELECT COUNT(*)<br/>FROM push_order_content<br/>WHERE DATE(create_time) = TODAY<br/>AND ai_type = 0"]
+    
+    QUERY_COUNT --> CHECK_COUNT{当日推单数<br/>count > 0?}
+    
+    CHECK_COUNT -->|是| LOG_SUCCESS["📝 记录日志<br/>今日推单正常完成 N 单<br/>无需补救推单"]
+    
+    CHECK_COUNT -->|否| LOG_REPAIR["📝 记录日志<br/>系统开始生成补救推单<br/>源自【定时任务】"]
+    
+    LOG_REPAIR --> GET_PRODUCTS["🔍 获取系统参数<br/>PUSHORDER_PRODUCT<br/>获取推单产品列表"]
+    
+    GET_PRODUCTS --> CHECK_PRODUCTS{产品列表<br/>是否存在?}
+    
+    CHECK_PRODUCTS -->|否| ERROR1["❌ 记录错误<br/>没有配置PUSHORDER_PRODUCT<br/>系统参数<br/>【被迫结束】"]
+    
+    CHECK_PRODUCTS -->|是| LOOP_PRODUCTS["🔄 循环产品列表"]
+    
+    LOOP_PRODUCTS --> GET_AI_USERS["🔍 查询AI推单用户<br/>product = ?<br/>status = 0<br/>userType = '0'"]
+    
+    GET_AI_USERS --> CHECK_USERS{查询到<br/>AI用户?}
+    
+    CHECK_USERS -->|否| SKIP_PRODUCT["⏭️ 跳过此产品<br/>📝 记录日志"]
+    
+    CHECK_USERS -->|是| GET_MATCHES["🔍 查询未来2天内<br/>即将开赛的赛事<br/>matchType按用户筛选"]
+    
+    GET_MATCHES --> CHECK_MATCHES{查询到<br/>赛事?}
+    
+    CHECK_MATCHES -->|否| SKIP_PRODUCT
+    CHECK_MATCHES -->|是| FILTER_ODDS["🔍 过滤赛事odds数据<br/>排除 odds = null<br/>排除 odds = []"]
+    
+    FILTER_ODDS --> CHECK_ODDS{有效<br/>赛事数?}
+    
+    CHECK_ODDS -->|否| SKIP_PRODUCT
+    CHECK_ODDS -->|是| LOOP_USERS["🔄 循环处理AI用户"]
+    
+    LOOP_USERS --> LOOP_MATCHES["🔄 循环赛事列表"]
+    
+    LOOP_MATCHES --> CALL_AI["🤖 调用AI接口<br/>AI类型: 豆包/KIMI<br/>输入: 赛事+赔率+历史数据"]
+    
+    CALL_AI --> CHECK_AI{AI调用<br/>成功?}
+    
+    CHECK_AI -->|否| LOG_AI_ERROR["📝 记录AI调用失败<br/>继续下一条赛事"]
+    CHECK_AI -->|是| PARSE_AI_RESULT["📊 解析AI结果<br/>{标题, 分析结果[]}"]
+    
+    LOG_AI_ERROR --> LOOP_MATCHES
+    
+    PARSE_AI_RESULT --> SAVE_DB["💾 保存推单内容<br/>INSERT push_order_content<br/>pushOrderType = 'repair'"]
+    
+    SAVE_DB --> UPDATE_COUNT["🔢 更新推单计数<br/>successTotal++"]
+    
+    UPDATE_COUNT --> LOOP_MATCHES
+    
+    LOOP_MATCHES -->|继续| LOOP_MATCHES
+    LOOP_MATCHES -->|结束| LOOP_USERS
+    
+    LOOP_USERS -->|继续| LOOP_USERS
+    LOOP_USERS -->|结束| SKIP_PRODUCT
+    
+    SKIP_PRODUCT -->|继续| LOOP_PRODUCTS
+    SKIP_PRODUCT -->|结束| STATS["📊 统计汇总<br/>补救推单总数: successTotal"]
+    
+    STATS --> LOG_REPAIR_END["📝 记录日志<br/>AI补救推单 定时任务【结束】<br/>本次补救生成 N 单推单"]
+    
+    LOG_SUCCESS --> LOG_END["📝 记录日志<br/>AI补救推单 定时任务【结束】"]
+    LOG_REPAIR_END --> END([✅ 任务完成])
+    LOG_END --> END
+    
+    ERROR1 --> END_ERROR([❌ 任务失败])
+    
+    style START fill:#4CAF50,color:#fff
+    style END fill:#4CAF50,color:#fff
+    style END_ERROR fill:#f44336,color:#fff
+    style ERROR1 fill:#f44336,color:#fff
+    style CALL_AI fill:#2196F3,color:#fff
+    style SAVE_DB fill:#FF9800,color:#fff
+    style CHECK_COUNT fill:#FFC107,color:#000
+    style CHECK_PRODUCTS fill:#FFC107,color:#000
+    style CHECK_USERS fill:#FFC107,color:#000
+    style CHECK_MATCHES fill:#FFC107,color:#000
+    style CHECK_ODDS fill:#FFC107,color:#000
+    style CHECK_AI fill:#FFC107,color:#000

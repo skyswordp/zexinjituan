@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07. 权限记录 - PushOrderPermissionRecordController</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Microsoft YaHei", Arial, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: white; border-radius: 10px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #e76f51 0%, #d64933 100%); color: white; padding: 30px; text-align: center; }
+        .header h1 { font-size: 28px; margin-bottom: 10px; }
+        .header .controller-id { display: inline-block; background: rgba(255,255,255,0.2); padding: 5px 15px; border-radius: 20px; margin-right: 10px; font-size: 12px; }
+        .header .path { font-size: 14px; opacity: 0.9; margin-top: 10px; }
+        .content { padding: 40px; }
+        .chart-container { background: #f8f9fa; border-radius: 8px; padding: 30px; margin: 0 auto 30px; max-width: 794px; }
+        .info-section { margin-top: 30px; padding: 20px; background: #ffeef3; border-left: 4px solid #e76f51; border-radius: 4px; }
+        .info-section h3 { color: #e76f51; margin-bottom: 15px; }
+        .api-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 15px; margin-top: 20px; }
+        .api-item { background: white; padding: 15px; border-radius: 6px; border-left: 3px solid #e76f51; }
+        .api-item .method { color: #e76f51; font-weight: bold; margin-bottom: 5px; }
+        .api-item .desc { color: #666; font-size: 12px; }
+        .back-button { display: inline-block; margin-top: 20px; padding: 12px 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-decoration: none; border-radius: 6px; transition: transform 0.3s; }
+        .back-button:hover { transform: translateY(-2px); }
+        .mermaid svg { max-width: 100%; height: auto; }
+        @page { size: A4 portrait; margin: 12mm; }
+        @media print { body { background: white; padding: 0; } .container { max-width: 794px; border-radius: 0; box-shadow: none; } .content { padding: 24px; } .chart-container { padding: 16px; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <span class="controller-id">Controller #07</span>
+            <h1>权限记录管理 - PushOrderPermissionRecordController</h1>
+            <div class="path">/api/friend/pushOrder/permissionRecord</div>
+        </div>
+        <div class="content">
+            <div class="chart-container">
+                <pre class="mermaid">
+flowchart TB
+    Start([后台管理员])
+    
+    subgraph 权限记录管理
+        direction TB
+        A1[/pageList - 推单权限记录查询列表/]
+    end
+    
+    subgraph 业务流程
+        direction TB
+        B1[分页查询权限记录]
+    end
+    
+    subgraph 数据服务
+        direction TB
+        C1[(权限记录表)]
+    end
+    
+    subgraph 权限类型
+        direction TB
+        D1[查看权限]
+        D2[编辑权限]
+        D3[发布权限]
+        D4[审核权限]
+        D5[删除权限]
+    end
+    
+    Start --> A1
+    A1 --> B1 --> C1
+    
+    C1 -.记录.-> D1
+    C1 -.记录.-> D2
+    C1 -.记录.-> D3
+    C1 -.记录.-> D4
+    C1 -.记录.-> D5
+    
+    style Start fill:#caffbf,stroke:#52b788
+    style 权限记录管理 fill:#ffeef3,stroke:#e76f51
+    style 业务流程 fill:#e8f8f1,stroke:#2a9d8f
+    style 数据服务 fill:#f6f7ff,stroke:#7b6ed6
+    style 权限类型 fill:#fff1e6,stroke:#ff7f50
+                </pre>
+            </div>
+            <div class="info-section">
+                <h3>📋 接口列表 (1个)</h3>
+                <div class="api-list">
+                    <div class="api-item"><div class="method">POST /pageList</div><div class="desc">推单权限记录查询列表(分页) - 记录查看/编辑/发布/审核/删除权限</div></div>
+                </div>
+            </div>
+            <a href="index.html" class="back-button">← 返回首页</a>
+        </div>
+    </div>
+    <script>
+        mermaid.initialize({ startOnLoad: true, theme: 'default', flowchart: { useMaxWidth: true, htmlLabels: true, curve: 'basis' } });
+    </script>
+</body>
+</html>

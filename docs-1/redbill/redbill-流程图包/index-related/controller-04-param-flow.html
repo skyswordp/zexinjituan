@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04. 参数配置 - PushOrderParamConfigController</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Microsoft YaHei", Arial, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: white; border-radius: 10px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #7b6ed6 0%, #5e4ba3 100%); color: white; padding: 30px; text-align: center; }
+        .header h1 { font-size: 28px; margin-bottom: 10px; }
+        .header .controller-id { display: inline-block; background: rgba(255,255,255,0.2); padding: 5px 15px; border-radius: 20px; margin-right: 10px; font-size: 12px; }
+        .header .path { font-size: 14px; opacity: 0.9; margin-top: 10px; }
+        .content { padding: 40px; }
+        .chart-container { background: #f8f9fa; border-radius: 8px; padding: 30px; margin: 0 auto 30px; max-width: 794px; }
+        .info-section { margin-top: 30px; padding: 20px; background: #f6f7ff; border-left: 4px solid #7b6ed6; border-radius: 4px; }
+        .info-section h3 { color: #7b6ed6; margin-bottom: 15px; }
+        .api-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 15px; margin-top: 20px; }
+        .api-item { background: white; padding: 15px; border-radius: 6px; border-left: 3px solid #7b6ed6; }
+        .api-item .method { color: #7b6ed6; font-weight: bold; margin-bottom: 5px; }
+        .api-item .desc { color: #666; font-size: 12px; }
+        .back-button { display: inline-block; margin-top: 20px; padding: 12px 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-decoration: none; border-radius: 6px; transition: transform 0.3s; }
+        .back-button:hover { transform: translateY(-2px); }
+        .mermaid svg { max-width: 100%; height: auto; }
+        @page { size: A4 portrait; margin: 12mm; }
+        @media print { body { background: white; padding: 0; } .container { max-width: 794px; border-radius: 0; box-shadow: none; } .content { padding: 24px; } .chart-container { padding: 16px; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <span class="controller-id">Controller #04</span>
+            <h1>参数配置管理 - PushOrderParamConfigController</h1>
+            <div class="path">/api/friend/pushOrder/paramConfig</div>
+        </div>
+        <div class="content">
+            <div class="chart-container">
+                <pre class="mermaid">
+flowchart TB
+    Start([后台管理员])
+    
+    subgraph 参数配置管理
+        direction TB
+        A1[/list - 获取推单参数配置/]
+        A2[/update - 修改推单参数配置/]
+        A3[/findPushOrdersPrice - 获取推单售价/]
+    end
+    
+    subgraph 业务流程
+        direction TB
+        B1[查询所有参数配置]
+        B2[更新参数配置]
+        B3[查询售价列表]
+    end
+    
+    subgraph 数据操作
+        direction TB
+        C1[设置操作人]
+        C2[设置操作时间]
+        C3[设置产品信息]
+    end
+    
+    subgraph 数据服务
+        direction TB
+        D1[(参数配置表)]
+    end
+    
+    Start --> A1
+    Start --> A2
+    Start --> A3
+    
+    A1 --> B1 --> D1
+    A2 --> B2 --> C1
+    A3 --> B3 --> D1
+    
+    C1 --> C2 --> C3 --> D1
+    
+    style Start fill:#caffbf,stroke:#52b788
+    style 参数配置管理 fill:#f6f7ff,stroke:#7b6ed6
+    style 业务流程 fill:#e8f8f1,stroke:#2a9d8f
+    style 数据操作 fill:#fff1e6,stroke:#ff7f50
+    style 数据服务 fill:#f6f7ff,stroke:#7b6ed6
+                </pre>
+            </div>
+            <div class="info-section">
+                <h3>📋 接口列表 (3个)</h3>
+                <div class="api-list">
+                    <div class="api-item"><div class="method">POST /list</div><div class="desc">获取本产品所有推单参数配置</div></div>
+                    <div class="api-item"><div class="method">POST /update</div><div class="desc">修改推单参数配置 - 设置操作人/时间/产品</div></div>
+                    <div class="api-item"><div class="method">POST /findPushOrdersPrice</div><div class="desc">获取推单售价列表</div></div>
+                </div>
+            </div>
+            <a href="index.html" class="back-button">← 返回首页</a>
+        </div>
+    </div>
+    <script>
+        mermaid.initialize({ startOnLoad: true, theme: 'default', flowchart: { useMaxWidth: true, htmlLabels: true, curve: 'basis' } });
+    </script>
+</body>
+</html>

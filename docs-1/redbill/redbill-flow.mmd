@@ -1,0 +1,24 @@
+flowchart LR
+  User[外部用户]
+  Admin[后台运营]
+  AI[AI任务]
+  Public[PushOrderPublicController]
+  AiUser[PushOrderAiUserController]
+  Content[PushOrderContentManagementController]
+  Param[PushOrderParamConfigController]
+  Level[PushOrderLevelTitleConfigController]
+  Log[PushOrderContentGeneralLogController]
+  Perm[PushOrderPermissionRecordController]
+  User -->|查询大师/榜单/方案| Public
+  Public -->|拉取公开推单| Content
+  Admin -->|AI用户配置| AiUser
+  Admin -->|内容运营| Content
+  Admin -->|参数配置| Param
+  Admin -->|等级称号| Level
+  Admin -->|授权与权限| Perm
+  AI -->|任务创建/补单| Content
+  AiUser -->|推单生产| Content
+  Param -->|价格/产品影响| Content
+  Level -->|称号影响| Content
+  Perm -->|权限影响| Content
+  Content -->|日志/统计| Log

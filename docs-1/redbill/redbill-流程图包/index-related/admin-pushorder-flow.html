@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后台推单生成流程</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { max-width: 900px; margin: 0 auto; }
+        .header { text-align: center; color: white; margin-bottom: 30px; }
+        .header h1 { font-size: 34px; margin-bottom: 8px; }
+        .header p { font-size: 14px; opacity: 0.9; }
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 22px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            margin-bottom: 20px;
+        }
+        .card h3 { color: #333; font-size: 18px; margin-bottom: 10px; }
+        .desc { color: #666; font-size: 14px; margin-bottom: 12px; }
+        pre {
+            background: #f7f7fb;
+            padding: 16px;
+            border-radius: 8px;
+            overflow: auto;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+        .mermaid { max-width: 794px; margin: 0 auto; }
+        .mermaid svg { max-width: 100%; height: auto; }
+        @page { size: A4 portrait; margin: 12mm; }
+        @media print {
+            body { background: white; padding: 0; }
+            .container { max-width: 794px; }
+            .card { padding: 16px; box-shadow: none; }
+        }
+        ol { padding-left: 18px; color: #444; line-height: 1.8; font-size: 14px; }
+        a { color: #667eea; text-decoration: none; font-weight: bold; }
+        .footer { text-align: center; margin-top: 30px; color: white; opacity: 0.8; font-size: 12px; }
+        .phase {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>⚙️ 后台推单生成流程</h1>
+            <p>代码 → Mermaid → HTML 说明 (运营侧完整链路)</p>
+        </div>
+
+        <div class="card">
+            <h3>1) 代码视图（后台管理服务调用链）</h3>
+            <p class="desc">对应 dc-api-office 后台侧接口与服务链路</p>
+            <pre>// ===== 阶段1: 配置准备 =====
+POST /pushOrderParamConfig/update
+  -> PushOrderParamConfigController.update()
+  -> IMasterPushOrderParamConfigService.updateConfig()
+  -> DB: master_push_order_param_config
+
+POST /levelTitleConfig/add
+  -> PushOrderLevelTitleConfigController.add()
+  -> DB: master_push_order_level_title_config
+
+// ===== 阶段2: AI用户创建与启动 =====
+POST /pushOrderAiUser/add
+  -> PushOrderAiUserController.add()
+  -> IMasterPushOrderAiUserService.createAiUser()
+  -> DB: master_push_order_ai_user
+
+POST /pushOrderAiUser/startAI
+  -> PushOrderAiUserController.startAI()
+  -> IAIPushOrderService.startAIGeneration()
+  -> 调度定时任务 (21:00:00)
+
+// ===== 阶段3: 内容生成 =====
+POST /pushOrderContent/generateContent
+  -> PushOrderContentManagementController.generateContent()
+  -> IMasterPushOrderContentManagementService.generateContent()
+  -> AI逻辑:
+     1. 查询未来2天赛事 (DC-API-2018/dc-service)
+     2. 分析赔率数据
+     3. 生成推单文案
+  -> DB: master_push_order_content_management (status=DRAFT)
+
+POST /pushOrderContent/previewContent
+  -> PushOrderContentManagementController.previewContent()
+  -> 返回生成的推单预览数据
+
+// ===== 阶段4: 审核与编辑 =====
+POST /pushOrderContent/editContent
+  -> PushOrderContentManagementController.editContent()
+  -> IMasterPushOrderContentManagementService.updateContent()
+  -> DB: master_push_order_content_management (status=DRAFT)
+
+POST /pushOrderContent/auditContent
+  -> PushOrderContentManagementController.auditContent()
+  -> IMasterPushOrderContentManagementService.auditContent()
+  -> 审核规则检查 (敏感词、合规性)
+  -> DB: master_push_order_content_management (status=AUDITED)
+
+// ===== 阶段5: 发布 =====
+POST /pushOrderContent/publishContent
+  -> PushOrderContentManagementController.publishContent()
+  -> IMasterPushOrderContentManagementService.publishContent()
+  -> DB: master_push_order_content_management (status=PUBLISHED)
+  -> 记录日志:
+     -> PushOrderContentGeneralLogController.log()
+     -> DB: master_push_order_content_general_log
+
+// ===== 阶段6: 公开展示 =====
+POST /pushOrderPublic/queryHotList
+  -> PushOrderPublicController.queryHotList()
+  -> 查询已发布推单 (status=PUBLISHED)
+  -> 返回给前端/APP
+</pre>
+        </div>
+
+        <div class="card">
+            <h3>2) Mermaid 流程图</h3>
+            <p class="desc">配置 → AI启动 → 生成 → 审核 → 发布 → 展示</p>
+            <div class="mermaid">
+flowchart TD
+    A[管理员登录后台] --> B[配置系统参数\nParamConfig.update]
+    B --> C[配置推手等级\nLevelTitleConfig.add]
+    C --> D[创建AI推手用户\nAiUser.add]
+    D --> E[启动AI生成\nAiUser.startAI]
+    E --> F[定时任务触发21:00\nQuartz Job]
+    F --> G[AI生成推单内容\nContentMgmt.generateContent]
+    G --> H[查询未来赛事数据]
+    H --> I[分析赔率与推荐]
+    I --> J[生成推单文案]
+    J --> K[保存草稿\nstatus=DRAFT]
+    K --> L[内容编辑预览\nContentMgmt.previewContent]
+    L --> M{是否需要修改}
+    M -- 是 --> N[编辑内容\nContentMgmt.editContent]
+    N --> L
+    M -- 否 --> O[提交审核\nContentMgmt.auditContent]
+    O --> P{审核是否通过}
+    P -- 不通过 --> N
+    P -- 通过 --> Q[发布推单\nContentMgmt.publishContent]
+    Q --> R[更新状态=PUBLISHED]
+    R --> S[记录发布日志\nContentGeneralLog.log]
+    S --> T[推单进入公开列表\nPushOrderPublic.queryHotList]
+    T --> U[用户侧可见]
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>3) HTML 视图（分阶段步骤说明）</h3>
+            <p class="desc">按运营流程顺序描述每个关键节点</p>
+            
+            <div class="phase">📋 阶段1: 配置准备</div>
+            <ol>
+                <li>管理员通过 <strong>ParamConfig.update</strong> 配置系统参数（如推单数量、赔率范围）。</li>
+                <li>管理员通过 <strong>LevelTitleConfig.add</strong> 配置推手等级和称号规则。</li>
+            </ol>
+
+            <div class="phase">🤖 阶段2: AI用户创建与启动</div>
+            <ol start="3">
+                <li>管理员通过 <strong>AiUser.add</strong> 创建AI推手用户（虚拟推手账号）。</li>
+                <li>管理员通过 <strong>AiUser.startAI</strong> 启动AI，系统开始监听定时任务。</li>
+            </ol>
+
+            <div class="phase">🎯 阶段3: 内容生成</div>
+            <ol start="5">
+                <li>定时任务在21:00触发，调用 <strong>ContentMgmt.generateContent</strong>。</li>
+                <li>AI查询未来2天的赛事数据，分析赔率，生成推单文案。</li>
+                <li>生成的内容保存为草稿状态 <strong>(status=DRAFT)</strong>。</li>
+            </ol>
+
+            <div class="phase">✅ 阶段4: 审核与编辑</div>
+            <ol start="8">
+                <li>运营人员通过 <strong>ContentMgmt.previewContent</strong> 预览生成的推单。</li>
+                <li>如需修改，调用 <strong>ContentMgmt.editContent</strong> 编辑内容。</li>
+                <li>提交审核，调用 <strong>ContentMgmt.auditContent</strong> 进行合规性检查。</li>
+                <li>审核通过后，状态更新为 <strong>(status=AUDITED)</strong>。</li>
+            </ol>
+
+            <div class="phase">🚀 阶段5: 发布</div>
+            <ol start="12">
+                <li>运营人员调用 <strong>ContentMgmt.publishContent</strong> 发布推单。</li>
+                <li>状态更新为 <strong>(status=PUBLISHED)</strong>，并记录发布日志。</li>
+            </ol>
+
+            <div class="phase">📱 阶段6: 公开展示</div>
+            <ol start="14">
+                <li>推单进入公开列表，通过 <strong>PushOrderPublic.queryHotList</strong> 对外提供。</li>
+                <li>用户侧（APP/小程序）可查询到已发布的推单。</li>
+            </ol>
+        </div>
+
+        <div class="card">
+            <h3>4) 关键控制点</h3>
+            <ol>
+                <li><strong>权限控制</strong>: 所有后台接口需要管理员权限认证。</li>
+                <li><strong>状态流转</strong>: DRAFT → AUDITED → PUBLISHED，不可逆向。</li>
+                <li><strong>日志记录</strong>: 每次发布都记录到 ContentGeneralLog。</li>
+                <li><strong>AI健康检查</strong>: 定时检查AI运行状态，异常时触发告警。</li>
+            </ol>
+        </div>
+
+        <div class="footer">
+            <p>返回索引：<a href="index.html">红单定时任务流程图</a></p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true, theme: "default" });
+    </script>
+</body>
+</html>
