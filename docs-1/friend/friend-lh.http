@@ -1,0 +1,38 @@
+curl -X POST 'https://e68web01.itomtest.com/api/friend/circle/2.0/pageList' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  --data-raw '{"pageNum":1,"pageSize":10}'
+ 
+### Windows PowerShell
+curl 'https://e68web01.itomtest.com/api/friend/circle/2.0/pageList' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Accept-Language: zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -b '__snaker__id=cAhZ7b7pdMM2H2ji; _ga=GA1.1.1669288109.1761796347; _ga_13B8TCZCGK=GS2.1.s1761824809$o2$g1$t1761825850$j35$l0$h0; JSESSIONID=8E07D410B265FBF14C01F75EE576E638; gdxidpyhxdE=f3vUeVxJrZwHy7EHptPoxWtnql%5Cid%5CIlL9kux8eRx7iz5EXi2Rg6H1ntiBamA9%2FReiOg9mWiTm3uxI8qCw1omb4UXgaIY9kCe27vxuBTNScSzpKEzyKC2ncnWoPcDDE72STcTn%2FqGEWs2%5C%2Fs3PpwYdMY%5CSbKbCJb0K0qMhR2CSoCA87%5C%3A1770623409847' \
+  -H 'Origin: https://e68web01.itomtest.com/' \
+  -H 'Pragma: no-cache' \
+  -H 'Referer: https://e68web01.itomtest.com/Dynamic' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-origin' \
+  -H 'User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1' \
+  --data-raw '{"product":"lh","type":1,"userId":"7051","pageNum":1,"pageSize":10}'
+
+#### Linux curl
+  curl 'https://e68web01.itomtest.com/api/friend/circle/2.0/pageList' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Accept-Language: zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -b '__snaker__id=cAhZ7b7pdMM2H2ji; _ga=GA1.1.1669288109.1761796347; _ga_13B8TCZCGK=GS2.1.s1761824809$o2$g1$t1761825850$j35$l0$h0; JSESSIONID=8E07D410B265FBF14C01F75EE576E638; gdxidpyhxdE=f3vUeVxJrZwHy7EHptPoxWtnql%5Cid%5CIlL9kux8eRx7iz5EXi2Rg6H1ntiBamA9%2FReiOg9mWiTm3uxI8qCw1omb4UXgaIY9kCe27vxuBTNScSzpKEzyKC2ncnWoPcDDE72STcTn%2FqGEWs2%5C%2Fs3PpwYdMY%5CSbKbCJb0K0qMhR2CSoCA87%5C%3A1770623409847' \
+  -H 'Origin: https://e68web01.itomtest.com/' \
+  -H 'Pragma: no-cache' \
+  -H 'Referer: https://e68web01.itomtest.com/Dynamic' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-origin' \
+  -H 'User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1' \
+  --data-raw '{"product":"lh","type":1,"userId":"7051","pageNum":1,"pageSize":10}'
