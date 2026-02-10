@@ -54,3 +54,38 @@ curl 'https://e68web01.itomtest.com/api/friend/circle/2.0/pageList' \
   -H 'Sec-Fetch-Site: same-origin' \
   -H 'User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1' \
   --data-raw '{"type":1,"followUserId":"487208","userId":"1817302","beUserId":"487208"}'
+
+
+#### Linux curl
+  curl 'https://e68web01.itomtest.com/api/friend/user/1.0/saveFollow' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Accept-Language: zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -b '__snaker__id=cAhZ7b7pdMM2H2ji; _ga=GA1.1.1669288109.1761796347; _ga_13B8TCZCGK=GS2.1.s1761824809$o2$g1$t1761825850$j35$l0$h0; JSESSIONID=1F8BD8AF6B660D22433D1426EFAF8E19; gdxidpyhxdE=TjgY0hZTut%5CmuXk4OZkiwDqoRgxc20SCdKh15h12kl%2FMZ4psJaV0H67bzM0MewPczSvajeJcb30gvOPYKmN9vQtkb1S9%2FrDcbjECj4S35ByrtU1qmp3GxPmQ1%5Ch1akMh2fqazT5m9iir9Kx7BgXxxyG8e1E2flBaOBfM1mWHnQMZf7xM%3A1770712269877' \
+  -H 'Origin: https://e68web01.itomtest.com/' \
+  -H 'Pragma: no-cache' \
+  -H 'Referer: https://e68web01.itomtest.com/DynamicV2/UserDynamic?userId=426109' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-origin' \
+  -H 'User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1' \
+  --data-raw '{"type":1,"beUserId":"426109","userId":"422654"}'
+
+#### 重点关注这条，关注用户 487208（IT运维社区） 的接口
+  curl 'https://e68web01.itomtest.com/api/friend/user/1.0/getList' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Accept-Language: zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -b '__snaker__id=cAhZ7b7pdMM2H2ji; _ga=GA1.1.1669288109.1761796347; _ga_13B8TCZCGK=GS2.1.s1761824809$o2$g1$t1761825850$j35$l0$h0; JSESSIONID=618F266D86A0E0220A3960BA7CDF731B; gdxidpyhxdE=0djaJf3omTmWjydBn2%2Fn%5C7SPIjNqEXwIvjs9biEr8Q3Y1MXegNSW%5CufsO%2B5v4hqBB8MCcO%2FD8IlK7%2BQg4BhI9Dtcvb8J8ijyGfz%5C%2FINsb%2BzckbxA3vYByUwH9k%5Cg69DZ8tVv28B30jC3MS0CVj2vStmRlqOMruqZlXHy9hOYxoRZMOOQ%3A1770709725581' \
+  -H 'Origin: https://e68web01.itomtest.com/' \
+  -H 'Pragma: no-cache' \
+  -H 'Referer: https://e68web01.itomtest.com/DynamicV2/FollowList' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-origin' \
+  -H 'User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1' \
+  --data-raw '{"type":2}'
