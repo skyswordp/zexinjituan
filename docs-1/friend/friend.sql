@@ -27,3 +27,8 @@ SELECT * FROM PUBDB.F_USER WHERE USER_NAME = 'adults123';
 INSERT INTO PUBDB.F_USER (USER_NAME, NICK_NAME, HEAD_URL, CREATE_TIME)
 VALUES ('adults123', 'adults123', NULL, SYSDATE);
 COMMIT;
+
+
+-- 重点看这两条
+SELECT id, user_name, nick_name, status FROM f_user WHERE id IN (1817302, 487208);
+SELECT * FROM f_user_follow WHERE user_id = 1817302 AND be_user_id = 487208;

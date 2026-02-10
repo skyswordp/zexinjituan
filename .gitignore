@@ -10,3 +10,6 @@ dc-parent/
 png/
 production-docs-detail/
 DC-Workspace/
+
+# Claude Code 临时文件
+tmpclaude-*
