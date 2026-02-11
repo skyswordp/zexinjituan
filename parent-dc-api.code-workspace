@@ -1,0 +1,39 @@
+﻿{
+  "folders": [
+    {
+      "path": "dc-parent",
+      "name": "parent"
+    },
+    {
+      "path": "DC-API-2018/dc-api",
+      "name": "dc-api"
+    }
+  ],
+  "settings": {
+    "window.restoreWindows": "none",
+    "workbench.startupEditor": "none",
+    "git.autoRepositoryDetection": "openEditors",
+    "git.openRepositoryInParentFolders": "never",
+    "java.autobuild.enabled": false,
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.server.launchMode": "LightWeight",
+    "files.watcherExclude": {
+      "**/.git/**": true,
+      "**/node_modules/**": true,
+      "**/target/**": true,
+      "**/build/**": true,
+      "**/dist/**": true,
+      "**/.idea/**": true,
+      "**/.svn/**": true,
+      "**/.hg/**": true,
+      "**/WebRoot/WEB-INF/classes/**": true
+    },
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/target": true,
+      "**/build": true,
+      "**/dist": true,
+      "**/WebRoot/WEB-INF/classes": true
+    }
+  }
+}

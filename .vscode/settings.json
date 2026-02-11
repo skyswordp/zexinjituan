@@ -1,60 +1,93 @@
-{
-  "terminal.integrated.env.windows": {
-    "PATH": "C:\\Program Files\\Java\\jdk1.8.0_101\\bin;${env:PATH}"
-  },
-  "terminal.integrated.defaultProfile.windows": "PowerShell",
-  "terminal.integrated.profiles.windows": {
-    "PowerShell": {
-      "source": "PowerShell",
-      "args": ["-NoExit", "-Command", "[Console]::OutputEncoding = [System.Text.Encoding]::UTF8"]
-    }
-  },
-  "[Log]": {
-    "editor.fontSize": 12
-  },
-  "java.debug.settings.hotCodeReplace": "auto",
-  "java.debug.settings.enableHotCodeReplace": true,
-  "java.jdt.ls.java.home": "C:\\Program Files\\Java\\jdk1.8.0_101",
-  "java.configuration.runtimes": [
-    {
-      "name": "JavaSE-1.8",
-      "path": "C:\\Program Files\\Java\\jdk1.8.0_101",
-      "default": true
-    }
-  ],
-  "java.compile.nullAnalysis.mode": "disabled",
-  "java.configuration.updateBuildConfiguration": "automatic",
-  "java.server.launchMode": "Standard",
-  "java.autobuild.enabled": true,
-  "python.defaultInterpreterPath": "C:\\Users\\DEVTrump\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
-  "python.linting.enabled": true,
-  "[python]": {
-    "editor.defaultFormatter": "ms-python.python",
-    "editor.formatOnSave": true
-  },
-  "java.project.sourcePaths": [
-    "png/src"
-  ],
-  "java.project.outputPath": "png/WebRoot/WEB-INF/classes",
-  "java.project.referencedLibraries": [
-    "png/WebRoot/WEB-INF/lib/**/*.jar"
-  ],
-  "files.exclude": {
-    "**/.git": true,
-    "**/.svn": true,
-    "**/.hg": true,
-    "**/CVS": true,
-    "**/.DS_Store": true,
-    "**/WebRoot/WEB-INF/classes": true,
-    "**/.settings": true,
-    "**/.project": true,
-    "**/.classpath": true,
-    "**/.devtools": true
-  },
-  "java.format.settings.url": ".vscode/java-formatter.xml",
-  "python-envs.defaultEnvManager": "ms-python.python:system",
-  "python-envs.pythonProjects": [],
-  "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx8G -Xms512m -XX:+UseStringDeduplication -Xlog:disable",
-  "java.jdt.ls.java.home": "C:\\Program Files\\Java\\jdk1.8.0_101",
-  "github.copilot.appmod.autoCreateMetadata": false
+﻿{
+    "terminal.integrated.env.windows":  {
+                                            "PATH":  "C:\\Program Files\\Java\\jdk1.8.0_101\\bin;${env:PATH}"
+                                        },
+    "terminal.integrated.defaultProfile.windows":  "PowerShell",
+    "terminal.integrated.profiles.windows":  {
+                                                 "PowerShell":  {
+                                                                    "source":  "PowerShell",
+                                                                    "args":  [
+                                                                                 "-NoExit",
+                                                                                 "-Command",
+                                                                                 "[Console]::OutputEncoding = [System.Text.Encoding]::UTF8"
+                                                                             ]
+                                                                }
+                                             },
+    "[Log]":  {
+                  "editor.fontSize":  12
+              },
+    "java.debug.settings.hotCodeReplace":  "auto",
+    "java.debug.settings.enableHotCodeReplace":  true,
+    "java.jdt.ls.java.home":  "C:\\Program Files\\Java\\jdk1.8.0_101",
+    "java.configuration.runtimes":  [
+                                        {
+                                            "name":  "JavaSE-1.8",
+                                            "path":  "C:\\Program Files\\Java\\jdk1.8.0_101",
+                                            "default":  true
+                                        }
+                                    ],
+    "java.compile.nullAnalysis.mode":  "disabled",
+    "java.configuration.updateBuildConfiguration":  "interactive",
+    "java.server.launchMode":  "LightWeight",
+    "java.autobuild.enabled":  false,
+    "python.defaultInterpreterPath":  "C:\\Users\\DEVTrump\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+    "python.linting.enabled":  true,
+    "[python]":  {
+                     "editor.defaultFormatter":  "ms-python.python",
+                     "editor.formatOnSave":  true
+                 },
+    "java.project.sourcePaths":  [
+                                     "png/src"
+                                 ],
+    "java.project.outputPath":  "png/WebRoot/WEB-INF/classes",
+    "java.project.referencedLibraries":  [
+                                             "png/WebRoot/WEB-INF/lib/**/*.jar"
+                                         ],
+    "files.exclude":  {
+                          "**/.git":  true,
+                          "**/.svn":  true,
+                          "**/.hg":  true,
+                          "**/CVS":  true,
+                          "**/.DS_Store":  true,
+                          "**/WebRoot/WEB-INF/classes":  true,
+                          "**/.settings":  true,
+                          "**/.project":  true,
+                          "**/.classpath":  true,
+                          "**/.devtools":  true
+                      },
+    "java.format.settings.url":  ".vscode/java-formatter.xml",
+    "python-envs.defaultEnvManager":  "ms-python.python:system",
+    "python-envs.pythonProjects":  [
+
+                                   ],
+    "java.jdt.ls.vmargs":  "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx8G -Xms512m -XX:+UseStringDeduplication -Xlog:disable",
+    "github.copilot.appmod.autoCreateMetadata":  false,
+    "chat.tools.terminal.autoApprove":  {
+                                            "/^cd /c/Users/DEVTrump/projects/docs-1/friend ; node -e \"\nconst \\{ PDFParse \\} = require\\(\u0027pdf-parse\u0027\\);\nconst fs = require\\(\u0027fs\u0027\\);\n\nasync function main\\(\\) \\{\n  const buf = fs\\.readFileSync\\(\u0027product-interaction-doc\\.pdf\u0027\\);\n  const parser = new PDFParse\\(buf\\);\n  const textResult = await parser\\.getText\\(\\);\n  \n  console\\.log\\(\u0027Total pages:\u0027, textResult\\.totalPages\\);\n  \n  for \\(const page of textResult\\.pages\\) \\{\n    const lines = page\\.text\\.split\\(\u0027\\\\n\u0027\\)\\.filter\\(l =\u003e l\\.trim\\(\\)\\);\n    const preview = lines\\.slice\\(0, 3\\)\\.map\\(l =\u003e l\\.substring\\(0, 100\\)\\)\\.join\\(\u0027 \\| \u0027\\);\n    console\\.log\\(\u0027Page \u0027 \\+ page\\.pageNumber \\+ \u0027: \u0027 \\+ preview\\);\n  \\}\n  \n  parser\\.destroy\\(\\);\n\\}\nmain\\(\\)\\.catch\\(console\\.error\\);\n\" 2\u003e\u00261$/":  {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   "approve":  true,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   "matchCommandLine":  true
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               }
+                                        },
+    "files.watcherExclude":  {
+                                 "**/dist/**":  true,
+                                 "**/WebRoot/WEB-INF/classes/**":  true,
+                                 "**/.idea/**":  true,
+                                 "**/.hg/**":  true,
+                                 "**/target/**":  true,
+                                 "**/.git/**":  true,
+                                 "**/build/**":  true,
+                                 "**/.svn/**":  true,
+                                 "**/node_modules/**":  true
+                             },
+    "search.exclude":  {
+                           "**/WebRoot/WEB-INF/classes":  true,
+                           "**/node_modules":  true,
+                           "**/dist":  true,
+                           "**/target":  true,
+                           "**/build":  true
+                       },
+    "window.restoreWindows":  "none",
+    "workbench.startupEditor":  "none",
+    "git.autoRepositoryDetection":  "openEditors",
+    "git.openRepositoryInParentFolders":  "never"
 }
