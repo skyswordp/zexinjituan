@@ -1,22 +1,46 @@
-﻿{
+{
   "folders": [
     {
-      "path": "dc-parent",
-      "name": "parent"
+      "path": "appweb",
+      "name": "appweb"
     },
     {
-      "path": "DC-API-2018/dc-api",
-      "name": "dc-api"
+      "path": "DC-API-2018",
+      "name": "DC-API-2018"
+    },
+    {
+      "path": "dc-parent",
+      "name": "dc-parent"
     }
   ],
   "settings": {
     "window.restoreWindows": "none",
     "workbench.startupEditor": "none",
-    "git.autoRepositoryDetection": "openEditors",
+    "git.autoRepositoryDetection": false,
     "git.openRepositoryInParentFolders": "never",
-    "java.autobuild.enabled": false,
-    "java.configuration.updateBuildConfiguration": "interactive",
-    "java.server.launchMode": "LightWeight",
+    "git.scanRepositories": [
+      "appweb",
+      "DC-API-2018",
+      "dc-parent"
+    ],
+    "java.autobuild.enabled": true,
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.server.launchMode": "Standard",
+    "java.import.exclusions": [
+      "**/.claude/**",
+      "**/.devtools/**",
+      "**/.idea/**",
+      "**/0-tech-docs/**",
+      "**/1-project-files/**",
+      "**/crm-server/**",
+      "**/crm-vue/**",
+      "**/DC-Workspace/**",
+      "**/docs-1/**",
+      "**/logs/**",
+      "**/node_modules/**",
+      "**/png/**",
+      "**/production-docs-detail/**"
+    ],
     "files.watcherExclude": {
       "**/.git/**": true,
       "**/node_modules/**": true,

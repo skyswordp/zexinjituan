@@ -75,9 +75,9 @@ class APITester:
                 'data': {}
             },
             {
-                'name': '23. 文件上传-file字段',
+                'name': '23. 文件上传-files字段2(验证重复)',
                 'url': 'https://e68web01.itomtest.com/api/friend/upload/1.0/upload?product=lh',
-                'file_config': {'field_name': 'file', 'filename': 'test.png', 'mime_type': 'image/png'},
+                'file_config': {'field_name': 'files', 'filename': 'test2.png', 'mime_type': 'image/png'},
                 'data': {}
             },
         ]
